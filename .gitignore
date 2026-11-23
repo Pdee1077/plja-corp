@@ -1,0 +1,8 @@
+.tmp-fonts/
+.wrangler/
+node_modules/
+.DS_Store
+*.env
+
+__pycache__/
+*.py[cod]
