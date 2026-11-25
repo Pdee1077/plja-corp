@@ -1,0 +1,50 @@
+name: Refresh live scanner
+
+on:
+  schedule:
+    # Weekdays, every 15 minutes, offset from the hour. GitHub can delay these.
+    - cron: "7,22,37,52 * * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site scripts
+        uses: actions/checkout@v4
+        with:
+          path: site
+
+      - name: Checkout public data branch
+        uses: actions/checkout@v4
+        with:
+          ref: live-data
+          path: data
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Collect a public snapshot
+        run: |
+          python site/scripts/live_board.py \
+            --out data/board.json \
+            --history data/history.csv \
+            --cache data/st_volume.json
+
+      - name: Publish to the data branch
+        working-directory: data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add board.json history.csv st_volume.json
+          if git diff --cached --quiet; then
+            echo "No change"
+            exit 0
+          fi
+          git commit -m "Refresh live scanner snapshot"
+          git push

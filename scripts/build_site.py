@@ -1047,6 +1047,13 @@ def write_static() -> None:
     spec.loader.exec_module(mod)
     mod.main()
 
+    live_path = ROOT / "scripts" / "build_live.py"
+    live_spec = importlib.util.spec_from_file_location("build_live", live_path)
+    live_mod = importlib.util.module_from_spec(live_spec)
+    assert live_spec is not None and live_spec.loader is not None
+    live_spec.loader.exec_module(live_mod)
+    live_mod.main()
+
 
 def main() -> None:
     PUBLIC.mkdir(parents=True, exist_ok=True)

@@ -21,6 +21,7 @@ Do **not** attach `plja.analogarcade.net` or change DNS until Pete says yes.
 - `/privacy/` — this website, plus links to each product’s own privacy page
 - `/support/` — App Store support URL; lists the product addresses already on the live sites
 - `/daily/` and `/daily/YYYY-MM-DD/` — the public PLJA Daily Scan (chatter vs. normal, odd moves, news flags). These pages are written to be indexed. The rest of this preview site is disallowed in `robots.txt`.
+- `/live/` — the public live scanner (chatter vs. normal, price moves, NO NEWS flags). It loads a snapshot from the `live-data` branch, which a free weekday GitHub Action tries to refresh every 15 minutes. The private office board is not on this site.
 
 Overhead and Vanish Cam are excluded on purpose from the products list. The Daily Scan page links to Analog Arcade, including Overhead and Kept.
 

@@ -21,3 +21,9 @@
 - `robots.txt` now allows indexing on `/daily/` and `/assets/` only. Daily pages have Open Graph title, description and image.
 - Each Daily page has a footer section linking to Analog Arcade and its apps, with `utm_source=plja_daily`.
 - Deployed to the existing Cloudflare Pages preview (`plja-corp.pages.dev`) only. No custom domain and no DNS change.
+
+## 25 November 2026, later the same morning, America/New_York
+
+- Added a public Live Scanner at `/live/` (page version 2026.11.25.2, published 10:20 AM ET). It shows tickers, talk counts, x-normal, price moves and NO NEWS flags only, with the research/education disclaimer. No analyst notes, no prepared answers, and no copied social posts.
+- The private board and daily.analogarcade.net were not opened up. The scheduled scanner job on the office computer was not changed.
+- Refresh path ($0): a GitHub Action on this public repo tries to run every 15 minutes on weekdays, writes a scrubbed `board.json` to the `live-data` branch, and the public page fetches that file. GitHub can delay scheduled runs. The first snapshot is also shipped with the page so it has data if the fetch is late.

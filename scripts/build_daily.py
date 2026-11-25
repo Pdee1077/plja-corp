@@ -52,13 +52,14 @@ def daily_nav(current: str) -> str:
     links = [
         ("/products/", "Products"),
         ("/daily/", "Daily"),
+        ("/live/", "Live"),
         ("/about/", "About"),
         ("/contact/", "Contact"),
         ("/support/", "Support"),
     ]
 
     def item(href: str, label: str) -> str:
-        on = href == current or (href == "/daily/" and current.startswith("/daily/"))
+        on = href == current or (href == "/daily/" and current.startswith("/daily/")) or (href == "/live/" and current.startswith("/live/"))
         cur = ' aria-current="page"' if on else ""
         return f'<a href="{href}"{cur}>{label}</a>'
 
@@ -135,6 +136,7 @@ def layout(title: str, description: str, path: str, body: str, og_image: str) ->
         <h2>Site</h2>
         <nav aria-label="Footer">
           <a href="/daily/">Daily Scan</a>
+          <a href="/live/">Live Scanner</a>
           <a href="/products/">Products</a>
           <a href="/about/">About</a>
           <a href="/privacy/">Privacy</a>
@@ -170,6 +172,7 @@ ARTICLE = f"""
         <p class="lede">Chatter vs. normal, odd moves, and news flags. Data through Tuesday's close (Nov 24, 2026). Overnight section as of 7:00 AM ET Wednesday, before the open. Quotes before the open are thin and can change.</p>
         {STAMP}
         {DISCLAIMER}
+        <p class="actions"><a class="btn btn-ghost" href="/live/">Open the live scanner</a></p>
 
         <h2>The short version</h2>
         <ol>
@@ -285,6 +288,7 @@ INDEX = f"""
         <p class="lede">A free, public research log of odd moves, news flags, and names being talked about far more than usual. Built from public market data. Not a newsletter of trade ideas.</p>
         {STAMP}
         {DISCLAIMER}
+        <p class="actions"><a class="btn btn-primary" href="/live/">Open the live scanner</a></p>
 
         <h2>Latest: Wednesday, Nov 25, 2026</h2>
         <p>Data through Tuesday's close (Nov 24). Overnight figures as of 7:00 AM ET Wednesday, before the open.</p>
@@ -373,6 +377,7 @@ def write_og() -> Path:
 def write_robots_and_sitemap() -> None:
     robots = f"""User-agent: *
 Allow: /daily/
+Allow: /live/
 Allow: /assets/
 Disallow: /
 
@@ -382,6 +387,7 @@ Sitemap: {SITE}/sitemap.xml
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>{SITE}/daily/</loc></url>
   <url><loc>{SITE}/daily/2026-11-25/</loc></url>
+  <url><loc>{SITE}/live/</loc></url>
 </urlset>
 """
     (PUBLIC / "robots.txt").write_text(robots, encoding="utf-8")
