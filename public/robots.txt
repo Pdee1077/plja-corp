@@ -1,4 +1,6 @@
 User-agent: *
-Allow: /
+Allow: /daily/
+Allow: /assets/
+Disallow: /
 
 Sitemap: https://plja-corp.pages.dev/sitemap.xml

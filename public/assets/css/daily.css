@@ -1,0 +1,32 @@
+/* Daily Scan — tables, disclaimer, Analog Arcade section. */
+.scan { padding-bottom: 1.5rem; }
+.scan .wrap { max-width: 46rem; }
+.scan h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; margin: 0 0 0.7rem; }
+.stamp { font-size: 0.9rem; color: var(--mute); margin: 0 0 1.2rem; }
+.callout {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--copper);
+  padding: 0.9rem 1.1rem;
+  margin: 0 0 1.8rem;
+  border-radius: 0 0.6rem 0.6rem 0;
+}
+.callout p { margin: 0; }
+.table-wrap { overflow-x: auto; margin: 0 0 1.2rem; -webkit-overflow-scrolling: touch; }
+.scan table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.scan th, .scan td { text-align: left; padding: 0.5rem 0.65rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.scan th { font-weight: 500; color: var(--mute); font-size: 0.82rem; letter-spacing: 0.02em; }
+.scan .note { color: var(--mute); font-size: 0.95rem; }
+.scan .actions { margin: 1.4rem 0 1.6rem; }
+.arcade {
+  background: var(--paper-deep);
+  border-top: 1px solid var(--line);
+  padding: 2.2rem 0 2.6rem;
+}
+.arcade h2 { font-family: var(--serif); font-weight: 600; margin: 0 0 0.7rem; }
+.arcade-list { list-style: none; padding: 0; margin: 1.1rem 0 0; display: grid; gap: 0.7rem; }
+@media (min-width: 720px) {
+  .arcade-list { grid-template-columns: 1fr 1fr; }
+}
+.arcade-list li { background: var(--card); border: 1px solid var(--line); border-radius: 0.85rem; padding: 0.85rem 1rem; box-shadow: var(--shadow); }
+.arcade-list a { font-weight: 500; color: var(--ink); text-decoration: none; }
+.arcade-list a:hover { color: var(--copper-deep); text-decoration: underline; }

@@ -1004,19 +1004,17 @@ HEADERS = """# Security and cache headers for the preview site.
 """
 
 ROBOTS = f"""User-agent: *
-Allow: /
+Allow: /daily/
+Allow: /assets/
+Disallow: /
 
 Sitemap: {SITE_ORIGIN}/sitemap.xml
 """
 
 SITEMAP = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>{SITE_ORIGIN}/</loc></url>
-  <url><loc>{SITE_ORIGIN}/products/</loc></url>
-  <url><loc>{SITE_ORIGIN}/about/</loc></url>
-  <url><loc>{SITE_ORIGIN}/contact/</loc></url>
-  <url><loc>{SITE_ORIGIN}/privacy/</loc></url>
-  <url><loc>{SITE_ORIGIN}/support/</loc></url>
+  <url><loc>{SITE_ORIGIN}/daily/</loc></url>
+  <url><loc>{SITE_ORIGIN}/daily/2026-11-25/</loc></url>
 </urlset>
 """
 
@@ -1038,6 +1036,16 @@ def write_static() -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(html, encoding="utf-8")
         print("wrote", rel, path.stat().st_size)
+
+    # Public Daily Scan pages. Run last so /daily/, robots.txt and sitemap.xml
+    # are not overwritten by the company-site defaults above.
+    import importlib.util
+    daily_path = ROOT / "scripts" / "build_daily.py"
+    spec = importlib.util.spec_from_file_location("build_daily", daily_path)
+    mod = importlib.util.module_from_spec(spec)
+    assert spec is not None and spec.loader is not None
+    spec.loader.exec_module(mod)
+    mod.main()
 
 
 def main() -> None:

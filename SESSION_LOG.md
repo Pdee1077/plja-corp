@@ -14,3 +14,10 @@
   - Card Check — https://cards.analogarcade.net/ 200; privacy 200; `/support` 404; no price shown.
 - Built a static first-draft site in a new repo, with a made-in-house PLJA wordmark, product cards, about, contact (placeholder email flagged), privacy, and support pages.
 - Deployed only to a Cloudflare Pages `*.pages.dev` preview. No custom domain, no DNS change, no App Store / X / Gumroad edits, no purchases.
+
+## 25 November 2026, America/New_York
+
+- Added a public Daily Scan section at `/daily/` and `/daily/2026-11-25/` (version 2026.11.25.1, published 10:05 AM ET). The pages use only public market data, carry a research/education disclaimer, and do not include a Yahoo-sourced chart.
+- `robots.txt` now allows indexing on `/daily/` and `/assets/` only. Daily pages have Open Graph title, description and image.
+- Each Daily page has a footer section linking to Analog Arcade and its apps, with `utm_source=plja_daily`.
+- Deployed to the existing Cloudflare Pages preview (`plja-corp.pages.dev`) only. No custom domain and no DNS change.
