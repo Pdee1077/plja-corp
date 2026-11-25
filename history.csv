@@ -4926,3 +4926,318 @@ ts_et,sym,reddit,reddit_prev24,st_rank,yahoo,name
 2026-11-25 10:15,V,0,,,,
 2026-11-25 10:15,COIN,0,,,,
 2026-11-25 10:15,CVX,0,,,,
+2026-11-25 10:17,NVDA,625,1621,,,NVIDIA
+2026-11-25 10:17,SPY,361,373,3,,SPDR S&amp;P 500 ETF Trust
+2026-11-25 10:17,QQQ,223,156,2,,Invesco QQQ ETF
+2026-11-25 10:17,DELL,185,20,1,,Dell
+2026-11-25 10:17,MU,183,93,10,,Micron Technology
+2026-11-25 10:17,AMD,158,131,,,AMD
+2026-11-25 10:17,SOXL,111,31,5,,Direxion Shares ETF Trust - Direxion Daily Semiconductor Bull 3X Share
+2026-11-25 10:17,AAPL,106,29,,,Apple
+2026-11-25 10:17,SNDK,103,36,19,,Sandisk
+2026-11-25 10:17,DTE,65,70,,,DTE Energy
+2026-11-25 10:17,GOOG,64,19,,,Alphabet (Google)
+2026-11-25 10:17,SPCX,56,25,7,,SpaceX
+2026-11-25 10:17,ET,53,46,,,Energy Transfer Partners
+2026-11-25 10:17,GOOGL,51,31,,,Alphabet (Google)
+2026-11-25 10:17,AM,45,44,,,Antero Midstream
+2026-11-25 10:17,NBIS,45,25,,,Nebius Group
+2026-11-25 10:17,IT,39,40,,,Gartner
+2026-11-25 10:17,WMT,38,5,,,Walmart
+2026-11-25 10:17,NYT,38,77,,,New York Times
+2026-11-25 10:17,VOO,34,65,25,,Vanguard S&amp;P 500 ETF
+2026-11-25 10:17,CIA,34,41,,,Citizens Inc
+2026-11-25 10:17,MSFT,33,12,,,Microsoft
+2026-11-25 10:17,TSLA,33,38,,,Tesla
+2026-11-25 10:17,GME,31,36,,,GameStop
+2026-11-25 10:17,YOU,31,39,,,CLEAR Secure
+2026-11-25 10:17,AMBA,29,1,6,,Ambarella
+2026-11-25 10:17,AMZN,28,11,,,Amazon
+2026-11-25 10:17,MSTR,28,15,4,,MicroStrategy
+2026-11-25 10:17,HPE,27,61,,,Hewlett Packard Enterprise
+2026-11-25 10:17,CRWV,27,10,,,CoreWeave
+2026-11-25 10:17,MAGA,24,43,,,ETF Series Solutions Trust - Point Bridge GOP Stock Tracker ETF
+2026-11-25 10:17,META,24,20,,,Meta Platforms (Facebook)
+2026-11-25 10:17,IREN,23,13,,,Iris Energy
+2026-11-25 10:17,ON,21,11,,,ON Semiconductor
+2026-11-25 10:17,SMH,21,20,,,VanEck Vectors ETF Trust - VanEck Vectors Semiconductor ETF
+2026-11-25 10:17,EU,20,17,,,enCore Energy
+2026-11-25 10:17,ES,19,11,,,Eversource Energy
+2026-11-25 10:17,SOXX,19,6,28,,BlackRock Institutional Trust Company N.A. - BTC iShares PHLX Semicond
+2026-11-25 10:17,TQQQ,19,11,,,ProShares Trust - ProShares UltraPro QQQ
+2026-11-25 10:17,ALL,18,47,,,Allstate
+2026-11-25 10:17,PR,18,36,,,Permian Resources
+2026-11-25 10:17,KO,17,9,,,Coca-Cola
+2026-11-25 10:17,COST,17,8,,,Costco
+2026-11-25 10:17,ASTS,17,2,,,AST SpaceMobile
+2026-11-25 10:17,SGOV,16,5,,,iShares Trust - iShares 0-3 Month Treasury Bond ETF
+2026-11-25 10:17,RKLB,16,6,,,Rocket Lab USA
+2026-11-25 10:17,SOXS,15,2,24,,Direxion Shares ETF Trust - Direxion Daily Semiconductor Bear 3X Share
+2026-11-25 10:17,RDDT,15,11,,,Reddit
+2026-11-25 10:17,INTC,14,13,,,Intel
+2026-11-25 10:17,DJT,14,47,,,Trump Media &amp; Technology Group
+2026-11-25 10:17,IQ,13,37,,,iQIYI
+2026-11-25 10:17,JUST,13,14,,,Goldman Sachs ETF Trust - Goldman Sachs Just Us Large Cap Equity ETF
+2026-11-25 10:17,NOW,12,18,,,ServiceNow
+2026-11-25 10:17,SO,12,27,,,Southern Company
+2026-11-25 10:17,MS,12,5,,,Morgan Stanley
+2026-11-25 10:17,HR,12,128,,,Healthcare Realty
+2026-11-25 10:17,AVGO,11,23,,,Broadcom
+2026-11-25 10:17,TLT,11,2,8,,BlackRock Institutional Trust Company N.A. - BTC iShares 20+ Year Trea
+2026-11-25 10:17,LINK,11,9,,,Interlink Electronics
+2026-11-25 10:17,NFLX,10,5,,,Netflix
+2026-11-25 10:17,GLD,10,9,,,SSgA SPDR Gold Shares
+2026-11-25 10:17,ASML,9,4,,,ASML
+2026-11-25 10:17,WH,9,11,,,Wyndham Hotels &amp; Resorts
+2026-11-25 10:17,IWM,9,1,17,,BlackRock Institutional Trust Company N.A. - BTC iShares Russell 2000
+2026-11-25 10:17,FOR,9,14,,,Forestar Group
+2026-11-25 10:17,API,9,7,,,Agora.io
+2026-11-25 10:17,DOW,8,8,,,Dow
+2026-11-25 10:17,IP,8,10,,,International Paper
+2026-11-25 10:17,TTWO,8,15,,,Take 2 Interactive
+2026-11-25 10:17,PS,8,17,,,Pluralsight
+2026-11-25 10:17,IBKR,8,5,,,Interactive Brokers
+2026-11-25 10:17,AG,8,15,,,First Majestic Silver
+2026-11-25 10:17,VTI,8,19,,,Vanguard Total Stock Market ETF
+2026-11-25 10:17,SLS,8,3,,,Sellas Life Sciences
+2026-11-25 10:17,HOOD,8,6,,,Robinhood
+2026-11-25 10:17,UP,8,14,,,Wheels Up
+2026-11-25 10:17,CD,8,9,,,Chindata
+2026-11-25 10:17,APLD,8,2,18,,Applied Blockchain
+2026-11-25 10:17,PSA,7,4,,,Public Storage
+2026-11-25 10:17,VC,7,1,,,Visteon
+2026-11-25 10:17,PLTR,7,8,,,Palantir
+2026-11-25 10:17,SMB,7,1,,,VanEck Vectors ETF Trust - VanEck Vectors Short Muni ETF
+2026-11-25 10:17,CAN,7,4,,,Canaan
+2026-11-25 10:17,DC,7,8,,,Dakota Gold
+2026-11-25 10:17,RR,7,1,,,Richtech Robotics
+2026-11-25 10:17,LOT,7,13,,,Lotus Technology
+2026-11-25 10:17,MA,6,2,,,Mastercard
+2026-11-25 10:17,ORCL,6,1,,,Oracle
+2026-11-25 10:17,MRVL,6,4,,,Marvell Technology Group
+2026-11-25 10:17,HBM,6,1,,,Hudbay Minerals
+2026-11-25 10:17,VT,6,16,,,"Vanguard Group, Inc. - Vanguard Total World Stock ETF"
+2026-11-25 10:17,EVER,6,7,,,EverQuote
+2026-11-25 10:17,OTLY,6,1,,,Oatly
+2026-11-25 10:17,AKAN,6,2,,,Akanda
+2026-11-25 10:17,AS,6,4,,,Amer Sports
+2026-11-25 10:17,VIVK,6,4,,,Vivakor
+2026-11-25 10:17,SMA,6,6,,,SmartStop Self Storage REIT
+2026-11-25 10:17,TSM,5,2,,,TSMC
+2026-11-25 10:17,MCD,5,1,,,McDonald
+2026-11-25 10:17,GL,5,2,,,Globe Life
+2026-11-25 10:17,ICE,5,6,,,Intercontinental Exchange
+2026-11-25 10:17,COHR,5,1,,,Coherent
+2026-11-25 10:17,JD,5,11,,,Jingdong Mall
+2026-11-25 10:17,SLV,5,2,,,iShares Silver Trust
+2026-11-25 10:17,RSP,5,7,,,Invesco Capital Management LLC - Invesco S&P 500 Equal Weight ETF
+2026-11-25 10:17,LOVE,5,4,,,LoveSac
+2026-11-25 10:17,FCF,5,3,,,First Commonwealth Financial Corp
+2026-11-25 10:17,OPEN,5,6,,,Opendoor
+2026-11-25 10:17,OG,5,11,,,Onion Global
+2026-11-25 10:17,TE,5,1,,,T1 Energy
+2026-11-25 10:17,LLY,4,1,,,Eli Lilly
+2026-11-25 10:17,CBOE,4,1,,,Cboe
+2026-11-25 10:17,GM,4,5,,,General Motors
+2026-11-25 10:17,NKE,4,4,,,Nike
+2026-11-25 10:17,WEN,4,2,,,Wendy’s Company
+2026-11-25 10:17,SMCI,4,3,,,Supermicro
+2026-11-25 10:17,RTX,4,11,,,Raytheon Technologies
+2026-11-25 10:17,OR,4,8,,,Osisko Gold Royalties
+2026-11-25 10:17,NNN,4,1,,,National Retail Properties
+2026-11-25 10:17,GOLD,4,1,,,Barrick Gold
+2026-11-25 10:17,XBI,4,1,,,SPDR Series Trust - SSgA SPDR Biotech
+2026-11-25 10:17,SQQQ,4,3,,,ProShares Trust - ProShares UltraPro Short QQQ
+2026-11-25 10:17,AMC,4,2,,,AMC Entertainment
+2026-11-25 10:17,SOFI,4,1,,,SoFi
+2026-11-25 10:17,MP,4,1,,,MP Materials
+2026-11-25 10:17,VALU,4,1,,,Value Line
+2026-11-25 10:17,OKLO,4,1,,,Oklo
+2026-11-25 10:17,IBM,3,1,,,IBM
+2026-11-25 10:17,CAT,3,1,,,Caterpillar
+2026-11-25 10:17,HAS,3,6,,,Hasbro
+2026-11-25 10:17,PEG,3,0,,,PSEG
+2026-11-25 10:17,BABA,3,1,,,Alibaba
+2026-11-25 10:17,DB,3,1,,,Deutsche Bank
+2026-11-25 10:17,TH,3,2,,,Target Hospitality
+2026-11-25 10:17,CC,3,9,,,Chemours
+2026-11-25 10:17,CRWD,3,25,16,,CrowdStrike
+2026-11-25 10:17,SF,3,3,,,Stifel
+2026-11-25 10:17,SE,3,2,,,Sea (Garena)
+2026-11-25 10:17,BE,3,10,,,Bloom Energy
+2026-11-25 10:17,BB,3,2,,,BlackBerry
+2026-11-25 10:17,BJ,3,1,,,BJ's Wholesale Club
+2026-11-25 10:17,USO,3,4,,,United States Commodity Funds LLC - United States Oil Fund
+2026-11-25 10:17,UAE,3,2,,,BlackRock Institutional Trust Company N.A. - iShares MSCI UAE ETF
+2026-11-25 10:17,SCHD,3,5,,,Schwab Strategic Trust - CSIM Schwab US Dividend Equity ETF
+2026-11-25 10:17,XLP,3,3,,,SSgA Active Trust - SSgA Consumer Staples Select Sector SPDR
+2026-11-25 10:17,UVXY,3,1,,,ProShares Trust - ProShares Ultra VIX Short-Term Futures ETF
+2026-11-25 10:17,DON,3,3,,,WisdomTree Trust - WisdomTree U.S. MidCap Dividend Fund
+2026-11-25 10:17,GOAT,3,27,,,VanEck Vectors ETF Trust - VanEck Vectors Morningstar Global Wide Moat
+2026-11-25 10:17,PUMP,3,10,,,ProPetro
+2026-11-25 10:17,ANF,3,1,,,Abercrombie &amp; Fitch
+2026-11-25 10:17,OUT,3,3,,,Outfront Media
+2026-11-25 10:17,ANY,3,11,,,Sphere 3D
+2026-11-25 10:17,HTZ,3,1,,,Hertz
+2026-11-25 10:17,TIL,3,1,,,Instil Bio
+2026-11-25 10:17,GIC,3,1,,,Global Industrial Company
+2026-11-25 10:17,LVWR,3,0,,,LiveWire Group
+2026-11-25 10:17,ARM,3,3,,,Arm Holdings
+2026-11-25 10:17,AAOI,3,4,,,Applied Optoelectronics
+2026-11-25 10:17,WAY,3,9,,,Waystar
+2026-11-25 10:17,BP,2,2,,,BP
+2026-11-25 10:17,AAP,2,1,,,Advance Auto Parts
+2026-11-25 10:17,SCHW,2,0,,,Charles Schwab
+2026-11-25 10:17,HPQ,2,1,14,,HP
+2026-11-25 10:17,MGM,2,0,,,MGM Resorts
+2026-11-25 10:17,DGX,2,1,,,Quest Diagnostics
+2026-11-25 10:17,SBUX,2,1,,,Starbucks
+2026-11-25 10:17,TD,2,0,,,Toronto Dominion Bank
+2026-11-25 10:17,MT,2,1,,,ArcelorMittal
+2026-11-25 10:17,REAL,2,7,,,The RealReal
+2026-11-25 10:17,REPL,2,0,,,Replimune
+2026-11-25 10:17,RRR,2,1,,,Red Rock Resorts
+2026-11-25 10:17,PDD,2,1,,,Pinduoduo
+2026-11-25 10:17,EXLS,2,0,,,EXL Service
+2026-11-25 10:17,DDOG,2,1,,,Datadog
+2026-11-25 10:17,APPN,2,0,,,Appian
+2026-11-25 10:17,AIM,2,0,,,AIM ImmunoTech
+2026-11-25 10:17,BRO,2,1,,,Brown &amp; Brown
+2026-11-25 10:17,MAN,2,8,,,ManpowerGroup
+2026-11-25 10:17,BYND,2,2,,,Beyond Meat
+2026-11-25 10:17,TDS,2,5,,,Telephone and Data Systems
+2026-11-25 10:17,SHAK,2,0,,,Shake Shack
+2026-11-25 10:17,SA,2,11,,,Seabridge Gold
+2026-11-25 10:17,OI,2,1,,,O-I Glass
+2026-11-25 10:17,MD,2,1,,,Mednax
+2026-11-25 10:17,DT,2,5,,,Dynatrace
+2026-11-25 10:17,NET,2,5,,,Cloudflare
+2026-11-25 10:17,CLF,2,0,,,Cleveland-Cliffs
+2026-11-25 10:17,CCC,2,1,,,Clarivate
+2026-11-25 10:17,AA,2,1,,,Alcoa
+2026-11-25 10:17,AGI,2,9,,,Alamos Gold
+2026-11-25 10:17,WANT,2,4,,,Direxion Shares ETF Trust - Direxion Daily Consumer Discretionary Bull
+2026-11-25 10:17,DAX,2,1,,,Global X Funds - Global X DAX Germany ETF
+2026-11-25 10:17,FFR,2,1,,,First Trust Exchange-Traded Fund II - First Trust FTSE EPRA/NAREIT Dev
+2026-11-25 10:17,CMBS,2,0,,,BlackRock Institutional Trust Company N.A. - BTC iShares CMBS ETF
+2026-11-25 10:17,LABU,2,0,,,Direxion Shares ETF Trust - Direxion Daily S&P Biotech Bull 3X Shares
+2026-11-25 10:17,LEE,2,3,,,Lee Enterprises
+2026-11-25 10:17,HP,2,8,,,Helmerich &amp; Payne
+2026-11-25 10:17,DNA,2,6,,,Ginkgo Bioworks
+2026-11-25 10:17,LIFE,2,1,,,aTyr Pharma
+2026-11-25 10:17,TASK,2,0,,,TaskUs
+2026-11-25 10:17,IONQ,2,1,,,IonQ
+2026-11-25 10:17,AVPT,2,0,,,AvePoint
+2026-11-25 10:17,PRCH,2,0,,,Porch Group
+2026-11-25 10:17,RGTI,2,1,,,Rigetti Computing
+2026-11-25 10:17,SOUN,2,5,,,SoundHound AI
+2026-11-25 10:17,POET,2,1,,,POET Technologies
+2026-11-25 10:17,DAY,2,3,,,Dayforce
+2026-11-25 10:17,GEV,2,1,,,GE Vernova
+2026-11-25 10:17,XYZ,2,1,,,Block
+2026-11-25 10:17,SMC,2,1,,,Summit Midstream
+2026-11-25 10:17,BULL,2,2,,,Webull
+2026-11-25 10:17,IA,2,1,,,Innovative Aerosystems
+2026-11-25 10:17,TP,2,10,,,Ticketplus
+2026-11-25 10:17,AD,2,0,,,Array Digital Infrastructure
+2026-11-25 10:17,NUAI,2,1,,,New Era Energy & Digital
+2026-11-25 10:17,JNJ,1,1,,,Johnson & Johnson
+2026-11-25 10:17,PG,1,1,,,Procter & Gamble
+2026-11-25 10:17,BAC,1,1,,,Bank of America
+2026-11-25 10:17,T,1,2,29,,AT&T
+2026-11-25 10:17,HD,1,1,,,Home Depot
+2026-11-25 10:17,DIS,1,1,,,Walt Disney
+2026-11-25 10:17,PEP,1,1,,,Pepsico
+2026-11-25 10:17,CSCO,1,1,,,Cisco
+2026-11-25 10:17,TM,1,2,,,Toyota
+2026-11-25 10:17,BA,1,1,,,Boeing
+2026-11-25 10:17,ADBE,1,2,,,Adobe
+2026-11-25 10:17,NVO,1,0,,,Novo Nordisk
+2026-11-25 10:17,ABBV,1,1,,,AbbVie
+2026-11-25 10:17,PYPL,1,1,,,PayPal
+2026-11-25 10:17,BUD,1,0,,,Anheuser-Busch Inbev
+2026-11-25 10:17,TXN,1,1,,,Texas Instruments
+2026-11-25 10:17,CHTR,1,1,,,Charter Communications
+2026-11-25 10:17,AMT,1,1,,,American Tower
+2026-11-25 10:17,DG,1,0,,,Dollar General
+2026-11-25 10:17,A,1,1,,,Agilent Technologies
+2026-11-25 10:17,ALB,1,0,,,Albemarle
+2026-11-25 10:17,MO,1,2,,,Altria Group
+2026-11-25 10:17,AAL,1,1,,,American Airlines
+2026-11-25 10:17,AXP,1,1,,,American Express
+2026-11-25 10:17,AMP,1,1,,,Ameriprise Financial
+2026-11-25 10:17,ADI,1,0,,,Analog Devices
+2026-11-25 10:17,AMAT,1,1,,,Applied Materials
+2026-11-25 10:17,ADSK,1,0,,,Autodesk
+2026-11-25 10:17,BR,1,1,,,Broadridge Financial Solutions
+2026-11-25 10:17,CPB,1,0,,,Campbell Soup
+2026-11-25 10:17,CE,1,1,,,Celanese
+2026-11-25 10:17,CNC,1,1,,,Centene
+2026-11-25 10:17,CI,1,1,,,Cigna
+2026-11-25 10:17,CME,1,2,,,CME Group
+2026-11-25 10:17,CL,1,1,,,Colgate-Palmolive
+2026-11-25 10:17,ED,1,0,,,Consolidated Edison
+2026-11-25 10:17,CVS,1,0,,,CVS Health
+2026-11-25 10:17,DE,1,1,12,,Deere & Company
+2026-11-25 10:17,DAL,1,2,,,Delta Air Lines
+2026-11-25 10:17,DLTR,1,1,,,Dollar Tree
+2026-11-25 10:17,EL,1,1,,,Estee Lauder
+2026-11-25 10:17,FAST,1,1,,,Fastenal
+2026-11-25 10:17,FE,1,1,,,FirstEnergy
+2026-11-25 10:17,FISV,1,1,,,Fiserv
+2026-11-25 10:17,FTNT,1,1,,,Fortinet
+2026-11-25 10:17,FOX,1,0,,,Fox Corporation
+2026-11-25 10:17,GD,1,1,,,General Dynamics
+2026-11-25 10:17,GE,1,10,,,General Electric
+2026-11-25 10:17,GS,1,1,,,Goldman Sachs
+2026-11-25 10:17,HAL,1,1,,,Halliburton
+2026-11-25 10:17,HOG,1,1,,,Harley-Davidson
+2026-11-25 10:17,HCA,1,1,,,HCA Healthcare
+2026-11-25 10:17,INTU,1,1,,,Intuit
+2026-11-25 10:17,KEY,1,1,,,KeyCorp
+2026-11-25 10:17,KLAC,1,1,,,KLA
+2026-11-25 10:17,KSS,1,1,,,Kohl's
+2026-11-25 10:17,LEG,1,1,,,Leggett &amp; Platt
+2026-11-25 10:17,LEN,1,1,,,Lennar
+2026-11-25 10:17,LOW,1,1,,,Lowe's Companies
+2026-11-25 10:17,MAR,1,0,,,Marriott International
+2026-11-25 10:17,MLM,1,1,,,Martin Marietta
+2026-11-25 10:17,MET,1,1,,,MetLife
+2026-11-25 10:17,MTD,1,1,,,Mettler-Toledo
+2026-11-25 10:17,MAA,1,1,,,Mid-America Apartment Communities
+2026-11-25 10:17,MSCI,1,2,,,MSCI
+2026-11-25 10:17,NOV,1,1,,,National Oilwell Varco
+2026-11-25 10:17,NRG,1,1,,,NRG Energy
+2026-11-25 10:17,OXY,1,1,,,Occidental Petroleum
+2026-11-25 10:17,PGR,1,0,,,Progressive
+2026-11-25 10:17,QCOM,1,1,,,QUALCOMM
+2026-11-25 10:17,RF,1,1,,,Regions Financial
+2026-11-25 10:17,SRE,1,1,,,Sempra Energy
+2026-11-25 10:17,TJX,1,0,,,TJX Companies
+2026-11-25 10:17,TSCO,1,0,,,Tractor Supply
+2026-11-25 10:17,UPS,1,1,,,United Parcel Service
+2026-11-25 10:17,WDC,1,1,,,Western Digital
+2026-11-25 10:17,WU,1,1,,,Western Union
+2026-11-25 10:17,WHR,1,1,,,Whirlpool
+2026-11-25 10:17,JPM,1,8,,,JPMorgan Chase
+2026-11-25 10:17,UNH,1,2,,,UnitedHealth
+2026-11-25 10:17,XOM,1,1,,,Exxon Mobil
+2026-11-25 10:17,MRK,1,1,,,Merck
+2026-11-25 10:17,WFC,1,0,,,Wells Fargo
+2026-11-25 10:17,CRM,1,1,,,Salesforce
+2026-11-25 10:17,MMM,1,1,,,3M
+2026-11-25 10:17,DIA,0,,9,,
+2026-11-25 10:17,BMNR,0,,11,,
+2026-11-25 10:17,INFQ,0,,13,,
+2026-11-25 10:17,BTC-USD,0,,15,,
+2026-11-25 10:17,UVIX,0,,20,,
+2026-11-25 10:17,ANT,0,,21,,
+2026-11-25 10:17,ALAB,0,,22,,
+2026-11-25 10:17,EXK,0,,23,,
+2026-11-25 10:17,MPC,0,,26,,
+2026-11-25 10:17,RYCEY,0,,27,,
+2026-11-25 10:17,DVN,0,,30,,
+2026-11-25 10:17,TGT,0,,,,
+2026-11-25 10:17,V,0,,,,
+2026-11-25 10:17,COIN,0,,,,
+2026-11-25 10:17,CVX,0,,,,
