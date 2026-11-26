@@ -52,3 +52,9 @@
 - Analog Arcade `/studio` already has a prominent Market Chatter tile, so that page was not changed.
 - Deployed to the existing Cloudflare Pages preview (`plja-corp.pages.dev`) only. No custom domain, DNS, or account changes. `live_board.py`, the workflow and the data format are untouched.
 
+
+## 26 November 2026, morning, America/New_York (v2026.11.26.2)
+
+- Color pass: a "Market Chatter — loudest names right now" heat panel (big multipliers, red/orange/amber/yellow heat scale, short why line, snapshot time in ET, live/stale badge at 90 minutes, research-only line, button to the full board) is now the home hero card and sits at the top of `/chatter/`. Same panel is on Analog Arcade `/studio` only.
+- The panel reads the fresher of the site's `/live/board.json` and the `live-data` branch file, shows only clean names with a StockTwits multiplier of 2x or more, and skips crypto, AirPods/Find My and IPO oddities. Built from `scripts/mcp_panel.py`.
+- Nothing deleted; `live_board.py`, the workflow and the data format are untouched.

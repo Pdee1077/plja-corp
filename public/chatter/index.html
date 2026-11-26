@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://plja-corp.pages.dev/chatter/">
   <meta name="theme-color" content="#f5f0e7">
   <meta name="color-scheme" content="light dark">
-  <meta name="generator" content="PLJA site v2026.11.26.1">
+  <meta name="generator" content="PLJA site v2026.11.26.2">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PLJA Corp">
   <meta property="og:title" content="Market Chatter — PLJA Corp">
@@ -28,11 +28,11 @@
   <link rel="preload" href="/assets/fonts/ibm-plex-sans-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/fraunces-semibold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/ibm-plex-mono-medium.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/plja-2026.11.26.1.css">
+  <link rel="stylesheet" href="/assets/css/plja-2026.11.26.2.css">
   <script>(function(){try{var t=localStorage.getItem('plja-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-  <link rel="stylesheet" href="/assets/css/daily-2026.11.26.1.css">
-  <link rel="stylesheet" href="/assets/css/live-2026.11.26.1.css">
-  <link rel="stylesheet" href="/assets/css/chatter-2026.11.26.1.css">
+  <link rel="stylesheet" href="/assets/css/daily-2026.11.26.2.css">
+  <link rel="stylesheet" href="/assets/css/live-2026.11.26.2.css">
+  <link rel="stylesheet" href="/assets/css/chatter-2026.11.26.2.css">
   <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
 </head>
 <body>
@@ -59,6 +59,17 @@
     <section class="day-hero chatter-top">
       <div class="wrap">
         <p class="crumb"><a href="/">PLJA Corp</a> › Market Chatter</p>
+        <section class="mcp" id="mcp" data-state="stale" aria-labelledby="mcp-h">
+  <div class="mcp-head">
+    <h2 class="mcp-title" id="mcp-h"><span class="dot" aria-hidden="true"></span>Market Chatter — loudest names right now</h2>
+    <div class="mcp-meta"><span class="mcp-when">Snapshot Thu, Nov 26, 7:17 AM ET</span><span class="mcp-badge" role="status">Checking&hellip;</span></div>
+  </div>
+  <ul class="mcp-tiles" aria-label="Names being talked about far more than usual"><li class="mcp-tile h4"><span class="mcp-x">34.7×</span><span class="mcp-sym">AMBA<small>Ambarella</small></span><span class="mcp-why">20 headlines in 24h</span></li><li class="mcp-tile h3"><span class="mcp-x">8.0×</span><span class="mcp-sym">DELL<small>Dell</small></span><span class="mcp-why">building 6 days in a row · 46 headlines in 24h</span></li><li class="mcp-tile h2"><span class="mcp-x">7.6×</span><span class="mcp-sym">HPE<small>Hewlett Packard Enterprise</small></span><span class="mcp-why">building 4 days in a row · 18 headlines in 24h</span></li></ul>
+  <div class="mcp-foot">
+    <p class="mcp-note"><b>StockTwits chatter vs. each name&rsquo;s own usual.</b> Heat: <span class="mcp-legend" aria-hidden="true"><i style="background:#ffe14d"></i><i style="background:#ffc233"></i><i style="background:#ff9a3d"></i><i style="background:#ff5c5c"></i></span> hotter = louder. A lead to check, not a fact. Research and education only. Not investment advice.</p>
+    <a class="mcp-btn" href="#live">Open the full board &rarr;</a>
+  </div>
+</section>
         <p class="kicker">Market Chatter · @PLJA_AI</p>
         <h1>Today's scan, and who is being talked about.</h1>
         <p class="lede">One free page for market chatter. The morning scan is first, and the live board is right underneath. Research and education, never advice.</p>
@@ -205,7 +216,7 @@
       </div>
       <div class="stampline">
         <span>© 2026 PLJA Corp. Research and education only. Not investment advice.</span>
-        <span class="ver">v2026.11.26.1 · Thu, Nov 26, 2026, 7:16 AM ET</span>
+        <span class="ver">v2026.11.26.2 · Thu, Nov 26, 2026, 7:29 AM ET</span>
       </div>
     </div>
   </footer>
@@ -248,31 +259,60 @@
   window.plja.toast = function(msg){ var t = document.getElementById('toast'); if (!t) return; t.textContent = msg; t.classList.add('on'); clearTimeout(t._h); t._h = setTimeout(function(){ t.classList.remove('on'); }, 2200); };
 
   // Fill the site-wide Market Chatter card and the home pulse from the live board.
-  var pulseList = document.getElementById('pulse-list'), pulseWhen = document.getElementById('pulse-when'), pulseBox = document.getElementById('pulse'), railTop = document.getElementById('rail-top');
-  if ((pulseList || railTop) && window.fetch) {
-    function esc(v){ return String(v == null ? '' : v).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  // Site-wide Market Chatter card: show the loudest clean name.
+  var railTop = document.getElementById('rail-top');
+  if (railTop && window.fetch) {
     function get(u){ return fetch(u, {cache:'no-store'}).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }); }
     Promise.all([get('/live/board.json'), get('https://raw.githubusercontent.com/Pdee1077/plja-corp/live-data/board.json?t=' + Date.now())]).then(function(p){
       var d = p[1] || p[0];
       if (p[0] && p[1] && new Date(p[0].updated) > new Date(p[1].updated)) d = p[0];
-      if (!d || !d.rows || !d.rows.length) return;
-      var rows = d.rows.filter(function(r){ return r.group === 'abnormal'; });
-      rows.sort(function(a, b){ return (b.st_x_normal || b.x24 || 0) - (a.st_x_normal || a.x24 || 0); });
-      if (pulseList) {
-        pulseList.innerHTML = rows.slice(0, 3).map(function(r){
-          var x = r.st_x_normal != null ? r.st_x_normal : r.x24;
-          return '<li><span class="sym">' + esc(r.sym) + '</span><span class="lbl">' + esc(r.name || '') + '</span><span class="x">' + (x != null ? esc(Number(x).toFixed(1)) + '\u00d7' : '\u2013') + '</span></li>';
-        }).join('');
-        if (pulseWhen) pulseWhen.textContent = 'Snapshot ' + (d.updated_et || '');
-        if (pulseBox) pulseBox.hidden = false;
-      }
-      if (railTop && rows[0]) {
-        var top = rows[0], x = top.st_x_normal != null ? top.st_x_normal : top.x24;
-        railTop.textContent = top.sym + (x != null ? ' \u00b7 ' + Number(x).toFixed(1) + '\u00d7 its usual chatter' : '');
-        railTop.hidden = false;
-      }
+      if (!d || !d.rows) return;
+      var rows = d.rows.filter(function(r){ return r.group === 'abnormal' && r.st_x_normal != null && r.st_x_normal >= 2 && !/-/.test(r.sym || ''); });
+      rows.sort(function(a, b){ return b.st_x_normal - a.st_x_normal; });
+      if (rows[0]) { railTop.textContent = rows[0].sym + ' \u00b7 ' + rows[0].st_x_normal.toFixed(1) + '\u00d7 its usual chatter'; railTop.hidden = false; }
     });
   }
+})();
+</script>
+  <script>
+/* MCP_PANEL_V1: fills #mcp from the live board. Fresher of the site copy and raw live-data wins. */
+(function(){
+  var box=document.getElementById('mcp'); if(!box||!window.fetch) return;
+  var list=box.querySelector('.mcp-tiles'), when=box.querySelector('.mcp-when'), badge=box.querySelector('.mcp-badge');
+  var MIN_X=2, MAX=5, STALE_MIN=90;
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function get(u){return fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;});}
+  function heat(x){return x>=20?'h4':x>=8?'h3':x>=4?'h2':'h1';}
+  function why(r){
+    var p=[],f=(r.flags||[]).join(' | '),m;
+    if(m=f.match(/building (\d+) days in a row/)) p.push('building '+m[1]+' days in a row');
+    else if(m=f.match(/Reddit ([\d.]+)x the day before/)) p.push('Reddit '+m[1]+'\u00d7 the day before');
+    if(r.n24>0) p.push(r.n24+' headline'+(r.n24===1?'':'s')+' in 24h');
+    return p.length?p.join(' \u00b7 '):'StockTwits chatter vs its usual';
+  }
+  function clean(r){
+    if(r.group!=='abnormal'||r.st_x_normal==null||r.st_x_normal<MIN_X) return false;
+    if(/-/.test(r.sym||'')) return false;
+    if(/airpods|find my/i.test((r.name||'')+' '+(r.sym||''))) return false;
+    if(/\bIPO\b/i.test((r.flags||[]).join(' ')+' '+(r.name||''))) return false;
+    return true;
+  }
+  function nice(s){return String(s||'').replace(/^(\w{3})\w*day,/,'$1,').replace(/, 20\d\d,/,',');}
+  function age(ms){var m=Math.round(ms/60000); if(m<60) return m+' min'; var h=Math.round(m/60); if(h<48) return h+' h'; return Math.round(h/24)+' days';}
+  Promise.all([get('https://plja-corp.pages.dev/live/board.json?t='+Date.now()),get('https://raw.githubusercontent.com/Pdee1077/plja-corp/live-data/board.json?t='+Date.now())]).then(function(p){
+    var d=p[1]||p[0];
+    if(p[0]&&p[1]&&new Date(p[0].updated)>new Date(p[1].updated)) d=p[0];
+    if(!d||!d.rows||!d.rows.length) return;
+    var rows=d.rows.filter(clean).sort(function(a,b){return b.st_x_normal-a.st_x_normal;}).slice(0,MAX);
+    if(!rows.length) return;
+    list.innerHTML=rows.map(function(r){
+      return '<li class="mcp-tile '+heat(r.st_x_normal)+'"><span class="mcp-x">'+esc(r.st_x_normal.toFixed(1))+'\u00d7</span><span class="mcp-sym">'+esc(r.sym)+'<small>'+esc(r.name||'')+'</small></span><span class="mcp-why">'+esc(why(r))+'</span></li>';
+    }).join('');
+    var ms=Date.now()-new Date(d.updated).getTime(), stale=!(ms>=0&&ms<=STALE_MIN*60000);
+    box.setAttribute('data-state',stale?'stale':'live');
+    if(when) when.textContent='Snapshot '+nice(d.updated_et);
+    if(badge) badge.textContent=stale?('Stale \u00b7 '+age(ms)+' old'):('Live \u00b7 '+age(ms)+' old');
+  });
 })();
 </script>
   <script>

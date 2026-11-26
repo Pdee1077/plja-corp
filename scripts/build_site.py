@@ -12,6 +12,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import theme  # noqa: E402
+import mcp_panel  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
@@ -787,9 +788,17 @@ def pulse_fallback_html() -> tuple[str, str]:
     return "".join(lis), when
 
 
+def _board_json() -> dict:
+    import json, subprocess
+    try:
+        return json.loads(subprocess.check_output(["git", "show", "origin/live-data:board.json"], cwd=ROOT, stderr=subprocess.DEVNULL))
+    except Exception:
+        return json.loads((PUBLIC / "live" / "board.json").read_text(encoding="utf-8"))
+
+
 def pages() -> dict[str, str]:
     I = theme.ICONS
-    pulse_lis, pulse_when = pulse_fallback_html()
+    names_panel = mcp_panel.panel_html(_board_json(), "/chatter/", note_extra="")
     home_body = f"""
     {HOME_JSONLD}
     <section class="hero">
@@ -797,12 +806,7 @@ def pages() -> dict[str, str]:
         <div class="hero-grid">
         <p class="kicker rise">Market Chatter · a free research room</p>
         <h1 class="rise d1">What the internet is <em>talking about</em>, versus its usual chatter.</h1>
-        <aside class="surface pulse hero-pulse rise d2" id="pulse">
-          <div class="pulse-head"><strong>Loudest names right now</strong><span id="pulse-when">{"Snapshot " + pulse_when if pulse_when else ""}</span></div>
-          <ul class="pulse-list" id="pulse-list">{pulse_lis}</ul>
-          <p class="pulse-head">Talk vs. its own normal. A lead to check, not a fact, and not investment advice.</p>
-          <a class="go" href="/chatter/">Open the full board →</a>
-        </aside>
+        <div class="hero-pulse">{names_panel}</div>
         <div class="hero-more rise d3">
         <p class="lede">Today&rsquo;s scan and a live board, in one place. A number like 8× means talk is louder than that name&rsquo;s own recent normal &mdash; a lead to check, not a fact. <strong>Research and education only. Not investment advice.</strong></p>
         <div class="actions">

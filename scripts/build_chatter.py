@@ -14,6 +14,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import theme  # noqa: E402
+import mcp_panel  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
@@ -66,10 +67,17 @@ def main() -> None:
     live = _load("build_live")
     day = daily.DAYS[0]
     I = theme.ICONS
+    import json, subprocess
+    try:
+        board_json = json.loads(subprocess.check_output(["git", "show", "origin/live-data:board.json"], cwd=ROOT, stderr=subprocess.DEVNULL))
+    except Exception:
+        board_json = json.loads((PUBLIC / "live" / "board.json").read_text(encoding="utf-8"))
+    names_panel = mcp_panel.panel_html(board_json, "#live")
     summary = f"""
     <section class="day-hero chatter-top">
       <div class="wrap">
         <p class="crumb"><a href="/">PLJA Corp</a> › Market Chatter</p>
+        {names_panel}
         <p class="kicker">Market Chatter · @PLJA_AI</p>
         <h1>Today's scan, and who is being talked about.</h1>
         <p class="lede">One free page for market chatter. The morning scan is first, and the live board is right underneath. Research and education, never advice.</p>
