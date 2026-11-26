@@ -1,26 +1,26 @@
 {
  "version": "2026.11.25.2",
- "updated": "2026-11-26T07:17-05:00",
- "updated_et": "Thursday, Nov 26, 2026, 7:17 AM ET",
+ "updated": "2026-11-26T16:45-05:00",
+ "updated_et": "Thursday, Nov 26, 2026, 4:45 PM ET",
  "disclaimer": "Research and education only. Not investment advice.",
  "sources": "Reddit mention counts: ApeWisdom. Trending ranks and talk volume: StockTwits (ranks and scores only; no post text). Prices: Yahoo Finance. News flags use a headline count, not copied articles.",
  "refresh": "A free GitHub Action tries to update this file every 15 minutes on weekdays. Scheduled runs can be delayed by GitHub.",
  "rows": [
   {
    "sym": "AMBA",
-   "name": "Ambarella",
+   "name": "Ambarella, Inc.",
    "group": "abnormal",
    "flags": [
     "StockTwits talk 34.7x its 20-day normal"
    ],
-   "reddit": 4,
-   "reddit_prev": 28,
-   "x24": 0.1,
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
    "st_rank": null,
    "st_x_normal": 34.7,
    "d1": -0.0,
    "vol": null,
-   "n24": 20,
+   "n24": 3,
    "nonews": false,
    "kind": "talk only"
   },
@@ -31,14 +31,14 @@
    "flags": [
     "StockTwits building 6 days in a row"
    ],
-   "reddit": 52,
-   "reddit_prev": 162,
-   "x24": 0.3,
+   "reddit": 5,
+   "reddit_prev": 127,
+   "x24": 0.0,
    "st_rank": null,
    "st_x_normal": 8.0,
    "d1": 0.0,
    "vol": null,
-   "n24": 46,
+   "n24": 27,
    "nonews": false,
    "kind": "talk only"
   },
@@ -51,209 +51,65 @@
     "StockTwits building 4 days in a row"
    ],
    "reddit": 1,
-   "reddit_prev": 35,
-   "x24": 0.0,
+   "reddit_prev": 10,
+   "x24": 0.1,
    "st_rank": null,
    "st_x_normal": 7.6,
    "d1": 0.0,
    "vol": null,
-   "n24": 18,
+   "n24": 9,
    "nonews": false,
    "kind": "talk only"
   },
   {
-   "sym": "SGOV",
-   "name": "iShares Trust - iShares 0-3 Month Treasu",
-   "group": "abnormal",
-   "flags": [
-    "Reddit 3.8x the day before"
-   ],
-   "reddit": 38,
-   "reddit_prev": 10,
-   "x24": 3.8,
-   "st_rank": null,
-   "st_x_normal": 1.9,
-   "d1": -0.0,
-   "vol": null,
-   "n24": 0,
-   "nonews": true,
-   "kind": "talk only"
-  },
-  {
-   "sym": "ASTS",
-   "name": "AST SpaceMobile",
-   "group": "abnormal",
-   "flags": [
-    "Reddit 4.8x the day before"
-   ],
-   "reddit": 57,
-   "reddit_prev": 12,
-   "x24": 4.8,
-   "st_rank": null,
-   "st_x_normal": 0.8,
-   "d1": -0.0,
-   "vol": null,
-   "n24": 8,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "VOO",
-   "name": "Vanguard S&amp;P 500 ETF",
-   "group": "abnormal",
-   "flags": [
-    "Reddit 3.1x the day before"
-   ],
-   "reddit": 95,
-   "reddit_prev": 31,
-   "x24": 3.1,
-   "st_rank": null,
-   "st_x_normal": 1.2,
-   "d1": 0.0,
-   "vol": null,
-   "n24": 0,
-   "nonews": true,
-   "kind": "talk only"
-  },
-  {
-   "sym": "SOXL",
-   "name": "Direxion Shares ETF Trust - Direxion Dai",
-   "group": "abnormal",
-   "flags": [
-    "StockTwits building 7 days in a row"
-   ],
-   "reddit": 88,
-   "reddit_prev": 97,
-   "x24": 0.9,
-   "st_rank": null,
-   "st_x_normal": 1.6,
-   "d1": -0.0,
-   "vol": null,
-   "n24": 1,
-   "nonews": true,
-   "kind": "talk only"
-  },
-  {
-   "sym": "ORCL",
-   "name": "Oracle",
+   "sym": "KO",
+   "name": "Coca-Cola",
    "group": "abnormal",
    "flags": [
     "new on StockTwits trending"
    ],
-   "reddit": 15,
-   "reddit_prev": 3,
-   "x24": 3.0,
-   "st_rank": 4,
-   "st_x_normal": null,
-   "d1": 0.0,
-   "vol": null,
-   "n24": 37,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "UUUU",
-   "name": "Energy Fuels",
-   "group": "abnormal",
-   "flags": [
-    "new on StockTwits trending"
-   ],
-   "reddit": 3,
-   "reddit_prev": 1,
-   "x24": 0.6,
-   "st_rank": 14,
-   "st_x_normal": null,
-   "d1": -0.0,
-   "vol": null,
-   "n24": 2,
-   "nonews": true,
-   "kind": "talk only"
-  },
-  {
-   "sym": "USO",
-   "name": "United States Commodity Funds LLC - Unit",
-   "group": "abnormal",
-   "flags": [
-    "new on StockTwits trending"
-   ],
-   "reddit": 3,
-   "reddit_prev": 4,
-   "x24": 0.6,
-   "st_rank": 11,
-   "st_x_normal": null,
-   "d1": 0.0,
-   "vol": null,
-   "n24": 2,
-   "nonews": true,
-   "kind": "talk only"
-  },
-  {
-   "sym": "ADBE",
-   "name": "Adobe",
-   "group": "abnormal",
-   "flags": [
-    "new on StockTwits trending"
-   ],
-   "reddit": 1,
-   "reddit_prev": 1,
-   "x24": 0.2,
-   "st_rank": 29,
-   "st_x_normal": null,
-   "d1": -0.0,
-   "vol": null,
-   "n24": 0,
-   "nonews": true,
-   "kind": "talk only"
-  },
-  {
-   "sym": "ALB",
-   "name": "Albemarle",
-   "group": "abnormal",
-   "flags": [
-    "new on StockTwits trending"
-   ],
-   "reddit": 1,
-   "reddit_prev": 1,
-   "x24": 0.2,
-   "st_rank": 5,
-   "st_x_normal": null,
-   "d1": 0.0,
-   "vol": null,
-   "n24": 0,
-   "nonews": true,
-   "kind": "talk only"
-  },
-  {
-   "sym": "OXY",
-   "name": "Occidental Petroleum Corporatio",
-   "group": "abnormal",
-   "flags": [
-    "new on StockTwits trending"
-   ],
-   "reddit": 0,
-   "reddit_prev": null,
-   "x24": null,
-   "st_rank": 10,
-   "st_x_normal": null,
-   "d1": -0.0,
-   "vol": null,
-   "n24": 4,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "UVXY",
-   "name": "ProShares Ultra VIX Short Term ",
-   "group": "abnormal",
-   "flags": [
-    "new on StockTwits trending"
-   ],
-   "reddit": 0,
-   "reddit_prev": null,
-   "x24": null,
+   "reddit": 2,
+   "reddit_prev": 18,
+   "x24": 0.1,
    "st_rank": 26,
-   "st_x_normal": null,
+   "st_x_normal": 1.1,
    "d1": 0.0,
+   "vol": null,
+   "n24": 10,
+   "nonews": false,
+   "kind": "talk only"
+  },
+  {
+   "sym": "XOM",
+   "name": "Exxon Mobil",
+   "group": "abnormal",
+   "flags": [
+    "new on StockTwits trending"
+   ],
+   "reddit": 1,
+   "reddit_prev": 1,
+   "x24": 0.2,
+   "st_rank": 16,
+   "st_x_normal": null,
+   "d1": -0.0,
+   "vol": null,
+   "n24": 5,
+   "nonews": false,
+   "kind": "talk only"
+  },
+  {
+   "sym": "LULU",
+   "name": "lululemon athletica",
+   "group": "abnormal",
+   "flags": [
+    "new on StockTwits trending"
+   ],
+   "reddit": 1,
+   "reddit_prev": 2,
+   "x24": 0.2,
+   "st_rank": 19,
+   "st_x_normal": null,
+   "d1": -0.0,
    "vol": null,
    "n24": 0,
    "nonews": true,
@@ -267,8 +123,8 @@
     "talk still 5.3x normal from earlier, not rising today"
    ],
    "reddit": 11,
-   "reddit_prev": 19,
-   "x24": 0.6,
+   "reddit_prev": 11,
+   "x24": 1.0,
    "st_rank": null,
    "st_x_normal": 5.3,
    "d1": -0.1,
@@ -278,170 +134,8 @@
    "kind": "talk only"
   },
   {
-   "sym": "CRWV",
-   "name": "CoreWeave",
-   "group": "faint",
-   "flags": [
-    "Reddit 3.2x the day before"
-   ],
-   "reddit": 38,
-   "reddit_prev": 12,
-   "x24": 3.2,
-   "st_rank": null,
-   "st_x_normal": 0.9,
-   "d1": 0.0,
-   "vol": null,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "CD",
-   "name": "Chindata",
-   "group": "faint",
-   "flags": [
-    "Reddit 5.2x the day before"
-   ],
-   "reddit": 26,
-   "reddit_prev": 5,
-   "x24": 5.2,
-   "st_rank": null,
-   "st_x_normal": null,
-   "d1": -0.0,
-   "vol": null,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "TLT",
-   "name": "BlackRock Institutional Trust Company N.",
-   "group": "faint",
-   "flags": [
-    "Reddit 3.8x the day before"
-   ],
-   "reddit": 19,
-   "reddit_prev": 5,
-   "x24": 3.8,
-   "st_rank": null,
-   "st_x_normal": null,
-   "d1": 0.0,
-   "vol": null,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "VTI",
-   "name": "Vanguard Total Stock Market ETF",
-   "group": "faint",
-   "flags": [
-    "Reddit 3.6x the day before"
-   ],
-   "reddit": 29,
-   "reddit_prev": 8,
-   "x24": 3.6,
-   "st_rank": null,
-   "st_x_normal": null,
-   "d1": -0.0,
-   "vol": null,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "BYND",
-   "name": "Beyond Meat",
-   "group": "faint",
-   "flags": [
-    "Reddit 3.6x the day before"
-   ],
-   "reddit": 18,
-   "reddit_prev": 3,
-   "x24": 3.6,
-   "st_rank": null,
-   "st_x_normal": null,
-   "d1": 0.0,
-   "vol": null,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "UP",
-   "name": "Wheels Up",
-   "group": "faint",
-   "flags": [
-    "Reddit 3.0x the day before"
-   ],
-   "reddit": 15,
-   "reddit_prev": 4,
-   "x24": 3.0,
-   "st_rank": null,
-   "st_x_normal": null,
-   "d1": 0.0,
-   "vol": null,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "AA",
-   "name": "Alcoa",
-   "group": "faint",
-   "flags": [
-    "Reddit: new name"
-   ],
-   "reddit": 14,
-   "reddit_prev": 1,
-   "x24": 2.8,
-   "st_rank": null,
-   "st_x_normal": null,
-   "d1": 0.0,
-   "vol": null,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "NP",
-   "name": "Neenah",
-   "group": "faint",
-   "flags": [
-    "Reddit: new name"
-   ],
-   "reddit": 12,
-   "reddit_prev": 1,
-   "x24": 2.4,
-   "st_rank": null,
-   "st_x_normal": null,
-   "d1": 0.0,
-   "vol": null,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "VXX",
-   "name": "iPath S&amp;P 500 VIX Short-Term Futures",
-   "group": "faint",
-   "flags": [
-    "Reddit: new name"
-   ],
-   "reddit": 12,
-   "reddit_prev": 1,
-   "x24": 2.4,
-   "st_rank": null,
-   "st_x_normal": null,
-   "d1": 0.0,
-   "vol": null,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "ALM",
-   "name": "Almonty Industries Inc.",
+   "sym": "HL",
+   "name": "Hecla Mining Company",
    "group": "faint",
    "flags": [
     "on StockTwits trending"
@@ -449,7 +143,43 @@
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 3,
+   "st_rank": 2,
+   "st_x_normal": null,
+   "d1": 0.0,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "talk only"
+  },
+  {
+   "sym": "PYTH-USD",
+   "name": "Pyth Network USD",
+   "group": "faint",
+   "flags": [
+    "on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 6,
+   "st_x_normal": null,
+   "d1": 1.9,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "talk only"
+  },
+  {
+   "sym": "SEDG",
+   "name": "SolarEdge Technologies, Inc.",
+   "group": "faint",
+   "flags": [
+    "on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 9,
    "st_x_normal": null,
    "d1": -0.0,
    "vol": null,
@@ -458,8 +188,8 @@
    "kind": "talk only"
   },
   {
-   "sym": "SDGR",
-   "name": "Schrodinger, Inc.",
+   "sym": "SIMO",
+   "name": "Silicon Motion Technology Corpo",
    "group": "faint",
    "flags": [
     "on StockTwits trending"
@@ -467,9 +197,135 @@
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 8,
+   "st_rank": 10,
    "st_x_normal": null,
    "d1": 0.0,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "talk only"
+  },
+  {
+   "sym": "ETH",
+   "name": "Grayscale Ethereum Staking Mini",
+   "group": "faint",
+   "flags": [
+    "on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 11,
+   "st_x_normal": null,
+   "d1": -0.0,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "talk only"
+  },
+  {
+   "sym": "DASH",
+   "name": "DoorDash, Inc.",
+   "group": "faint",
+   "flags": [
+    "on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 12,
+   "st_x_normal": null,
+   "d1": 0.0,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "talk only"
+  },
+  {
+   "sym": "LUNC-USD",
+   "name": "Terra Classic USD",
+   "group": "faint",
+   "flags": [
+    "on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 15,
+   "st_x_normal": null,
+   "d1": 0.7,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "talk only"
+  },
+  {
+   "sym": "LTC-USD",
+   "name": "Litecoin USD",
+   "group": "faint",
+   "flags": [
+    "on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 18,
+   "st_x_normal": null,
+   "d1": 3.3,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "some of both"
+  },
+  {
+   "sym": "UUP",
+   "name": "Invesco DB USD Index Bullish Fu",
+   "group": "faint",
+   "flags": [
+    "on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 20,
+   "st_x_normal": null,
+   "d1": -0.0,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "talk only"
+  },
+  {
+   "sym": "ICP-USD",
+   "name": "Internet Computer USD",
+   "group": "faint",
+   "flags": [
+    "on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 23,
+   "st_x_normal": null,
+   "d1": 0.9,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "talk only"
+  },
+  {
+   "sym": "JASMY-USD",
+   "name": "JasmyCoin USD",
+   "group": "faint",
+   "flags": [
+    "on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 24,
+   "st_x_normal": null,
+   "d1": 1.4,
    "vol": null,
    "n24": null,
    "nonews": false,
