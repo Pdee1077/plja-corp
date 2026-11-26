@@ -58,3 +58,7 @@
 - Color pass: a "Market Chatter — loudest names right now" heat panel (big multipliers, red/orange/amber/yellow heat scale, short why line, snapshot time in ET, live/stale badge at 90 minutes, research-only line, button to the full board) is now the home hero card and sits at the top of `/chatter/`. Same panel is on Analog Arcade `/studio` only.
 - The panel reads the fresher of the site's `/live/board.json` and the `live-data` branch file, shows only clean names with a StockTwits multiplier of 2x or more, and skips crypto, AirPods/Find My and IPO oddities. Built from `scripts/mcp_panel.py`.
 - Nothing deleted; `live_board.py`, the workflow and the data format are untouched.
+
+## 26 November 2026, morning, America/New_York (v2026.11.26.3)
+
+- Read-aloud on the Market Chatter heat panel (home hero and `/chatter/`): a Play briefing button for the whole panel and a small play button on each name. Uses the browser's speechSynthesis, a natural English voice when one is available, pause or stop, and a 15-second script from `scripts/chatter_briefing.py` (shared with Analog Arcade `/studio`). If the snapshot is more than 90 minutes old, the script says how old it is. Buttons hide when speech is not supported. Nothing deleted; no change to the live-data format or workflow.

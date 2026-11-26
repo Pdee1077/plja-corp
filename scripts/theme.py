@@ -6,6 +6,7 @@ Every page builder (build_site, build_daily, build_live) renders through
 No frameworks, no third-party scripts, no paid fonts.
 """
 from __future__ import annotations
+from pathlib import Path
 
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -13,7 +14,7 @@ from zoneinfo import ZoneInfo
 SITE = "https://plja-corp.pages.dev"
 ET = ZoneInfo("America/New_York")
 # One site-wide version. Bump on every design or content release.
-VERSION = "2026.11.26.2"
+VERSION = "2026.11.26.3"
 # CSS and JS file names carry the version because /assets/* is cached for a year.
 CSS_HREF = f"/assets/css/plja-{VERSION}.css"
 YEAR = "2026"
@@ -385,44 +386,9 @@ dialog.jump[open] { animation: pop .18s var(--ease); }
   @view-transition { navigation: none; }
 }
 
-/* MCP_PANEL_V1: Market Chatter heat panel. Self-contained colors so it looks the same on every site. */
-.mcp{--mcp-ink:#1a1030;margin:18px 0 6px;border-radius:20px;padding:16px;color:#fff;background:linear-gradient(135deg,#1b1038 0%,#3a1457 55%,#5c1a3f 100%);border:1px solid rgba(255,255,255,.16);box-shadow:0 12px 34px rgba(20,8,40,.45)}
-.mcp *{box-sizing:border-box}
-.mcp-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px}
-.mcp-title{margin:0;font:800 clamp(1.05rem,3.8vw,1.4rem)/1.15 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#fff;letter-spacing:.1px;max-width:none}
-.mcp-title .dot{display:inline-block;width:.6em;height:.6em;border-radius:50%;background:#3ddc97;margin-right:.45em;vertical-align:.05em;box-shadow:0 0 0 0 rgba(61,220,151,.7);animation:mcpPulse 2.2s infinite}
-.mcp[data-state="stale"] .mcp-title .dot{background:#ffd23f;animation:none}
-@keyframes mcpPulse{0%{box-shadow:0 0 0 0 rgba(61,220,151,.6)}70%{box-shadow:0 0 0 .5em rgba(61,220,151,0)}100%{box-shadow:0 0 0 0 rgba(61,220,151,0)}}
-.mcp-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:.9rem;color:#e7dcff}
-.mcp-badge{display:inline-flex;align-items:center;font-weight:800;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:.28rem .6rem;border-radius:999px;background:#3ddc97;color:#06301f}
-.mcp[data-state="stale"] .mcp-badge{background:#fff;color:#8a1020;box-shadow:0 0 0 2px #ff5c5c inset}
-.mcp-tiles{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px;grid-template-columns:1fr}
-.mcp-tile{--heat:#ffe14d;display:grid;grid-template-columns:auto 1fr;grid-template-areas:"x sym" "x why";gap:1px 14px;align-items:center;border-radius:14px;padding:10px 14px;background:var(--heat);color:var(--mcp-ink)}
-.mcp-tile.h4{--heat:#ff5c5c}.mcp-tile.h3{--heat:#ff9a3d}.mcp-tile.h2{--heat:#ffc233}.mcp-tile.h1{--heat:#ffe14d}
-.mcp-x{grid-area:x;font:800 clamp(2rem,9.5vw,2.7rem)/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:-.02em;min-width:3.9ch;font-variant-numeric:tabular-nums}
-.mcp-sym{grid-area:sym;font-weight:800;font-size:1.05rem;line-height:1.2}
-.mcp-sym small{font-weight:600;font-size:.8rem;opacity:.85;margin-left:.4em}
-.mcp-why{grid-area:why;font-size:.88rem;line-height:1.3;font-weight:500}
-.mcp-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;margin-top:12px}
-.mcp-note{margin:0;font-size:.88rem;line-height:1.4;color:#e7dcff;max-width:44rem}
-.mcp-note b{color:#fff}
-.mcp-legend{display:inline-flex;gap:4px;align-items:center;margin-left:.5em;vertical-align:middle}
-.mcp-legend i{display:inline-block;width:.8em;height:.8em;border-radius:3px}
-.mcp-btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 20px;border-radius:999px;background:#fff;color:#2a0f4a !important;font-weight:800;font-size:1rem;text-decoration:none !important;box-shadow:0 6px 16px rgba(0,0,0,.3);border:0}
-.mcp-btn:hover{background:#ffe14d}
-.mcp a:focus-visible{outline:3px solid #ffe14d;outline-offset:3px}
-@media(min-width:760px){
-  .mcp{padding:20px 22px}
-  .mcp-tiles{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
-  .mcp-tile{grid-template-columns:1fr;grid-template-areas:"x" "sym" "why";gap:2px;padding:14px 16px}
-  .mcp-x{font-size:clamp(2.6rem,4.4vw,3.4rem)}
-}
-@media(prefers-reduced-motion:reduce){.mcp-title .dot{animation:none}}
-@media print{.mcp{display:none}}
-
 .hero-pulse .mcp { margin: 0; }
 .hero-pulse .mcp-tiles { grid-template-columns: 1fr; }
-.hero-pulse .mcp-tile { grid-template-columns: auto 1fr; grid-template-areas: "x sym" "x why"; gap: 1px 14px; padding: 10px 14px; }
+.hero-pulse .mcp-tile { grid-template-columns: auto 1fr auto; grid-template-areas: "x sym play" "x why play"; gap: 1px 14px; padding: 10px 14px; }
 .hero-pulse .mcp-x { font-size: clamp(2rem, 9vw, 2.5rem); }
 .chatter-top .mcp { margin: 0 0 1.6rem; }
 @media print {
@@ -711,7 +677,12 @@ def arcade_section(utm: str, what: str) -> str:
 def write_css(public) -> None:
     out = public / "assets" / "css" / f"plja-{VERSION}.css"
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(CSS, encoding="utf-8")
+    out.write_text(CSS + "\n" + mcp_panel.CSS + "\n", encoding="utf-8")
+    js_dir = public / "assets" / "js"
+    js_dir.mkdir(parents=True, exist_ok=True)
+    js_src = Path(__file__).with_name("chatter-briefing.js")
+    if js_src.exists():
+        (js_dir / "chatter-briefing.js").write_text(js_src.read_text(encoding="utf-8"), encoding="utf-8")
 
 
 def write_page_css(public, name: str, css: str) -> str:

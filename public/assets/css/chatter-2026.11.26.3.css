@@ -1,0 +1,4 @@
+.chatter-top { padding-bottom: 0; }
+.jumps { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1rem 0 0; }
+.chatter-top + .live-hero { padding-top: clamp(2rem, 5vw, 3.5rem); }
+#scan, #live { scroll-margin-top: 5rem; }
