@@ -341,14 +341,21 @@ def write_og() -> None:
     img.save(out, "PNG", optimize=True)
 
 
-def body() -> str:
+def body(embedded: bool = False) -> str:
     s = theme.ICONS["search"]
+    if embedded:
+        head = """<p class="kicker">Live board · @PLJA_AI</p>
+        <h2 id="live">Who is suddenly being talked about</h2>
+        <p class="lede">Names getting far more chatter than their own usual level, with the price move beside them and a <strong>NO NEWS</strong> flag when talk jumps but headlines do not.</p>"""
+    else:
+        head = """<p class="crumb"><a href="/">PLJA Corp</a> › <a href="/chatter/">Market Chatter</a> › Live board</p>
+        <p class="kicker">Live board · @PLJA_AI</p>
+        <h1>Who is suddenly being talked about.</h1>
+        <p class="lede">Names getting far more chatter than their own usual level, with the price move beside them and a <strong>NO NEWS</strong> flag when talk jumps but headlines do not.</p>"""
     return f"""
     <section class="live-hero">
       <div class="wrap">
-        <p class="kicker">Live board · @PLJA_AI</p>
-        <h1>Who is suddenly being talked about.</h1>
-        <p class="lede">Names getting far more chatter than their own usual level, with the price move beside them and a <strong>NO NEWS</strong> flag when talk jumps but headlines do not.</p>
+        {head}
         <div class="surface status" id="status" role="status" aria-live="polite">
           <span class="dot" aria-hidden="true"></span>
           <span class="st-main"><span class="when" id="st-when">Loading the latest snapshot…</span> <span class="age" id="st-age"></span></span>
@@ -423,13 +430,14 @@ def write_robots() -> None:
         days = [d["date"] for d in mod.DAYS]
     robots = f"""User-agent: *
 Allow: /daily/
+Allow: /chatter/
 Allow: /live/
 Allow: /assets/
 Disallow: /
 
 Sitemap: {SITE}/sitemap.xml
 """
-    urls = [f"{SITE}/daily/"] + [f"{SITE}/daily/{d}/" for d in days] + [f"{SITE}/live/"]
+    urls = [f"{SITE}/chatter/", f"{SITE}/daily/"] + [f"{SITE}/daily/{d}/" for d in days] + [f"{SITE}/live/"]
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sitemap += "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls) + "</urlset>\n"
     (PUBLIC / "robots.txt").write_text(robots, encoding="utf-8")

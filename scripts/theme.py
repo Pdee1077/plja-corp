@@ -13,7 +13,7 @@ from zoneinfo import ZoneInfo
 SITE = "https://plja-corp.pages.dev"
 ET = ZoneInfo("America/New_York")
 # One site-wide version. Bump on every design or content release.
-VERSION = "2026.11.25.4"
+VERSION = "2026.11.25.5"
 # CSS and JS file names carry the version because /assets/* is cached for a year.
 CSS_HREF = f"/assets/css/plja-{VERSION}.css"
 YEAR = "2026"
@@ -29,16 +29,18 @@ PUBLISHED = published_et()
 
 NAV = [
     ("/products/", "Apps"),
-    ("/daily/", "Daily Scan"),
-    ("/live/", "Live board"),
+    ("/chatter/", "Market Chatter"),
     ("/about/", "About"),
     ("/support/", "Support"),
 ]
+# Pages that live inside a nav section but have their own URL.
+SECTION_OF = {"/daily/": "/chatter/", "/live/": "/chatter/"}
 
 JUMP = [
     ("Home", "/", "Start here"),
     ("Apps", "/products/", "House Binder, House Radar, Local Mass Finder, Keysong, Card Check"),
-    ("Daily Scan", "/daily/", "Morning research log"),
+    ("Market Chatter", "/chatter/", "Today's scan and the live board in one room"),
+    ("Daily Scan (archive)", "/daily/", "Morning research log"),
     ("Latest scan: Nov 25, 2026", "/daily/2026-11-25/", "Daily Scan"),
     ("Live board", "/live/", "Chatter vs. normal, refreshed on weekdays"),
     ("About", "/about/", "Who makes these"),
@@ -50,7 +52,7 @@ JUMP = [
     ("Local Mass Finder", "https://church.analogarcade.net/", "Web app"),
     ("Keysong", "https://apps.apple.com/us/app/keysong/id6804326066", "App Store"),
     ("Card Check", "https://cards.analogarcade.net/", "Web app"),
-    ("Analog Arcade", "https://analogarcade.net/", "The public shop"),
+    ("Analog Arcade", "https://analogarcade.net/", "The PLJA Corp studio's public shop"),
 ]
 
 CSS = r"""/* PLJA Corp design system. Ink, paper, copper. Light + dark. */
@@ -178,6 +180,8 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 }
 
 /* Buttons, chips, kickers */
+.crumb { font-size: .86rem; color: var(--mute); margin: 0 0 .8rem; }
+.crumb a { color: var(--ink-2); }
 .kicker { display: inline-flex; align-items: center; gap: .5rem; font-size: .74rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--accent-ink); margin: 0 0 .9rem; }
 .kicker::before { content: ""; width: 1.4rem; height: 2px; background: currentColor; border-radius: 2px; }
 .lede { font-size: var(--s-1); color: var(--ink-2); max-width: 40rem; }
@@ -410,10 +414,11 @@ SHELL_JS = r"""<script>
 
 def nav_links(current: str, cls: str = "") -> str:
     out = []
+    section = next((v for k, v in SECTION_OF.items() if current.startswith(k)), current)
     for href, label in NAV:
-        on = current == href or (href != "/" and current.startswith(href))
+        on = section == href or (href != "/" and section.startswith(href))
         cur = ' aria-current="page"' if on else ""
-        extra = ' class="live-dot"' if href == "/live/" and cls == "wide" else ""
+        extra = ' class="live-dot"' if href == "/chatter/" and cls == "wide" else ""
         out.append(f'<a href="{href}"{cur}{extra}>{label}</a>')
     return "".join(out)
 
@@ -471,8 +476,7 @@ def footer(blurb: str, extra_note: str = "", utm: str = "") -> str:
           <h2>Site</h2>
           <nav aria-label="Footer">
             <a href="/products/">Apps</a>
-            <a href="/daily/">Daily Scan</a>
-            <a href="/live/">Live board</a>
+            <a href="/chatter/">Market Chatter</a>
             <a href="/about/">About</a>
             <a href="/contact/">Contact</a>
             <a href="/support/">Support</a>
@@ -482,7 +486,7 @@ def footer(blurb: str, extra_note: str = "", utm: str = "") -> str:
         <div>
           <h2>Elsewhere</h2>
           <nav aria-label="Elsewhere">
-            <a href="https://analogarcade.net/{q}">Analog Arcade</a>
+            <a href="https://analogarcade.net/{q}">Analog Arcade (our studio&rsquo;s shop)</a>
             <a href="https://apps.apple.com/us/developer/peter-de-paola/id6804326068">App Store developer page</a>
             <a href="https://x.com/PLJA_AI">@PLJA_AI on X</a>
           </nav>

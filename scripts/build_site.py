@@ -761,10 +761,10 @@ def pages() -> dict[str, str]:
         <div class="hero-grid"><div>
         <p class="kicker rise">PLJA Corp · solo-made software</p>
         <h1 class="rise d1">Small apps that do <em>one job</em> well.</h1>
-        <p class="lede rise d2"><strong>PLJA Corp</strong> is the company name Pete De Paola uses for the apps he makes. Five are finished and live today. Most are free; the one paid app is $2.99, once. There is also a free morning research page and a live chatter board.</p>
+        <p class="lede rise d2"><strong>PLJA Corp</strong> is the company name Pete De Paola uses for the apps he makes. Five are finished and live today. Most are free; the one paid app is $2.99, once. Under one roof you will also find Analog Arcade, our public shop, and Market Chatter, a free research room.</p>
         <div class="actions rise d3">
           <a class="btn btn-primary" href="/products/">See the five apps <span class="arr" aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" href="/live/">Open the live board</a>
+          <a class="btn btn-ghost" href="/chatter/">Enter Market Chatter</a>
         </div>
         <ul class="trust rise d3" aria-label="How these are made">
           <li>{I["check"]} No subscriptions</li>
@@ -788,21 +788,21 @@ def pages() -> dict[str, str]:
             <span>House Binder, House Radar, Local Mass Finder, Keysong and Card Check. Web, iPhone, iPad and Mac.</span>
             <span class="go">Browse the apps →</span>
           </a>
-          <a class="door" href="/daily/">
+          <a class="door" href="https://analogarcade.net/?utm_source=plja_hub" rel="noopener noreferrer">
             <span class="ico">{I["sunrise"]}</span>
-            <strong>Daily Scan</strong>
-            <span>A free morning read of odd moves, news flags and names talked about far more than usual.</span>
-            <span class="go">Read today’s scan →</span>
+            <strong>Analog Arcade</strong>
+            <span>Our studio&rsquo;s public shop: free games, family tools, and the newest launches like Kept and Overhead.</span>
+            <span class="go">Visit the shop →</span>
           </a>
-          <a class="door" href="/live/">
+          <a class="door" href="/chatter/">
             <span class="ico">{I["pulse"]}</span>
-            <strong>Live board</strong>
-            <span>Chatter vs. normal, sortable and filterable, with a NO NEWS flag. Research, not advice.</span>
-            <span class="go">Open the board →</span>
+            <strong>Market Chatter</strong>
+            <span>Today&rsquo;s scan and a live board of who is being talked about, in one room. Research, not advice.</span>
+            <span class="go">Enter the room →</span>
           </a>
         </div>
         <div class="surface pulse" id="pulse" hidden>
-          <div class="pulse-head"><strong>From the live board</strong><span id="pulse-when"></span></div>
+          <div class="pulse-head"><strong>From Market Chatter</strong><span id="pulse-when"></span></div>
           <ul class="pulse-list" id="pulse-list"></ul>
           <p class="pulse-head">Talk vs. its own normal. A lead to check, not a fact, and not investment advice.</p>
         </div>
@@ -1095,6 +1095,12 @@ def write_static() -> None:
     assert live_spec is not None and live_spec.loader is not None
     live_spec.loader.exec_module(live_mod)
     live_mod.main()
+
+    chatter_spec = importlib.util.spec_from_file_location("build_chatter", ROOT / "scripts" / "build_chatter.py")
+    chatter_mod = importlib.util.module_from_spec(chatter_spec)
+    assert chatter_spec is not None and chatter_spec.loader is not None
+    chatter_spec.loader.exec_module(chatter_mod)
+    chatter_mod.main()
 
 
 def main() -> None:

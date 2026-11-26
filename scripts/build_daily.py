@@ -216,6 +216,7 @@ def day_page(i: int, day: dict) -> str:
     return f"""
     <section class="day-hero">
       <div class="wrap">
+        <p class="crumb"><a href="/">PLJA Corp</a> › <a href="/chatter/">Market Chatter</a> › Daily Scan</p>
         <p class="kicker">Daily Scan · {day["label"]}</p>
         <h1>{day["headline"]}</h1>
         <p class="meta"><span>{day["data_note"]}</span></p>
@@ -277,6 +278,7 @@ def index_page() -> str:
     return f"""
     <section class="day-hero">
       <div class="wrap">
+        <p class="crumb"><a href="/">PLJA Corp</a> › <a href="/chatter/">Market Chatter</a> › Daily Scan</p>
         <p class="kicker">Daily Scan · @PLJA_AI</p>
         <h1>The morning read on market chatter.</h1>
         <p class="lede">A free, public research log of odd moves, news flags, and names being talked about far more than usual. Built from public market data. Not a newsletter of trade ideas.</p>

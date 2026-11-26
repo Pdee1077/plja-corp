@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /daily/
+Allow: /chatter/
 Allow: /live/
 Allow: /assets/
 Disallow: /

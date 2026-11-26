@@ -37,3 +37,9 @@
 - Fixed `_headers`: the site-wide CSP was also sent on /live/ and blocked the fetch from raw.githubusercontent.com, so the board only ever showed the bundled snapshot. Cache-Control on /assets/ and /live/ was being joined with the site default; both now detach and set one value.
 - Found the "Refresh live scanner" workflow is disabled (state `disabled_manually`, changed 4:38 PM ET today). Did not re-enable it; that needs Pete's yes. The board shows its snapshot age and says when the refresh looks paused.
 - Did not change `live_board.py`, the workflow file, the data format, any account, DNS, or domain.
+
+## 25 November 2026, late evening, America/New_York (v2026.11.25.5)
+
+- New room `/chatter/` ("Market Chatter"): newest scan summary on top, the live board right under it. One nav item replaces Daily Scan + Live board. `/daily/`, `/daily/2026-11-25/` and `/live/` still work unchanged (with a "Market Chatter ›" crumb).
+- Home: three doors now read Apps, Analog Arcade (our studio's shop), Market Chatter. The company is the hub; Analog Arcade and Market Chatter are rooms under it.
+- robots/sitemap include `/chatter/`. Nothing deleted. Data format, `live_board.py` and the workflow are untouched.
