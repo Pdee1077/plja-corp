@@ -25,6 +25,13 @@ Do **not** attach `plja.analogarcade.net` or change DNS until Pete says yes.
 
 Overhead and Vanish Cam are excluded on purpose from the products list. The Daily Scan page links to Analog Arcade, including Overhead and Kept.
 
+## Design system (v2026.11.25.3)
+
+All pages render through `scripts/theme.py`: one header, footer, type scale, light/dark theme (follows the device, with a toggle saved only in the browser), a "Jump" page finder (press `/` or Ctrl/Cmd+K), and a footer stamp with the site version and the Eastern build time. CSS file names carry the version (`/assets/css/plja-<version>.css`) because `/assets/*` is cached for a year, so bump `theme.VERSION` on every release. No frameworks, no third-party scripts, no paid fonts.
+
+- Daily Scan: each day is a `DAYS` entry in `scripts/build_daily.py` plus three fragments in `content/daily/` (`.short`, `.index`, `.body`). The builder adds the summary card, table of contents, archive calendar, share buttons, older/newer links and a per-day share image (`/assets/img/daily-<date>-og.png`).
+- Live board: `scripts/build_live.py` builds the page only. Data still comes from `board.json` and `history.csv` on the `live-data` branch, written by `scripts/live_board.py` through the GitHub Action; the format is unchanged. The build also copies the newest `live-data` snapshot into `public/live/board.json` as the bundled fallback.
+
 ## Local build
 
 ```bash

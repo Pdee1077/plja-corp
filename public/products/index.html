@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Products — PLJA Corp</title>
   <meta name="description" content="House Binder, House Radar, Local Mass Finder, Keysong and Card Check — the finished, live products from PLJA Corp.">
   <link rel="canonical" href="https://plja-corp.pages.dev/products/">
-  <meta name="theme-color" content="#f4efe6">
-  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f5f0e7">
+  <meta name="color-scheme" content="light dark">
+  <meta name="generator" content="PLJA site v2026.11.25.3">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PLJA Corp">
   <meta property="og:title" content="Products — PLJA Corp">
@@ -25,106 +26,130 @@
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/ibm-plex-sans-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/fraunces-semibold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/plja-2026.11.25.3.css">
+  <script>(function(){try{var t=localStorage.getItem('plja-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="draft">This is a first-draft preview. It is not live on plja.analogarcade.net, and no custom domain has been attached.</div>
+  <div class="draft">Preview site on <strong>plja-corp.pages.dev</strong>. No custom domain is attached yet.</div>
+  
   <header class="site-header">
-    <div class="bar">
-      <a class="brand" href="/">
-        <img src="/assets/img/mark.svg" width="34" height="34" alt="">
+    <div class="wrap bar">
+      <a class="brand" href="/" aria-label="PLJA Corp home">
+        <img src="/assets/img/mark.svg" width="32" height="32" alt="">
         <span class="name">PLJA<span class="corp">CORP</span></span>
       </a>
-      
-    <nav class="nav-wide" aria-label="Primary"><a href="/products/" aria-current="page">Products</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/support/">Support</a></nav>
-    <nav class="mobile" aria-label="Primary">
-      <details>
-        <summary>Menu</summary>
-        <div class="panel"><a href="/products/" aria-current="page">Products</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/support/">Support</a></div>
+      <nav class="nav" aria-label="Primary"><a href="/products/" aria-current="page">Apps</a><a href="/daily/">Daily Scan</a><a href="/live/" class="live-dot">Live board</a><a href="/about/">About</a><a href="/support/">Support</a></nav>
+      <button class="tool jump-btn" id="jump-btn" type="button" aria-label="Jump to a page" aria-keyshortcuts="/ Control+K"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="lbl">Jump</span><kbd>/</kbd></button>
+      <button class="tool" id="theme-btn" type="button" aria-label="Switch theme" aria-pressed="false" data-sun="<svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; aria-hidden=&quot;true&quot;><circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;4&quot;/><path d=&quot;M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4&quot;/></svg>" data-moon="<svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; aria-hidden=&quot;true&quot;><path d=&quot;M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z&quot;/></svg>"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <details class="menu">
+        <summary class="tool" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+        <nav class="panel" aria-label="Primary"><a href="/products/" aria-current="page">Apps</a><a href="/daily/">Daily Scan</a><a href="/live/">Live board</a><a href="/about/">About</a><a href="/support/">Support</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a></nav>
       </details>
-    </nav>
     </div>
   </header>
   <main id="main">
     
     <article class="prose tight-bottom">
       <div class="wrap">
-        <p class="kicker">Products</p>
-        <h1>Five live products</h1>
-        <p class="lede">This list is only the finished set for this draft: House Binder, House Radar, Local Mass Finder, Keysong and Card Check. Overhead and Vanish Cam are not included. Prices, versions and wording were checked on the live pages and the US App Store on 22 November 2026, America/New_York.</p>
+        <p class="kicker">Apps</p>
+        <h1>Five live apps</h1>
+        <p class="lede">The finished set: House Binder, House Radar, Local Mass Finder, Keysong and Card Check. Prices, versions and wording were checked on the live pages and the US App Store on 22 November 2026, America/New_York.</p>
       </div>
     </article>
     <section class="section tight-top">
       <div class="wrap">
+        <div class="filters" role="group" aria-label="Filter apps">
+          <button class="chip" type="button" data-f="all" aria-pressed="true">All <span class="ct">5</span></button>
+          <button class="chip" type="button" data-f="free" aria-pressed="false">Free</button>
+          <button class="chip" type="button" data-f="iphone" aria-pressed="false">iPhone &amp; iPad</button>
+          <button class="chip" type="button" data-f="mac" aria-pressed="false">Mac</button>
+          <button class="chip" type="button" data-f="web" aria-pressed="false">Web</button>
+        </div>
+        <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
         <div class="grid products">
-    <article class="card">
+    <article class="card" data-tags="free web">
       <div class="card-top">
-        <img src="/assets/img/apps/binder.png" width="64" height="64" alt="House Binder icon: a green binder with a small house on the cover">
+        <img src="/assets/img/apps/binder.png" width="56" height="56" alt="House Binder icon: a green binder with a small house on the cover" loading="lazy" decoding="async">
         <div>
           <h3>House Binder</h3>
           <div class="pills"><span class="pill ">Web</span><span class="pill pill-free">Free on the live site</span></div>
         </div>
       </div>
       <p><strong>Photograph the label on a boiler, air conditioner or other appliance. House Binder names it, works out its age, finds the manual, and checks for a recall.</strong></p>
-      <p>Your binder is private to your sign-in. Sign in with Apple, Google, or email. “We never invent a part number or a build date. Every fact says where it came from.” The live sign-in page, checked 22 November 2026, America/New_York, describes it as free. It is not on the App Store.</p>
-      
+      <details>
+        <summary>Details, price and fine print</summary>
+        <p>Your binder is private to your sign-in. Sign in with Apple, Google, or email. “We never invent a part number or a build date. Every fact says where it came from.” The live sign-in page, checked 22 November 2026, America/New_York, describes it as free. It is not on the App Store.</p>
+        
+      </details>
       <div class="card-links"><a href="https://binder.analogarcade.net/" rel="noopener noreferrer">Open House Binder</a></div>
     </article>
     
-    <article class="card">
+    <article class="card" data-tags="iphone">
       <div class="card-top">
-        <img src="/assets/img/apps/houseradar.jpg" width="64" height="64" alt="House Radar app icon">
+        <img src="/assets/img/apps/houseradar.jpg" width="56" height="56" alt="House Radar app icon" loading="lazy" decoding="async">
         <div>
           <h3>House Radar</h3>
           <div class="pills"><span class="pill ">iPhone & iPad</span><span class="pill pill-paid">$2.99 once</span><span class="pill ">App Store 1.10</span></div>
         </div>
       </div>
       <p><strong>Finds the things in your home that send a signal — phones, earbuds, watches, TVs and speakers — and walks you to them.</strong></p>
-      <p>The screen goes from cold blue to hot red, with Warmer, Colder or Right here. Quick scan lists devices on the Wi-Fi you are on. Optional free Mac home base for whole-house finding. Version 1.10 on the US App Store (released 21 November 2026, 5:19 PM ET) costs $2.99 once, with no subscription and no in-app purchases. It needs iOS 16 or later.</p>
-      <p class="note">Signal strength is a guide, not a tape measure. AirPods connected to the iPhone may not broadcast; the app tells you to use Find My to play a sound.</p>
+      <details>
+        <summary>Details, price and fine print</summary>
+        <p>The screen goes from cold blue to hot red, with Warmer, Colder or Right here. Quick scan lists devices on the Wi-Fi you are on. Optional free Mac home base for whole-house finding. Version 1.10 on the US App Store (released 21 November 2026, 5:19 PM ET) costs $2.99 once, with no subscription and no in-app purchases. It needs iOS 16 or later.</p>
+        <p class="note">Signal strength is a guide, not a tape measure. AirPods connected to the iPhone may not broadcast; the app tells you to use Find My to play a sound.</p>
+      </details>
       <div class="card-links"><a href="https://apps.apple.com/us/app/house-radar/id6816271323" rel="noopener noreferrer">App Store</a><a href="https://analogarcade.net/houseradar/" rel="noopener noreferrer">Guide</a></div>
     </article>
     
-    <article class="card">
+    <article class="card" data-tags="free iphone mac web">
       <div class="card-top">
-        <img src="/assets/img/apps/massfinder.jpg" width="64" height="64" alt="Local Mass Finder app icon">
+        <img src="/assets/img/apps/massfinder.jpg" width="56" height="56" alt="Local Mass Finder app icon" loading="lazy" decoding="async">
         <div>
           <h3>Local Mass Finder</h3>
           <div class="pills"><span class="pill ">Web + iPhone & Mac</span><span class="pill pill-free">Free</span><span class="pill ">App Store 1.1.1</span></div>
         </div>
       </div>
       <p><strong>Next Mass or worship near you — all faiths welcome.</strong></p>
-      <p>The web app is free at church.analogarcade.net (live site showed v2.33.44, updated Saturday 21 November 2026, 9:34 AM Eastern). It can browse all 50 U.S. states, plus Italy and Rome where listed, and is also offered in Español and other languages on the site. The App Store app is also free, version 1.1.1 (released 19 November 2026, 12:15 PM ET), for iPhone and Mac, with no account and no ads. The app’s own listing says it has more than 6,000 places of worship across 48 states; that figure is for the app, not a claim about the website.</p>
-      <p class="note">Independent — not affiliated with any church, diocese, synagogue, mosque or temple. Always verify with the parish before you go.</p>
+      <details>
+        <summary>Details, price and fine print</summary>
+        <p>The web app is free at church.analogarcade.net (live site showed v2.33.44, updated Saturday 21 November 2026, 9:34 AM Eastern). It can browse all 50 U.S. states, plus Italy and Rome where listed, and is also offered in Español and other languages on the site. The App Store app is also free, version 1.1.1 (released 19 November 2026, 12:15 PM ET), for iPhone and Mac, with no account and no ads. The app’s own listing says it has more than 6,000 places of worship across 48 states; that figure is for the app, not a claim about the website.</p>
+        <p class="note">Independent — not affiliated with any church, diocese, synagogue, mosque or temple. Always verify with the parish before you go.</p>
+      </details>
       <div class="card-links"><a href="https://church.analogarcade.net/" rel="noopener noreferrer">Open the web app</a><a href="https://apps.apple.com/us/app/local-mass-finder/id6825162225" rel="noopener noreferrer">App Store</a></div>
     </article>
     
-    <article class="card">
+    <article class="card" data-tags="free iphone mac">
       <div class="card-top">
-        <img src="/assets/img/apps/keysong.jpg" width="64" height="64" alt="Keysong app icon">
+        <img src="/assets/img/apps/keysong.jpg" width="56" height="56" alt="Keysong app icon" loading="lazy" decoding="async">
         <div>
           <h3>Keysong</h3>
           <div class="pills"><span class="pill ">iPhone, iPad & Mac</span><span class="pill pill-free">Free</span><span class="pill ">App Store 1.0.6</span></div>
         </div>
       </div>
       <p><strong>Tap a piano key. Press Write. That’s a song — chords underneath, a tune on top.</strong></p>
-      <p>Free on the App Store, version 1.0.6 (released 16 November 2026, 6:05 PM ET). It teaches 34 well-known songs one lit key at a time. No account. It works without internet; nothing leaves the device. There is also a free browser preview, and an optional free zip on Gumroad.</p>
-      
+      <details>
+        <summary>Details, price and fine print</summary>
+        <p>Free on the App Store, version 1.0.6 (released 16 November 2026, 6:05 PM ET). It teaches 34 well-known songs one lit key at a time. No account. It works without internet; nothing leaves the device. There is also a free browser preview, and an optional free zip on Gumroad.</p>
+        
+      </details>
       <div class="card-links"><a href="https://apps.apple.com/us/app/keysong/id6804326066" rel="noopener noreferrer">App Store</a><a href="https://analogarcade.net/write-notes/" rel="noopener noreferrer">Play in the browser</a><a href="https://analogquantum.gumroad.com/l/writenotes" rel="noopener noreferrer">Gumroad zip</a></div>
     </article>
     
-    <article class="card">
+    <article class="card" data-tags="web">
       <div class="card-top">
-        <img src="/assets/img/apps/cardcheck.png" width="64" height="64" alt="Card Check icon">
+        <img src="/assets/img/apps/cardcheck.png" width="56" height="56" alt="Card Check icon" loading="lazy" decoding="async">
         <div>
           <h3>Card Check</h3>
           <div class="pills"><span class="pill ">Web</span></div>
         </div>
       </div>
       <p><strong>Snap 11 guided photos of a trading card and get an AI condition estimate — before you pay to have it graded.</strong></p>
-      <p>Photos are cropped to the card. You can save cards to My Cards if you sign in first; a check without an account is not added later. No price is shown on the live page. On an iPhone, open it in Safari and add it to the Home Screen.</p>
-      <p class="note">This is a pre-grade estimate from photos. It is not a professional grade.</p>
+      <details>
+        <summary>Details, price and fine print</summary>
+        <p>Photos are cropped to the card. You can save cards to My Cards if you sign in first; a check without an account is not added later. No price is shown on the live page. On an iPhone, open it in Safari and add it to the Home Screen.</p>
+        <p class="note">This is a pre-grade estimate from photos. It is not a professional grade.</p>
+      </details>
       <div class="card-links"><a href="https://cards.analogarcade.net/" rel="noopener noreferrer">Open Card Check</a></div>
     </article>
     </div>
@@ -132,35 +157,96 @@
     </section>
     
   </main>
+  
+  
   <footer class="site-footer">
-    <div class="wrap foot-grid">
-      <div>
-        <a class="brand" href="/">
-          <img src="/assets/img/mark.svg" width="34" height="34" alt="">
-          <span class="name">PLJA<span class="corp">CORP</span></span>
-        </a>
-        <p>The company name Pete De Paola uses for the apps he makes. Analog Arcade is the public shop.</p>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a class="brand" href="/">
+            <img src="/assets/img/mark.svg" width="32" height="32" alt="" loading="lazy">
+            <span class="name">PLJA<span class="corp">CORP</span></span>
+          </a>
+          <p>The company name Pete De Paola uses for the apps he makes. Analog Arcade is the public shop.</p>
+        </div>
+        <div>
+          <h2>Site</h2>
+          <nav aria-label="Footer">
+            <a href="/products/">Apps</a>
+            <a href="/daily/">Daily Scan</a>
+            <a href="/live/">Live board</a>
+            <a href="/about/">About</a>
+            <a href="/contact/">Contact</a>
+            <a href="/support/">Support</a>
+            <a href="/privacy/">Privacy</a>
+          </nav>
+        </div>
+        <div>
+          <h2>Elsewhere</h2>
+          <nav aria-label="Elsewhere">
+            <a href="https://analogarcade.net/">Analog Arcade</a>
+            <a href="https://apps.apple.com/us/developer/peter-de-paola/id6804326068">App Store developer page</a>
+            <a href="https://x.com/PLJA_AI">@PLJA_AI on X</a>
+          </nav>
+        </div>
       </div>
-      <div>
-        <h2>Site</h2>
-        <nav aria-label="Footer">
-          <a href="/products/">Products</a>
-          <a href="/about/">About</a>
-          <a href="/contact/">Contact</a>
-          <a href="/support/">Support</a>
-          <a href="/privacy/">Privacy</a>
-        </nav>
-      </div>
-      <div>
-        <h2>Elsewhere</h2>
-        <nav aria-label="Elsewhere">
-          <a href="https://analogarcade.net/">Analog Arcade</a>
-          <a href="https://apps.apple.com/us/developer/peter-de-paola/id6804326068">App Store developer page</a>
-          <a href="https://x.com/PLJA_AI">@PLJA_AI on X</a>
-        </nav>
+      <div class="stampline">
+        <span>© 2026 PLJA Corp.</span>
+        <span class="ver">v2026.11.25.3 · Wed, Nov 25, 2026, 9:29 PM ET</span>
       </div>
     </div>
-    <div class="wrap tiny">© 2026 PLJA Corp · Pete De Paola. Facts on this draft were checked against live pages and the US App Store on 22 November 2026, America/New_York. This site does not claim that PLJA Corp has been filed as a legal entity.</div>
   </footer>
+  
+  <dialog class="jump" id="jump" aria-label="Jump to a page">
+    <label class="sr-only" for="jump-q">Search pages</label>
+    <input id="jump-q" type="search" placeholder="Jump to… (apps, Daily Scan, Live board)" autocomplete="off">
+    <ul id="jump-list"><li><a href="/">Home<span>Start here</span></a></li><li><a href="/products/">Apps<span>House Binder, House Radar, Local Mass Finder, Keysong, Card Check</span></a></li><li><a href="/daily/">Daily Scan<span>Morning research log</span></a></li><li><a href="/daily/2026-11-25/">Latest scan: Nov 25, 2026<span>Daily Scan</span></a></li><li><a href="/live/">Live board<span>Chatter vs. normal, refreshed on weekdays</span></a></li><li><a href="/about/">About<span>Who makes these</span></a></li><li><a href="/contact/">Contact<span>How to reach us</span></a></li><li><a href="/support/">Support<span>Help for each app</span></a></li><li><a href="/privacy/">Privacy<span>What this site collects (nothing extra)</span></a></li><li><a href="https://binder.analogarcade.net/" rel="noopener noreferrer">House Binder<span>Web app</span></a></li><li><a href="https://apps.apple.com/us/app/house-radar/id6816271323" rel="noopener noreferrer">House Radar<span>App Store</span></a></li><li><a href="https://church.analogarcade.net/" rel="noopener noreferrer">Local Mass Finder<span>Web app</span></a></li><li><a href="https://apps.apple.com/us/app/keysong/id6804326066" rel="noopener noreferrer">Keysong<span>App Store</span></a></li><li><a href="https://cards.analogarcade.net/" rel="noopener noreferrer">Card Check<span>Web app</span></a></li><li><a href="https://analogarcade.net/" rel="noopener noreferrer">Analog Arcade<span>The public shop</span></a></li></ul>
+    <p class="hint">↑ ↓ to move · Enter to open · Esc to close</p>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+(function(){
+  var root = document.documentElement;
+  function current(){ var t = root.getAttribute('data-theme'); if (t) return t; return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+  var tb = document.getElementById('theme-btn');
+  function paint(){ if (!tb) return; var d = current() === 'dark'; tb.setAttribute('aria-pressed', d ? 'true' : 'false'); tb.setAttribute('aria-label', d ? 'Switch to light mode' : 'Switch to dark mode'); tb.innerHTML = d ? tb.dataset.sun : tb.dataset.moon; var m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = d ? '#12110f' : '#f5f0e7'; }
+  if (tb) tb.addEventListener('click', function(){ var n = current() === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', n); try { localStorage.setItem('plja-theme', n); } catch(e){} paint(); });
+  paint();
+  // Jump anywhere: press / or Ctrl/Cmd+K.
+  var dlg = document.getElementById('jump'), inp = document.getElementById('jump-q'), list = document.getElementById('jump-list');
+  var jb = document.getElementById('jump-btn');
+  if (dlg && inp && list) {
+    var items = [].slice.call(list.querySelectorAll('li'));
+    var sel = 0;
+    function vis(){ return items.filter(function(li){ return !li.hidden; }); }
+    function mark(){ var v = vis(); v.forEach(function(li, i){ li.firstChild.setAttribute('aria-selected', i === sel ? 'true' : 'false'); }); if (v[sel]) v[sel].scrollIntoView({block:'nearest'}); }
+    function filter(){ var q = inp.value.toLowerCase().trim(); items.forEach(function(li){ li.hidden = q && li.textContent.toLowerCase().indexOf(q) < 0; }); sel = 0; mark(); }
+    function open(){ if (dlg.open) return; inp.value = ''; filter(); dlg.showModal(); inp.focus(); }
+    inp.addEventListener('input', filter);
+    inp.addEventListener('keydown', function(e){ var v = vis(); if (e.key === 'ArrowDown'){ sel = Math.min(sel+1, v.length-1); mark(); e.preventDefault(); } else if (e.key === 'ArrowUp'){ sel = Math.max(sel-1, 0); mark(); e.preventDefault(); } else if (e.key === 'Enter' && v[sel]){ location.href = v[sel].firstChild.href; } });
+    dlg.addEventListener('click', function(e){ if (e.target === dlg) dlg.close(); });
+    if (jb) jb.addEventListener('click', open);
+    document.addEventListener('keydown', function(e){
+      var tag = (e.target.tagName || '').toLowerCase();
+      if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && tag !== 'input' && tag !== 'textarea')) { e.preventDefault(); open(); }
+    });
+  }
+  window.plja = window.plja || {};
+  window.plja.toast = function(msg){ var t = document.getElementById('toast'); if (!t) return; t.textContent = msg; t.classList.add('on'); clearTimeout(t._h); t._h = setTimeout(function(){ t.classList.remove('on'); }, 2200); };
+})();
+</script>
+  <script>
+(function(){
+  var chips = [].slice.call(document.querySelectorAll('.filters .chip'));
+  var cards = [].slice.call(document.querySelectorAll('.grid.products .card'));
+  var st = document.getElementById('filter-status');
+  chips.forEach(function(c){ c.addEventListener('click', function(){
+    var f = c.dataset.f, n = 0;
+    chips.forEach(function(o){ o.setAttribute('aria-pressed', o === c ? 'true' : 'false'); });
+    cards.forEach(function(card){ var on = f === 'all' || (' ' + card.dataset.tags + ' ').indexOf(' ' + f + ' ') >= 0; card.hidden = !on; if (on) n++; });
+    if (st) st.textContent = n + (n === 1 ? ' app' : ' apps') + ' shown';
+  }); });
+})();
+</script>
 </body>
 </html>

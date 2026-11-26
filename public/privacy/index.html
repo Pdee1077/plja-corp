@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Privacy — PLJA Corp</title>
   <meta name="description" content="The PLJA Corp company website is a static site. It does not use accounts, cookies or analytics. Product privacy pages are linked here.">
   <link rel="canonical" href="https://plja-corp.pages.dev/privacy/">
-  <meta name="theme-color" content="#f4efe6">
-  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f5f0e7">
+  <meta name="color-scheme" content="light dark">
+  <meta name="generator" content="PLJA site v2026.11.25.3">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PLJA Corp">
   <meta property="og:title" content="Privacy — PLJA Corp">
@@ -25,25 +26,26 @@
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/ibm-plex-sans-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/fraunces-semibold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/plja-2026.11.25.3.css">
+  <script>(function(){try{var t=localStorage.getItem('plja-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="draft">This is a first-draft preview. It is not live on plja.analogarcade.net, and no custom domain has been attached.</div>
+  <div class="draft">Preview site on <strong>plja-corp.pages.dev</strong>. No custom domain is attached yet.</div>
+  
   <header class="site-header">
-    <div class="bar">
-      <a class="brand" href="/">
-        <img src="/assets/img/mark.svg" width="34" height="34" alt="">
+    <div class="wrap bar">
+      <a class="brand" href="/" aria-label="PLJA Corp home">
+        <img src="/assets/img/mark.svg" width="32" height="32" alt="">
         <span class="name">PLJA<span class="corp">CORP</span></span>
       </a>
-      
-    <nav class="nav-wide" aria-label="Primary"><a href="/products/">Products</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/support/">Support</a></nav>
-    <nav class="mobile" aria-label="Primary">
-      <details>
-        <summary>Menu</summary>
-        <div class="panel"><a href="/products/">Products</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/support/">Support</a></div>
+      <nav class="nav" aria-label="Primary"><a href="/products/">Apps</a><a href="/daily/">Daily Scan</a><a href="/live/" class="live-dot">Live board</a><a href="/about/">About</a><a href="/support/">Support</a></nav>
+      <button class="tool jump-btn" id="jump-btn" type="button" aria-label="Jump to a page" aria-keyshortcuts="/ Control+K"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="lbl">Jump</span><kbd>/</kbd></button>
+      <button class="tool" id="theme-btn" type="button" aria-label="Switch theme" aria-pressed="false" data-sun="<svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; aria-hidden=&quot;true&quot;><circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;4&quot;/><path d=&quot;M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4&quot;/></svg>" data-moon="<svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; aria-hidden=&quot;true&quot;><path d=&quot;M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z&quot;/></svg>"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <details class="menu">
+        <summary class="tool" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+        <nav class="panel" aria-label="Primary"><a href="/products/">Apps</a><a href="/daily/">Daily Scan</a><a href="/live/">Live board</a><a href="/about/">About</a><a href="/support/">Support</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a></nav>
       </details>
-    </nav>
     </div>
   </header>
   <main id="main">
@@ -72,35 +74,84 @@
     </article>
     
   </main>
+  
+  
   <footer class="site-footer">
-    <div class="wrap foot-grid">
-      <div>
-        <a class="brand" href="/">
-          <img src="/assets/img/mark.svg" width="34" height="34" alt="">
-          <span class="name">PLJA<span class="corp">CORP</span></span>
-        </a>
-        <p>The company name Pete De Paola uses for the apps he makes. Analog Arcade is the public shop.</p>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a class="brand" href="/">
+            <img src="/assets/img/mark.svg" width="32" height="32" alt="" loading="lazy">
+            <span class="name">PLJA<span class="corp">CORP</span></span>
+          </a>
+          <p>The company name Pete De Paola uses for the apps he makes. Analog Arcade is the public shop.</p>
+        </div>
+        <div>
+          <h2>Site</h2>
+          <nav aria-label="Footer">
+            <a href="/products/">Apps</a>
+            <a href="/daily/">Daily Scan</a>
+            <a href="/live/">Live board</a>
+            <a href="/about/">About</a>
+            <a href="/contact/">Contact</a>
+            <a href="/support/">Support</a>
+            <a href="/privacy/">Privacy</a>
+          </nav>
+        </div>
+        <div>
+          <h2>Elsewhere</h2>
+          <nav aria-label="Elsewhere">
+            <a href="https://analogarcade.net/">Analog Arcade</a>
+            <a href="https://apps.apple.com/us/developer/peter-de-paola/id6804326068">App Store developer page</a>
+            <a href="https://x.com/PLJA_AI">@PLJA_AI on X</a>
+          </nav>
+        </div>
       </div>
-      <div>
-        <h2>Site</h2>
-        <nav aria-label="Footer">
-          <a href="/products/">Products</a>
-          <a href="/about/">About</a>
-          <a href="/contact/">Contact</a>
-          <a href="/support/">Support</a>
-          <a href="/privacy/">Privacy</a>
-        </nav>
-      </div>
-      <div>
-        <h2>Elsewhere</h2>
-        <nav aria-label="Elsewhere">
-          <a href="https://analogarcade.net/">Analog Arcade</a>
-          <a href="https://apps.apple.com/us/developer/peter-de-paola/id6804326068">App Store developer page</a>
-          <a href="https://x.com/PLJA_AI">@PLJA_AI on X</a>
-        </nav>
+      <div class="stampline">
+        <span>© 2026 PLJA Corp.</span>
+        <span class="ver">v2026.11.25.3 · Wed, Nov 25, 2026, 9:29 PM ET</span>
       </div>
     </div>
-    <div class="wrap tiny">© 2026 PLJA Corp · Pete De Paola. Facts on this draft were checked against live pages and the US App Store on 22 November 2026, America/New_York. This site does not claim that PLJA Corp has been filed as a legal entity.</div>
   </footer>
+  
+  <dialog class="jump" id="jump" aria-label="Jump to a page">
+    <label class="sr-only" for="jump-q">Search pages</label>
+    <input id="jump-q" type="search" placeholder="Jump to… (apps, Daily Scan, Live board)" autocomplete="off">
+    <ul id="jump-list"><li><a href="/">Home<span>Start here</span></a></li><li><a href="/products/">Apps<span>House Binder, House Radar, Local Mass Finder, Keysong, Card Check</span></a></li><li><a href="/daily/">Daily Scan<span>Morning research log</span></a></li><li><a href="/daily/2026-11-25/">Latest scan: Nov 25, 2026<span>Daily Scan</span></a></li><li><a href="/live/">Live board<span>Chatter vs. normal, refreshed on weekdays</span></a></li><li><a href="/about/">About<span>Who makes these</span></a></li><li><a href="/contact/">Contact<span>How to reach us</span></a></li><li><a href="/support/">Support<span>Help for each app</span></a></li><li><a href="/privacy/">Privacy<span>What this site collects (nothing extra)</span></a></li><li><a href="https://binder.analogarcade.net/" rel="noopener noreferrer">House Binder<span>Web app</span></a></li><li><a href="https://apps.apple.com/us/app/house-radar/id6816271323" rel="noopener noreferrer">House Radar<span>App Store</span></a></li><li><a href="https://church.analogarcade.net/" rel="noopener noreferrer">Local Mass Finder<span>Web app</span></a></li><li><a href="https://apps.apple.com/us/app/keysong/id6804326066" rel="noopener noreferrer">Keysong<span>App Store</span></a></li><li><a href="https://cards.analogarcade.net/" rel="noopener noreferrer">Card Check<span>Web app</span></a></li><li><a href="https://analogarcade.net/" rel="noopener noreferrer">Analog Arcade<span>The public shop</span></a></li></ul>
+    <p class="hint">↑ ↓ to move · Enter to open · Esc to close</p>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+(function(){
+  var root = document.documentElement;
+  function current(){ var t = root.getAttribute('data-theme'); if (t) return t; return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+  var tb = document.getElementById('theme-btn');
+  function paint(){ if (!tb) return; var d = current() === 'dark'; tb.setAttribute('aria-pressed', d ? 'true' : 'false'); tb.setAttribute('aria-label', d ? 'Switch to light mode' : 'Switch to dark mode'); tb.innerHTML = d ? tb.dataset.sun : tb.dataset.moon; var m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = d ? '#12110f' : '#f5f0e7'; }
+  if (tb) tb.addEventListener('click', function(){ var n = current() === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', n); try { localStorage.setItem('plja-theme', n); } catch(e){} paint(); });
+  paint();
+  // Jump anywhere: press / or Ctrl/Cmd+K.
+  var dlg = document.getElementById('jump'), inp = document.getElementById('jump-q'), list = document.getElementById('jump-list');
+  var jb = document.getElementById('jump-btn');
+  if (dlg && inp && list) {
+    var items = [].slice.call(list.querySelectorAll('li'));
+    var sel = 0;
+    function vis(){ return items.filter(function(li){ return !li.hidden; }); }
+    function mark(){ var v = vis(); v.forEach(function(li, i){ li.firstChild.setAttribute('aria-selected', i === sel ? 'true' : 'false'); }); if (v[sel]) v[sel].scrollIntoView({block:'nearest'}); }
+    function filter(){ var q = inp.value.toLowerCase().trim(); items.forEach(function(li){ li.hidden = q && li.textContent.toLowerCase().indexOf(q) < 0; }); sel = 0; mark(); }
+    function open(){ if (dlg.open) return; inp.value = ''; filter(); dlg.showModal(); inp.focus(); }
+    inp.addEventListener('input', filter);
+    inp.addEventListener('keydown', function(e){ var v = vis(); if (e.key === 'ArrowDown'){ sel = Math.min(sel+1, v.length-1); mark(); e.preventDefault(); } else if (e.key === 'ArrowUp'){ sel = Math.max(sel-1, 0); mark(); e.preventDefault(); } else if (e.key === 'Enter' && v[sel]){ location.href = v[sel].firstChild.href; } });
+    dlg.addEventListener('click', function(e){ if (e.target === dlg) dlg.close(); });
+    if (jb) jb.addEventListener('click', open);
+    document.addEventListener('keydown', function(e){
+      var tag = (e.target.tagName || '').toLowerCase();
+      if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && tag !== 'input' && tag !== 'textarea')) { e.preventDefault(); open(); }
+    });
+  }
+  window.plja = window.plja || {};
+  window.plja.toast = function(msg){ var t = document.getElementById('toast'); if (!t) return; t.textContent = msg; t.classList.add('on'); clearTimeout(t._h); t._h = setTimeout(function(){ t.classList.remove('on'); }, 2200); };
+})();
+</script>
+  
 </body>
 </html>

@@ -8,6 +8,10 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 import cairosvg
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import theme  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
@@ -97,12 +101,19 @@ def subset_fonts() -> None:
                 f"--output-file={dest}",
                 "--flavor=woff2",
                 f"--unicodes={UNICODES}",
-                "--layout-features=kern,liga,calt",
+                "--layout-features=kern,liga,calt,tnum,lnum",
                 "--no-hinting",
                 "--desubroutinize",
             ]
         )
         print("font", dest.name, dest.stat().st_size)
+    mono_src = Path("/usr/share/fonts/truetype/sand-box/google/IBM Plex Mono/IBMPlexMono-Medium.ttf")
+    mono_dest = FONTS_OUT / "ibm-plex-mono-medium.woff2"
+    if mono_src.exists():
+        run(["pyftsubset", str(mono_src), f"--output-file={mono_dest}", "--flavor=woff2",
+             "--unicodes=U+0020-007E,U+00D7,U+2013,U+2014,U+2212,U+2191,U+2193", "--layout-features=kern",
+             "--no-hinting", "--desubroutinize"])
+        print("font", mono_dest.name, mono_dest.stat().st_size)
 
 
 MARK_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PLJA Corp">
@@ -187,6 +198,9 @@ def prepare_app_icons() -> None:
     }
     for dest_name, src in srcs.items():
         out = APPS / dest_name
+        if not src.exists():
+            print("icon kept", dest_name, "(source not on this machine)")
+            continue
         im = Image.open(src)
         im = im.resize((256, 256), Image.Resampling.LANCZOS)
         if dest_name.endswith(".jpg"):
@@ -545,87 +559,8 @@ def nav_html(current: str) -> str:
     </nav>"""
 
 
-def layout(title: str, description: str, path: str, body: str, og_title: str | None = None) -> str:
-    canonical = SITE_ORIGIN + path
-    og = og_title or title
-    page_path = path
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{title}</title>
-  <meta name="description" content="{description}">
-  <link rel="canonical" href="{canonical}">
-  <meta name="theme-color" content="#f4efe6">
-  <meta name="color-scheme" content="light">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="PLJA Corp">
-  <meta property="og:title" content="{og}">
-  <meta property="og:description" content="{description}">
-  <meta property="og:url" content="{canonical}">
-  <meta property="og:image" content="{SITE_ORIGIN}/assets/img/og.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{og}">
-  <meta name="twitter:description" content="{description}">
-  <meta name="twitter:image" content="{SITE_ORIGIN}/assets/img/og.png">
-  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="preload" href="/assets/fonts/ibm-plex-sans-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/fraunces-semibold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/site.css">
-</head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
-  <div class="draft">This is a first-draft preview. It is not live on plja.analogarcade.net, and no custom domain has been attached.</div>
-  <header class="site-header">
-    <div class="bar">
-      <a class="brand" href="/">
-        <img src="/assets/img/mark.svg" width="34" height="34" alt="">
-        <span class="name">PLJA<span class="corp">CORP</span></span>
-      </a>
-      {nav_html(page_path)}
-    </div>
-  </header>
-  <main id="main">
-    {body}
-  </main>
-  <footer class="site-footer">
-    <div class="wrap foot-grid">
-      <div>
-        <a class="brand" href="/">
-          <img src="/assets/img/mark.svg" width="34" height="34" alt="">
-          <span class="name">PLJA<span class="corp">CORP</span></span>
-        </a>
-        <p>The company name Pete De Paola uses for the apps he makes. Analog Arcade is the public shop.</p>
-      </div>
-      <div>
-        <h2>Site</h2>
-        <nav aria-label="Footer">
-          <a href="/products/">Products</a>
-          <a href="/about/">About</a>
-          <a href="/contact/">Contact</a>
-          <a href="/support/">Support</a>
-          <a href="/privacy/">Privacy</a>
-        </nav>
-      </div>
-      <div>
-        <h2>Elsewhere</h2>
-        <nav aria-label="Elsewhere">
-          <a href="https://analogarcade.net/">Analog Arcade</a>
-          <a href="https://apps.apple.com/us/developer/peter-de-paola/id6804326068">App Store developer page</a>
-          <a href="https://x.com/PLJA_AI">@PLJA_AI on X</a>
-        </nav>
-      </div>
-    </div>
-    <div class="wrap tiny">© {YEAR} PLJA Corp · Pete De Paola. Facts on this draft were checked against live pages and the US App Store on 22 November 2026, America/New_York. This site does not claim that PLJA Corp has been filed as a legal entity.</div>
-  </footer>
-</body>
-</html>
-"""
+def layout(title: str, description: str, path: str, body: str, og_title: str | None = None, scripts: str = "") -> str:
+    return theme.page(title=title, description=description, path=path, body=body, scripts=scripts)
 
 
 def product_card(
@@ -638,9 +573,18 @@ def product_card(
     note: str | None,
     links: list[tuple[str, str, bool]],
 ) -> str:
-    pill_html = "".join(
-        f'<span class="pill {cls}">{label}</span>' for label, cls in pills
-    )
+    pill_html = "".join(f'<span class="pill {cls}">{label}</span>' for label, cls in pills)
+    tags = set()
+    for label, cls in pills:
+        low = label.lower()
+        if "free" in low or cls == "pill-free":
+            tags.add("free")
+        if "iphone" in low or "ipad" in low:
+            tags.add("iphone")
+        if "web" in low:
+            tags.add("web")
+        if "mac" in low:
+            tags.add("mac")
     note_html = f'<p class="note">{note}</p>' if note else ""
     bits = []
     for label, href, ext in links:
@@ -648,17 +592,20 @@ def product_card(
         bits.append(f'<a href="{href}"{rel}>{label}</a>')
     link_html = "".join(bits)
     return f"""
-    <article class="card">
+    <article class="card" data-tags="{' '.join(sorted(tags))}">
       <div class="card-top">
-        <img src="{icon}" width="64" height="64" alt="{icon_alt}">
+        <img src="{icon}" width="56" height="56" alt="{icon_alt}" loading="lazy" decoding="async">
         <div>
           <h3>{name}</h3>
           <div class="pills">{pill_html}</div>
         </div>
       </div>
       <p><strong>{pitch}</strong></p>
-      <p>{body}</p>
-      {note_html}
+      <details>
+        <summary>Details, price and fine print</summary>
+        <p>{body}</p>
+        {note_html}
+      </details>
       <div class="card-links">{link_html}</div>
     </article>
     """
@@ -768,26 +715,104 @@ HOME_JSONLD = f"""
 
 PAGES: dict[str, tuple[str, str, str, str]] = {}
 
+FILTER_JS = """<script>
+(function(){
+  var chips = [].slice.call(document.querySelectorAll('.filters .chip'));
+  var cards = [].slice.call(document.querySelectorAll('.grid.products .card'));
+  var st = document.getElementById('filter-status');
+  chips.forEach(function(c){ c.addEventListener('click', function(){
+    var f = c.dataset.f, n = 0;
+    chips.forEach(function(o){ o.setAttribute('aria-pressed', o === c ? 'true' : 'false'); });
+    cards.forEach(function(card){ var on = f === 'all' || (' ' + card.dataset.tags + ' ').indexOf(' ' + f + ' ') >= 0; card.hidden = !on; if (on) n++; });
+    if (st) st.textContent = n + (n === 1 ? ' app' : ' apps') + ' shown';
+  }); });
+})();
+</script>"""
+
+PULSE_JS = """<script>
+(function(){
+  var box = document.getElementById('pulse'), list = document.getElementById('pulse-list'), when = document.getElementById('pulse-when');
+  if (!box || !window.fetch) return;
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function get(u){ return fetch(u, {cache:'no-store'}).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }); }
+  Promise.all([get('/live/board.json'), get('https://raw.githubusercontent.com/Pdee1077/plja-corp/live-data/board.json?t=' + Date.now())]).then(function(p){
+    var d = p[1] || p[0];
+    if (p[0] && p[1] && new Date(p[0].updated) > new Date(p[1].updated)) d = p[0];
+    if (!d || !d.rows || !d.rows.length) return;
+    var rows = d.rows.filter(function(r){ return r.group === 'abnormal'; });
+    rows.sort(function(a, b){ return (b.st_x_normal || b.x24 || 0) - (a.st_x_normal || a.x24 || 0); });
+    list.innerHTML = rows.slice(0, 3).map(function(r){
+      var x = r.st_x_normal != null ? r.st_x_normal : r.x24;
+      return '<li><span class="sym">' + esc(r.sym) + '</span><span class="lbl">' + esc(r.name || '') + '</span><span class="x">' + (x != null ? esc(Number(x).toFixed(1)) + '×' : '–') + '</span></li>';
+    }).join('');
+    when.textContent = 'Snapshot ' + (d.updated_et || '');
+    box.hidden = false;
+  });
+})();
+</script>"""
+
 
 def pages() -> dict[str, str]:
+    I = theme.ICONS
     home_body = f"""
     {HOME_JSONLD}
     <section class="hero">
       <div class="wrap">
-        <p class="kicker">PLJA Corp</p>
-        <h1>Local-first apps, priced once.</h1>
-        <p class="lede"><strong>PLJA Corp</strong> is the company name Pete De Paola uses for the apps he makes. He is a solo maker. The public shop is <a href="https://analogarcade.net/">Analog Arcade</a>. The five products below are finished and live today.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="/products/">See the products</a>
-          <a class="btn btn-ghost" href="/about/">About PLJA Corp</a>
+        <div class="hero-grid"><div>
+        <p class="kicker rise">PLJA Corp · solo-made software</p>
+        <h1 class="rise d1">Small apps that do <em>one job</em> well.</h1>
+        <p class="lede rise d2"><strong>PLJA Corp</strong> is the company name Pete De Paola uses for the apps he makes. Five are finished and live today. Most are free; the one paid app is $2.99, once. There is also a free morning research page and a live chatter board.</p>
+        <div class="actions rise d3">
+          <a class="btn btn-primary" href="/products/">See the five apps <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="/live/">Open the live board</a>
+        </div>
+        <ul class="trust rise d3" aria-label="How these are made">
+          <li>{I["check"]} No subscriptions</li>
+          <li>{I["check"]} No ads or tracking on this site</li>
+          <li>{I["check"]} Local-first where it can be</li>
+          <li>{I["check"]} Made and shipped by one person</li>
+        </ul>
+        </div>
+        <div class="mosaic rise d2" aria-hidden="true">
+          <img src="/assets/img/apps/binder.png" width="256" height="256" alt="">
+          <img src="/assets/img/apps/houseradar.jpg" width="256" height="256" alt="">
+          <img src="/assets/img/apps/massfinder.jpg" width="256" height="256" alt="">
+          <img src="/assets/img/apps/keysong.jpg" width="256" height="256" alt="">
+          <img src="/assets/img/apps/cardcheck.png" width="256" height="256" alt="">
+        </div>
+        </div>
+        <div class="doors">
+          <a class="door" href="/products/">
+            <span class="ico">{I["apps"]}</span>
+            <strong>Apps</strong>
+            <span>House Binder, House Radar, Local Mass Finder, Keysong and Card Check. Web, iPhone, iPad and Mac.</span>
+            <span class="go">Browse the apps →</span>
+          </a>
+          <a class="door" href="/daily/">
+            <span class="ico">{I["sunrise"]}</span>
+            <strong>Daily Scan</strong>
+            <span>A free morning read of odd moves, news flags and names talked about far more than usual.</span>
+            <span class="go">Read today’s scan →</span>
+          </a>
+          <a class="door" href="/live/">
+            <span class="ico">{I["pulse"]}</span>
+            <strong>Live board</strong>
+            <span>Chatter vs. normal, sortable and filterable, with a NO NEWS flag. Research, not advice.</span>
+            <span class="go">Open the board →</span>
+          </a>
+        </div>
+        <div class="surface pulse" id="pulse" hidden>
+          <div class="pulse-head"><strong>From the live board</strong><span id="pulse-when"></span></div>
+          <ul class="pulse-list" id="pulse-list"></ul>
+          <p class="pulse-head">Talk vs. its own normal. A lead to check, not a fact, and not investment advice.</p>
         </div>
       </div>
     </section>
     <section class="section">
       <div class="wrap">
         <div class="section-head">
-          <h2>The products</h2>
-          <a href="/products/">All product details</a>
+          <h2>The apps</h2>
+          <a href="/products/">Compare all five →</a>
         </div>
         <div class="grid products">
           {CARDS}
@@ -917,13 +942,21 @@ def pages() -> dict[str, str]:
     products_body = f"""
     <article class="prose tight-bottom">
       <div class="wrap">
-        <p class="kicker">Products</p>
-        <h1>Five live products</h1>
-        <p class="lede">This list is only the finished set for this draft: House Binder, House Radar, Local Mass Finder, Keysong and Card Check. Overhead and Vanish Cam are not included. Prices, versions and wording were checked on the live pages and the US App Store on 22 November 2026, America/New_York.</p>
+        <p class="kicker">Apps</p>
+        <h1>Five live apps</h1>
+        <p class="lede">The finished set: House Binder, House Radar, Local Mass Finder, Keysong and Card Check. Prices, versions and wording were checked on the live pages and the US App Store on 22 November 2026, America/New_York.</p>
       </div>
     </article>
     <section class="section tight-top">
       <div class="wrap">
+        <div class="filters" role="group" aria-label="Filter apps">
+          <button class="chip" type="button" data-f="all" aria-pressed="true">All <span class="ct">5</span></button>
+          <button class="chip" type="button" data-f="free" aria-pressed="false">Free</button>
+          <button class="chip" type="button" data-f="iphone" aria-pressed="false">iPhone &amp; iPad</button>
+          <button class="chip" type="button" data-f="mac" aria-pressed="false">Mac</button>
+          <button class="chip" type="button" data-f="web" aria-pressed="false">Web</button>
+        </div>
+        <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
         <div class="grid products">{CARDS}</div>
       </div>
     </section>
@@ -935,12 +968,14 @@ def pages() -> dict[str, str]:
             "PLJA Corp is the company name Pete De Paola uses for the apps he makes: House Binder, House Radar, Local Mass Finder, Keysong and Card Check.",
             "/",
             home_body,
+            scripts=PULSE_JS,
         ),
         "products/index.html": layout(
             "Products — PLJA Corp",
             "House Binder, House Radar, Local Mass Finder, Keysong and Card Check — the finished, live products from PLJA Corp.",
             "/products/",
             products_body,
+            scripts=FILTER_JS,
         ),
         "about/index.html": layout(
             "About — PLJA Corp",
@@ -996,11 +1031,17 @@ HEADERS = """# Security and cache headers for the preview site.
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'unsafe-inline'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'unsafe-inline'; connect-src 'self' https://raw.githubusercontent.com; base-uri 'self'; form-action 'none'; frame-ancestors 'none'
   Cache-Control: public, max-age=300
 
 /assets/*
+  ! Cache-Control
   Cache-Control: public, max-age=31536000, immutable
+
+# The live board and its bundled snapshot go stale fast.
+/live/*
+  ! Cache-Control
+  Cache-Control: public, max-age=60
 """
 
 ROBOTS = f"""User-agent: *
@@ -1027,7 +1068,8 @@ def write_static() -> None:
 .prose.tight-bottom { padding-bottom: 0.5rem; }
 .section.tight-top { padding-top: 0; }
 """
-    (css_dir / "site.css").write_text(css, encoding="utf-8")
+    (css_dir / "site.css").write_text(css, encoding="utf-8")  # legacy, kept for old cached pages
+    theme.write_css(PUBLIC)
     (PUBLIC / "_headers").write_text(HEADERS, encoding="utf-8")
     (PUBLIC / "robots.txt").write_text(ROBOTS, encoding="utf-8")
     (PUBLIC / "sitemap.xml").write_text(SITEMAP, encoding="utf-8")

@@ -1,0 +1,55 @@
+/* Daily Scan */
+.day-hero { padding: clamp(1.8rem, 5vw, 3rem) 0 1rem; position: relative; isolation: isolate; }
+.day-hero::before { content: ""; position: absolute; inset: 0; background: var(--glow); z-index: -1; }
+.day-hero h1 { max-width: 22ch; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; color: var(--mute); font-size: .9rem; margin: 0 0 1rem; }
+.share { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1rem 0 0; }
+.summary { padding: clamp(1rem, 3vw, 1.6rem); margin: 1.4rem 0 0; display: grid; gap: 1.2rem; }
+.summary h2 { font-size: var(--s-1); font-family: var(--sans); font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); margin: 0; }
+.summary ol { margin: 0; padding-left: 1.3rem; display: grid; gap: .55rem; }
+.summary li { color: var(--ink-2); }
+.summary li::marker { color: var(--accent); font-weight: 500; }
+.summary strong { color: var(--ink); font-weight: 500; }
+.dtiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: .5rem; }
+@media (min-width: 640px) { .dtiles { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1000px) { .dtiles { grid-template-columns: repeat(6, 1fr); } }
+.dtile { background: var(--surface-2); border: 1px solid var(--line-2); border-radius: var(--r-2); padding: .65rem .8rem; display: grid; gap: .05rem; }
+.dtile .k { font-size: .74rem; color: var(--mute); }
+.dtile .v { font: 500 1.12rem/1.2 var(--mono); }
+.dtile .c { font: 500 .86rem var(--mono); color: var(--ink-2); }
+.dtile .c.up { color: var(--good); } .dtile .c.down { color: var(--bad); }
+.read { display: grid; gap: 2rem; padding: 2rem 0 3rem; }
+@media (min-width: 1000px) { .read { grid-template-columns: 14rem minmax(0, 1fr); gap: 3rem; } }
+.toc { font-size: .9rem; }
+.toc nav { position: sticky; top: 5rem; display: grid; gap: .1rem; border-left: 2px solid var(--line); }
+.toc .k { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); margin: 0 0 .5rem; }
+.toc a { color: var(--ink-2); text-decoration: none; padding: .35rem .8rem; margin-left: -2px; border-left: 2px solid transparent; }
+.toc a:hover { color: var(--ink); }
+.toc a.on { color: var(--accent-ink); border-left-color: var(--accent); font-weight: 500; }
+@media (max-width: 999px) { .toc nav { position: static; display: flex; flex-wrap: wrap; gap: .35rem; border: 0; } .toc a { border: 1px solid var(--line); border-radius: 999px; margin: 0; padding: .35rem .75rem; background: var(--surface); } }
+.article { max-width: 46rem; }
+.article h2 { font-size: var(--s-2); margin-top: 2.6rem; scroll-margin-top: 5rem; }
+.article h2:first-child { margin-top: 0; }
+.article p, .article li { color: var(--ink-2); }
+.article strong { color: var(--ink); font-weight: 500; }
+.article .note { border: 0; padding: 0; }
+.pager { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--line); padding-top: 1.2rem; margin-top: 2rem; font-size: .95rem; }
+.pager .off { color: var(--mute); }
+.archive { display: grid; gap: var(--space); }
+@media (min-width: 900px) { .archive { grid-template-columns: minmax(0, 1fr) 20rem; align-items: start; } }
+.cal { padding: 1rem 1.1rem 1.2rem; }
+.cal h3 { margin: 0 0 .7rem; font: 600 var(--s-1) var(--serif); }
+.cal table { font-size: .85rem; table-layout: fixed; }
+.cal th { background: none; text-align: center; padding: .25rem 0; font-size: .7rem; }
+.cal td { text-align: center; padding: .15rem; border: 0; }
+.cal td span, .cal td a { display: grid; place-items: center; height: 2.1rem; border-radius: .5rem; color: var(--mute); }
+.cal td a { background: var(--accent); color: #fff; font-weight: 500; text-decoration: none; }
+.cal td a:hover { background: var(--accent-ink); }
+.cal td.today span { box-shadow: inset 0 0 0 1px var(--ink-2); color: var(--ink); }
+.cal tbody tr:hover td { background: none; }
+.cal .k { font-size: .8rem; color: var(--mute); margin: .7rem 0 0; }
+.days { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
+.days a { display: grid; gap: .2rem; padding: 1rem 1.1rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-2); text-decoration: none; color: var(--ink); transition: border-color .2s, transform .2s var(--ease); }
+.days a:hover { border-color: var(--accent); transform: translateY(-2px); }
+.days .d { font-size: .8rem; color: var(--mute); letter-spacing: .06em; text-transform: uppercase; }
+.days .h { font: 600 var(--s-1)/1.25 var(--serif); }
