@@ -43,3 +43,12 @@
 - New room `/chatter/` ("Market Chatter"): newest scan summary on top, the live board right under it. One nav item replaces Daily Scan + Live board. `/daily/`, `/daily/2026-11-25/` and `/live/` still work unchanged (with a "Market Chatter ›" crumb).
 - Home: three doors now read Apps, Analog Arcade (our studio's shop), Market Chatter. The company is the hub; Analog Arcade and Market Chatter are rooms under it.
 - robots/sitemap include `/chatter/`. Nothing deleted. Data format, `live_board.py` and the workflow are untouched.
+
+
+## 26 November 2026, early morning, America/New_York (v2026.11.26.1)
+
+- Market Chatter is now the easiest thing to find on the company site. It is first in the nav (labelled "Market Chatter — live"), the hero of the home page (with the live top names above the fold), first of the three doors, and a modest link card on every page except `/chatter/` itself. `/daily/` and `/live/` still work. Nothing deleted.
+- Framing stays research-only: "what the internet is talking about vs. its usual chatter." The existing not-advice note is in the hero, the names card, and the home description.
+- Analog Arcade `/studio` already has a prominent Market Chatter tile, so that page was not changed.
+- Deployed to the existing Cloudflare Pages preview (`plja-corp.pages.dev`) only. No custom domain, DNS, or account changes. `live_board.py`, the workflow and the data format are untouched.
+

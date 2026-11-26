@@ -559,8 +559,8 @@ def nav_html(current: str) -> str:
     </nav>"""
 
 
-def layout(title: str, description: str, path: str, body: str, og_title: str | None = None, scripts: str = "") -> str:
-    return theme.page(title=title, description=description, path=path, body=body, scripts=scripts)
+def layout(title: str, description: str, path: str, body: str, og_title: str | None = None, scripts: str = "", preload_mono: bool = False) -> str:
+    return theme.page(title=title, description=description, path=path, body=body, scripts=scripts, preload_mono=preload_mono)
 
 
 def product_card(
@@ -752,36 +752,72 @@ PULSE_JS = """<script>
 </script>"""
 
 
+
+def _board_top(n: int = 3) -> tuple[list[dict], str]:
+    """Top abnormal names from the bundled or live-data board, for a no-JS fallback."""
+    import json, subprocess
+    board = None
+    try:
+        raw = subprocess.check_output(["git", "show", "origin/live-data:board.json"], cwd=ROOT, stderr=subprocess.DEVNULL)
+        board = json.loads(raw)
+    except Exception:
+        path = PUBLIC / "live" / "board.json"
+        if path.exists():
+            board = json.loads(path.read_text(encoding="utf-8"))
+    if not board or not board.get("rows"):
+        return [], ""
+    rows = [r for r in board["rows"] if r.get("group") == "abnormal"]
+    rows.sort(key=lambda r: (r.get("st_x_normal") or r.get("x24") or 0), reverse=True)
+    return rows[:n], str(board.get("updated_et") or "")
+
+
+def pulse_fallback_html() -> tuple[str, str]:
+    rows, when = _board_top(3)
+    if not rows:
+        return ""
+    lis = []
+    for r in rows:
+        x = r.get("st_x_normal")
+        if x is None:
+            x = r.get("x24")
+        xv = f"{float(x):.1f}×" if x is not None else "–"
+        name = (r.get("name") or "").replace("&", "&amp;").replace("<", "&lt;")
+        sym = (r.get("sym") or "").replace("&", "&amp;").replace("<", "&lt;")
+        lis.append(f'<li><span class="sym">{sym}</span><span class="lbl">{name}</span><span class="x">{xv}</span></li>')
+    return "".join(lis), when
+
+
 def pages() -> dict[str, str]:
     I = theme.ICONS
+    pulse_lis, pulse_when = pulse_fallback_html()
     home_body = f"""
     {HOME_JSONLD}
     <section class="hero">
       <div class="wrap">
-        <div class="hero-grid"><div>
-        <p class="kicker rise">PLJA Corp · solo-made software</p>
-        <h1 class="rise d1">Small apps that do <em>one job</em> well.</h1>
-        <p class="lede rise d2"><strong>PLJA Corp</strong> is the company name Pete De Paola uses for the apps he makes. Five are finished and live today. Most are free; the one paid app is $2.99, once. Under one roof you will also find Analog Arcade, our public shop, and Market Chatter, a free research room.</p>
-        <div class="actions rise d3">
-          <a class="btn btn-primary" href="/products/">See the five apps <span class="arr" aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" href="/chatter/">Enter Market Chatter</a>
+        <div class="hero-grid">
+        <p class="kicker rise">Market Chatter · a free research room</p>
+        <h1 class="rise d1">What the internet is <em>talking about</em>, versus its usual chatter.</h1>
+        <aside class="surface pulse hero-pulse rise d2" id="pulse">
+          <div class="pulse-head"><strong>Loudest names right now</strong><span id="pulse-when">{"Snapshot " + pulse_when if pulse_when else ""}</span></div>
+          <ul class="pulse-list" id="pulse-list">{pulse_lis}</ul>
+          <p class="pulse-head">Talk vs. its own normal. A lead to check, not a fact, and not investment advice.</p>
+          <a class="go" href="/chatter/">Open the full board →</a>
+        </aside>
+        <div class="hero-more rise d3">
+        <p class="lede">Today&rsquo;s scan and a live board, in one place. A number like 8× means talk is louder than that name&rsquo;s own recent normal &mdash; a lead to check, not a fact. <strong>Research and education only. Not investment advice.</strong></p>
+        <div class="actions">
+          <a class="btn btn-primary" href="/chatter/">Open Market Chatter <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="/products/">See the five apps</a>
         </div>
-        <ul class="trust rise d3" aria-label="How these are made">
-          <li>{I["check"]} No subscriptions</li>
-          <li>{I["check"]} No ads or tracking on this site</li>
-          <li>{I["check"]} Local-first where it can be</li>
-          <li>{I["check"]} Made and shipped by one person</li>
-        </ul>
-        </div>
-        <div class="mosaic rise d2" aria-hidden="true">
-          <img src="/assets/img/apps/binder.png" width="256" height="256" alt="">
-          <img src="/assets/img/apps/houseradar.jpg" width="256" height="256" alt="">
-          <img src="/assets/img/apps/massfinder.jpg" width="256" height="256" alt="">
-          <img src="/assets/img/apps/keysong.jpg" width="256" height="256" alt="">
-          <img src="/assets/img/apps/cardcheck.png" width="256" height="256" alt="">
         </div>
         </div>
         <div class="doors">
+          <a class="door featured" href="/chatter/">
+            <span class="ico">{I["pulse"]}</span>
+            <strong>Market Chatter</strong>
+            <span>Today&rsquo;s scan and a live board of what people are talking about, versus each name&rsquo;s usual chatter. Research, not advice.</span>
+            <span class="go">Enter the room →</span>
+          </a>
           <a class="door" href="/products/">
             <span class="ico">{I["apps"]}</span>
             <strong>Apps</strong>
@@ -794,17 +830,6 @@ def pages() -> dict[str, str]:
             <span>Our studio&rsquo;s public shop: free games, family tools, and the newest launches like Kept and Overhead.</span>
             <span class="go">Visit the shop →</span>
           </a>
-          <a class="door" href="/chatter/">
-            <span class="ico">{I["pulse"]}</span>
-            <strong>Market Chatter</strong>
-            <span>Today&rsquo;s scan and a live board of who is being talked about, in one room. Research, not advice.</span>
-            <span class="go">Enter the room →</span>
-          </a>
-        </div>
-        <div class="surface pulse" id="pulse" hidden>
-          <div class="pulse-head"><strong>From Market Chatter</strong><span id="pulse-when"></span></div>
-          <ul class="pulse-list" id="pulse-list"></ul>
-          <p class="pulse-head">Talk vs. its own normal. A lead to check, not a fact, and not investment advice.</p>
         </div>
       </div>
     </section>
@@ -814,6 +839,12 @@ def pages() -> dict[str, str]:
           <h2>The apps</h2>
           <a href="/products/">Compare all five →</a>
         </div>
+        <ul class="trust" aria-label="How these are made">
+          <li>{I["check"]} No subscriptions</li>
+          <li>{I["check"]} No ads or tracking on this site</li>
+          <li>{I["check"]} Local-first where it can be</li>
+          <li>{I["check"]} Made and shipped by one person</li>
+        </ul>
         <div class="grid products">
           {CARDS}
         </div>
@@ -964,11 +995,11 @@ def pages() -> dict[str, str]:
 
     out = {
         "index.html": layout(
-            "PLJA Corp — local-first apps from a solo maker",
-            "PLJA Corp is the company name Pete De Paola uses for the apps he makes: House Binder, House Radar, Local Mass Finder, Keysong and Card Check.",
+            "PLJA Corp — Market Chatter and local-first apps",
+            "Market Chatter: what the internet is talking about versus its usual chatter, plus the apps PLJA Corp ships. Research and education only. Not investment advice.",
             "/",
             home_body,
-            scripts=PULSE_JS,
+            preload_mono=True,
         ),
         "products/index.html": layout(
             "Products — PLJA Corp",
@@ -1006,7 +1037,7 @@ def pages() -> dict[str, str]:
     not_found = layout(
         "Page not found — PLJA Corp",
         "That page is not on the PLJA Corp site.",
-        "/",
+        "/404",
         """
         <article class="prose">
           <div class="narrow">
@@ -1015,6 +1046,7 @@ def pages() -> dict[str, str]:
             <p>The link may be old, or this first-draft site may not have that path yet.</p>
             <div class="actions">
               <a class="btn btn-primary" href="/">Go to the home page</a>
+              <a class="btn btn-ghost" href="/chatter/">Open Market Chatter</a>
               <a class="btn btn-ghost" href="/products/">See the products</a>
             </div>
           </div>
@@ -1067,6 +1099,7 @@ def write_static() -> None:
     css = CSS + """
 .prose.tight-bottom { padding-bottom: 0.5rem; }
 .section.tight-top { padding-top: 0; }
+.section .trust { margin: 0 0 1.4rem; }
 """
     (css_dir / "site.css").write_text(css, encoding="utf-8")  # legacy, kept for old cached pages
     theme.write_css(PUBLIC)

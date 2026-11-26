@@ -13,7 +13,7 @@ from zoneinfo import ZoneInfo
 SITE = "https://plja-corp.pages.dev"
 ET = ZoneInfo("America/New_York")
 # One site-wide version. Bump on every design or content release.
-VERSION = "2026.11.25.5"
+VERSION = "2026.11.26.1"
 # CSS and JS file names carry the version because /assets/* is cached for a year.
 CSS_HREF = f"/assets/css/plja-{VERSION}.css"
 YEAR = "2026"
@@ -28,8 +28,8 @@ def published_et(now: datetime | None = None) -> str:
 PUBLISHED = published_et()
 
 NAV = [
+    ("/chatter/", 'Market Chatter <span class="live-word">— live</span>'),
     ("/products/", "Apps"),
-    ("/chatter/", "Market Chatter"),
     ("/about/", "About"),
     ("/support/", "Support"),
 ]
@@ -38,8 +38,8 @@ SECTION_OF = {"/daily/": "/chatter/", "/live/": "/chatter/"}
 
 JUMP = [
     ("Home", "/", "Start here"),
+    ("Market Chatter", "/chatter/", "What the internet is talking about vs. normal"),
     ("Apps", "/products/", "House Binder, House Radar, Local Mass Finder, Keysong, Card Check"),
-    ("Market Chatter", "/chatter/", "Today's scan and the live board in one room"),
     ("Daily Scan (archive)", "/daily/", "Morning research log"),
     ("Latest scan: Nov 25, 2026", "/daily/2026-11-25/", "Daily Scan"),
     ("Live board", "/live/", "Chatter vs. normal, refreshed on weekdays"),
@@ -158,8 +158,21 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .nav a { color: var(--ink-2); text-decoration: none; padding: .5rem .8rem; border-radius: 999px; font-size: .94rem; min-height: 40px; display: inline-flex; align-items: center; transition: background .2s var(--ease), color .2s; }
 .nav a:hover { background: var(--bg-2); color: var(--ink); }
 .nav a[aria-current="page"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-1), inset 0 0 0 1px var(--line); font-weight: 500; }
-.nav a.live-dot::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; background: var(--good); margin-right: .45rem; box-shadow: 0 0 0 0 var(--good); animation: pulse 2.4s infinite; }
+.nav a.live-dot::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; background: var(--good); margin-right: .45rem; box-shadow: 0 0 0 0 var(--good); animation: pulse 2.4s infinite; flex: none; }
+.nav a.live-word { font-weight: 500; color: var(--good); letter-spacing: .02em; }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--good) 60%, transparent); } 70% { box-shadow: 0 0 0 .45rem transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+.chatter-rail { background: var(--accent-soft); border-bottom: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line)); }
+.chatter-rail a { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem 1rem; text-decoration: none; color: var(--ink); padding: .65rem 0; min-height: 44px; }
+.chatter-rail .ttl { font-weight: 500; display: inline-flex; align-items: center; gap: .45rem; white-space: nowrap; }
+.chatter-rail .ttl::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 0 var(--good); animation: pulse 2.4s infinite; flex: none; }
+.chatter-rail .top { font: 500 .95rem var(--mono); color: var(--accent-ink); }
+.chatter-rail .why { color: var(--ink-2); font-size: .93rem; flex: 1 1 14rem; }
+.chatter-rail .go { margin-left: auto; font-weight: 500; color: var(--accent-ink); white-space: nowrap; }
+.chatter-rail a:hover { color: var(--ink); }
+.chatter-rail a:hover .go { color: var(--ink); }
+@media (max-width: 640px) {
+  .chatter-rail .why { display: none; }
+}
 .tool { appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; min-height: 40px; min-width: 40px; padding: 0 .7rem; display: inline-flex; align-items: center; justify-content: center; gap: .4rem; font: inherit; font-size: .88rem; cursor: pointer; transition: border-color .2s, transform .2s var(--ease); }
 .tool:hover { border-color: var(--ink-2); }
 .tool:active { transform: scale(.96); }
@@ -242,12 +255,22 @@ a.chip { text-decoration: none; }
 .filters { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 1.2rem; }
 
 /* Hero */
-.hero { position: relative; padding: clamp(2.5rem, 7vw, 6rem) 0 clamp(2rem, 5vw, 3.5rem); isolation: isolate; overflow: hidden; }
+.hero { position: relative; padding: clamp(1.4rem, 4.5vw, 3.2rem) 0 clamp(1.6rem, 4vw, 2.8rem); isolation: isolate; overflow: hidden; }
 .hero::before { content: ""; position: absolute; inset: 0; background: var(--glow); z-index: -1; }
-.hero h1 { font-size: var(--s-5); max-width: 15ch; }
+.hero h1 { font-size: var(--s-5); max-width: 18ch; }
 .hero h1 em { font-style: normal; color: var(--accent); }
 .hero-grid { display: grid; gap: 2rem; align-items: center; }
-@media (min-width: 1000px) { .hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); } }
+@media (min-width: 1000px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
+    grid-template-areas: "kicker pulse" "title pulse" "more pulse";
+    align-items: start;
+  }
+  .hero-grid > .kicker { grid-area: kicker; }
+  .hero-grid > h1 { grid-area: title; }
+  .hero-grid > .hero-pulse { grid-area: pulse; }
+  .hero-grid > .hero-more { grid-area: more; }
+}
 .mosaic { display: none; position: relative; aspect-ratio: 1; max-width: 24rem; margin-inline: auto; width: 100%; }
 @media (min-width: 1000px) { .mosaic { display: block; } }
 .mosaic img { position: absolute; width: 34%; border-radius: 22%; box-shadow: 0 2px 4px rgb(0 0 0 / .08), 0 24px 48px -16px rgb(27 24 20 / .35); }
@@ -279,7 +302,11 @@ a.chip { text-decoration: none; }
 .pulse-list li { display: flex; align-items: center; gap: .7rem; background: var(--surface-2); border: 1px solid var(--line-2); border-radius: var(--r-2); padding: .55rem .75rem; }
 .pulse-list .sym { font: 500 1rem var(--mono); }
 .pulse-list .x { margin-left: auto; font: 500 .95rem var(--mono); color: var(--accent-ink); }
-.pulse-list .lbl { font-size: .78rem; color: var(--mute); }
+.pulse-list .lbl { font-size: .78rem; color: var(--mute); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.hero-pulse { margin-top: 0; align-self: stretch; }
+.hero-pulse .pulse-list { grid-template-columns: 1fr; }
+.hero-pulse .go { font-weight: 500; font-size: .93rem; }
+.door.featured { border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); box-shadow: var(--shadow-2); }
 .trust { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; margin: 1.6rem 0 0; padding: 0; list-style: none; color: var(--ink-2); font-size: .93rem; }
 .trust li { display: inline-flex; align-items: center; gap: .45rem; }
 .trust svg { width: 1rem; height: 1rem; color: var(--good); }
@@ -358,7 +385,7 @@ dialog.jump[open] { animation: pop .18s var(--ease); }
   @view-transition { navigation: none; }
 }
 @media print {
-  .site-header, .site-footer, .draft, .arcade, .no-print { display: none !important; }
+  .site-header, .site-footer, .draft, .arcade, .chatter-rail, .no-print { display: none !important; }
   body { background: #fff; color: #000; }
 }
 """
@@ -408,6 +435,33 @@ SHELL_JS = r"""<script>
   }
   window.plja = window.plja || {};
   window.plja.toast = function(msg){ var t = document.getElementById('toast'); if (!t) return; t.textContent = msg; t.classList.add('on'); clearTimeout(t._h); t._h = setTimeout(function(){ t.classList.remove('on'); }, 2200); };
+
+  // Fill the site-wide Market Chatter card and the home pulse from the live board.
+  var pulseList = document.getElementById('pulse-list'), pulseWhen = document.getElementById('pulse-when'), pulseBox = document.getElementById('pulse'), railTop = document.getElementById('rail-top');
+  if ((pulseList || railTop) && window.fetch) {
+    function esc(v){ return String(v == null ? '' : v).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+    function get(u){ return fetch(u, {cache:'no-store'}).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }); }
+    Promise.all([get('/live/board.json'), get('https://raw.githubusercontent.com/Pdee1077/plja-corp/live-data/board.json?t=' + Date.now())]).then(function(p){
+      var d = p[1] || p[0];
+      if (p[0] && p[1] && new Date(p[0].updated) > new Date(p[1].updated)) d = p[0];
+      if (!d || !d.rows || !d.rows.length) return;
+      var rows = d.rows.filter(function(r){ return r.group === 'abnormal'; });
+      rows.sort(function(a, b){ return (b.st_x_normal || b.x24 || 0) - (a.st_x_normal || a.x24 || 0); });
+      if (pulseList) {
+        pulseList.innerHTML = rows.slice(0, 3).map(function(r){
+          var x = r.st_x_normal != null ? r.st_x_normal : r.x24;
+          return '<li><span class="sym">' + esc(r.sym) + '</span><span class="lbl">' + esc(r.name || '') + '</span><span class="x">' + (x != null ? esc(Number(x).toFixed(1)) + '\u00d7' : '\u2013') + '</span></li>';
+        }).join('');
+        if (pulseWhen) pulseWhen.textContent = 'Snapshot ' + (d.updated_et || '');
+        if (pulseBox) pulseBox.hidden = false;
+      }
+      if (railTop && rows[0]) {
+        var top = rows[0], x = top.st_x_normal != null ? top.st_x_normal : top.x24;
+        railTop.textContent = top.sym + (x != null ? ' \u00b7 ' + Number(x).toFixed(1) + '\u00d7 its usual chatter' : '');
+        railTop.hidden = false;
+      }
+    });
+  }
 })();
 </script>"""
 
@@ -418,9 +472,27 @@ def nav_links(current: str, cls: str = "") -> str:
     for href, label in NAV:
         on = section == href or (href != "/" and section.startswith(href))
         cur = ' aria-current="page"' if on else ""
-        extra = ' class="live-dot"' if href == "/chatter/" and cls == "wide" else ""
+        extra = ' class="live-dot"' if href == "/chatter/" else ""
         out.append(f'<a href="{href}"{cur}{extra}>{label}</a>')
     return "".join(out)
+
+
+
+def chatter_rail(current: str) -> str:
+    """A modest Market Chatter card on every page except the room itself."""
+    if current.startswith("/chatter/") or current in ("/", ""):
+        return ""
+    return """
+  <aside class="chatter-rail" aria-label="Market Chatter">
+    <div class="wrap">
+      <a href="/chatter/">
+        <span class="ttl">Market Chatter — live</span>
+        <span class="top" id="rail-top" hidden></span>
+        <span class="why">What the internet is talking about vs. its usual chatter. Research, not advice.</span>
+        <span class="go">Open the board &rarr;</span>
+      </a>
+    </div>
+  </aside>"""
 
 
 def header(current: str) -> str:
@@ -475,8 +547,8 @@ def footer(blurb: str, extra_note: str = "", utm: str = "") -> str:
         <div>
           <h2>Site</h2>
           <nav aria-label="Footer">
-            <a href="/products/">Apps</a>
             <a href="/chatter/">Market Chatter</a>
+            <a href="/products/">Apps</a>
             <a href="/about/">About</a>
             <a href="/contact/">Contact</a>
             <a href="/support/">Support</a>
@@ -561,6 +633,7 @@ def page(
 <body>
   <a class="skip" href="#main">Skip to content</a>{banner}
   {header(path)}
+  {chatter_rail(path)}
   <main id="main">
     {body}
   </main>
