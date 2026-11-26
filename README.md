@@ -25,7 +25,7 @@ Do **not** attach `plja.analogarcade.net` or change DNS until Pete says yes.
 
 Overhead and Vanish Cam are excluded on purpose from the products list. The Daily Scan page links to Analog Arcade, including Overhead and Kept.
 
-## Design system (v2026.11.25.3)
+## Design system (v2026.11.25.4)
 
 All pages render through `scripts/theme.py`: one header, footer, type scale, light/dark theme (follows the device, with a toggle saved only in the browser), a "Jump" page finder (press `/` or Ctrl/Cmd+K), and a footer stamp with the site version and the Eastern build time. CSS file names carry the version (`/assets/css/plja-<version>.css`) because `/assets/*` is cached for a year, so bump `theme.VERSION` on every release. No frameworks, no third-party scripts, no paid fonts.
 

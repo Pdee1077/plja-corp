@@ -1,0 +1,83 @@
+/* Live board */
+.live-hero { padding: clamp(1.8rem, 5vw, 3rem) 0 1rem; position: relative; isolation: isolate; }
+.live-hero::before { content: ""; position: absolute; inset: 0; background: var(--glow); z-index: -1; }
+.live-hero h1 { max-width: 20ch; }
+.status { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; padding: .75rem 1rem; margin: 1.2rem 0 0; font-size: .92rem; }
+.status .dot { width: .6rem; height: .6rem; border-radius: 50%; background: var(--mute); flex: none; }
+.status.fresh .dot { background: var(--good); animation: pulse 2.4s infinite; }
+.status.stale .dot { background: var(--warn); }
+.status .when { font-weight: 500; }
+.status .age { color: var(--mute); }
+.status .st-main { flex: 1 1 16rem; }
+.status .st-tools { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-left: auto; }
+.status #auto[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.market .warn { color: var(--warn); font-weight: 500; }
+.status .count { font: 500 .8rem var(--mono); color: var(--mute); }
+.market { font-size: .86rem; color: var(--ink-2); margin: .55rem 0 0; }
+.tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: .6rem; margin: 1.2rem 0 0; }
+@media (min-width: 760px) { .tiles { grid-template-columns: repeat(4, 1fr); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-2); padding: .8rem 1rem; display: grid; gap: .1rem; }
+.tile .k { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--mute); }
+.tile .v { font: 600 var(--s-2)/1.1 var(--serif); }
+.tile .s { font-size: .84rem; color: var(--ink-2); }
+.tile .v .mono { font-size: .8em; }
+.changes { margin: 1rem 0 0; padding: .75rem 1rem; border-radius: var(--r-2); background: var(--accent-soft); color: var(--ink); font-size: .93rem; }
+.changes[hidden] { display: none; }
+.controls { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: 1.6rem 0 .8rem; }
+.controls .search { flex: 1 1 14rem; position: relative; }
+.controls input { width: 100%; min-height: 42px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; font-size: .95rem; padding: .5rem 1rem .5rem 2.3rem; }
+.controls input:focus { outline: 3px solid var(--focus); outline-offset: 1px; }
+.controls .search svg { position: absolute; left: .8rem; top: 50%; transform: translateY(-50%); width: 1rem; height: 1rem; color: var(--mute); pointer-events: none; }
+.board th button { all: unset; cursor: pointer; display: inline-flex; gap: .3rem; align-items: center; }
+.board th button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 3px; }
+.board th[aria-sort] button::after { content: "↕"; opacity: .35; font-size: .9em; }
+.board th[aria-sort="ascending"] button::after { content: "↑"; opacity: 1; color: var(--accent-ink); }
+.board th[aria-sort="descending"] button::after { content: "↓"; opacity: 1; color: var(--accent-ink); }
+.board td { vertical-align: middle; }
+.board .sym { font: 500 1rem var(--mono); display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+.board .nm { display: block; color: var(--mute); font-size: .8rem; max-width: 16rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.board .why { font-size: .86rem; color: var(--ink-2); min-width: 12rem; }
+.board .why li { margin: 0; }
+.board .why ul { margin: 0; padding-left: 1rem; }
+.board .heatcell { min-width: 9rem; }
+.heat { display: flex; align-items: center; gap: .5rem; justify-content: flex-end; }
+.heat svg { width: 5.5rem; height: .5rem; flex: none; }
+.heat .bg { fill: var(--line-2); }
+.heat .f { fill: var(--accent); }
+.heat .f.hot { fill: var(--bad); }
+.heat b { font: 500 .92rem var(--mono); min-width: 3.6rem; text-align: right; }
+.spark { width: 5rem; height: 1.4rem; display: inline-block; vertical-align: middle; margin-right: .4rem; overflow: visible; }
+.spark polyline { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.spark circle { fill: var(--accent); }
+.board td.up { color: var(--good); } .board td.down { color: var(--bad); }
+.board tr.only td:first-child { box-shadow: inset 3px 0 0 var(--warn); }
+.board tr.nonews td:first-child { box-shadow: inset 3px 0 0 var(--bad); }
+.board tr.changed td { animation: flash 2.4s var(--ease) 1; }
+@keyframes flash { 0% { background: var(--accent-soft); } 100% { background: transparent; } }
+.delta { font: 500 .72rem var(--mono); padding: .1rem .35rem; border-radius: .3rem; }
+.delta.up { color: var(--good); background: var(--good-soft); }
+.delta.down { color: var(--bad); background: var(--bad-soft); }
+.empty { color: var(--mute); text-align: center; padding: 2rem 1rem !important; }
+.legend { color: var(--ink-2); font-size: .92rem; }
+.legend strong { color: var(--ink); font-weight: 500; }
+.keys { display: flex; flex-wrap: wrap; gap: .4rem 1rem; font-size: .84rem; color: var(--mute); margin: 0 0 1rem; }
+.keys span::before { content: ""; display: inline-block; width: .7rem; height: .7rem; border-radius: 2px; margin-right: .35rem; vertical-align: -1px; }
+.keys .k-only::before { background: var(--warn); }
+.keys .k-nonews::before { background: var(--bad); }
+.keys .k-new::before { background: var(--accent); }
+@media (max-width: 760px) {
+  .board, .board tbody, .board tr, .board td { display: block; width: 100%; }
+  .board thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .table-wrap.board-wrap { border: 0; background: transparent; overflow: visible; }
+  .board tr { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-2); margin: 0 0 .6rem; padding: .5rem .2rem; }
+  .board td { border: 0; padding: .3rem .8rem; display: flex; justify-content: space-between; gap: 1rem; text-align: right; }
+  .board td::before { content: attr(data-label); color: var(--mute); font-size: .78rem; text-align: left; flex: none; }
+  .board td.first { display: block; text-align: left; }
+  .board td.first::before { content: none; }
+  .board td.why { display: block; text-align: left; }
+  .board td.why::before { content: none; }
+  .board tr.only td:first-child, .board tr.nonews td:first-child { box-shadow: none; }
+  .board tr.only { border-left: 4px solid var(--warn); }
+  .board tr.nonews { border-left: 4px solid var(--bad); }
+  .heat { justify-content: flex-end; }
+}

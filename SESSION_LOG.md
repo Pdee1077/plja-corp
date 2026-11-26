@@ -30,7 +30,7 @@
 
 ## 25 November 2026, evening, America/New_York
 
-- Site-wide redesign, version 2026.11.25.3: shared design system (`scripts/theme.py`), light/dark, Jump page finder, version + Eastern timestamp in every footer, versioned CSS file names.
+- Site-wide redesign, version 2026.11.25.4: shared design system (`scripts/theme.py`), light/dark, Jump page finder, version + Eastern timestamp in every footer, versioned CSS file names.
 - Home: five-second hero (what PLJA Corp is, three doors: Apps, Daily Scan, Live board), app-icon mosaic, live-board snapshot strip. Apps page: filter by Free / iPhone & iPad / Mac / Web, fine print folded into Details.
 - Daily: summary card with key numbers, table of contents, archive list and calendar, copy/share/print, per-day share image. Content moved to `content/daily/` unchanged.
 - Live: sortable, filterable board, heat bars for talk vs normal, Reddit sparklines from `history.csv`, "what changed since your last look" (stored in the browser only), status bar with Eastern snapshot time, age, market-hours note, auto-refresh every 5 minutes with a countdown, mobile card layout.

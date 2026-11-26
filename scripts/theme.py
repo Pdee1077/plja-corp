@@ -13,7 +13,7 @@ from zoneinfo import ZoneInfo
 SITE = "https://plja-corp.pages.dev"
 ET = ZoneInfo("America/New_York")
 # One site-wide version. Bump on every design or content release.
-VERSION = "2026.11.25.3"
+VERSION = "2026.11.25.4"
 # CSS and JS file names carry the version because /assets/* is cached for a year.
 CSS_HREF = f"/assets/css/plja-{VERSION}.css"
 YEAR = "2026"
@@ -226,6 +226,9 @@ a.chip { text-decoration: none; }
 .card details { font-size: .93rem; color: var(--ink-2); }
 .card details summary { cursor: pointer; color: var(--mute); font-size: .88rem; min-height: 32px; display: flex; align-items: center; }
 .card details p { margin-top: .5rem; }
+.card details summary::before { content: "+"; display: inline-grid; place-items: center; width: 1.1rem; height: 1.1rem; margin-right: .45rem; border-radius: 50%; border: 1px solid var(--line); font: 500 .8rem/1 var(--mono); color: var(--accent-ink); }
+.card details[open] summary::before { content: "−"; }
+.card details summary:hover { color: var(--ink); }
 .note { font-size: .88rem !important; color: var(--mute) !important; border-left: 2px solid var(--line); padding-left: .7rem; }
 .card-links { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: auto; padding-top: .3rem; }
 .card-links a { font-size: .9rem; font-weight: 500; text-decoration: none; color: var(--ink); background: var(--bg-2); border: 1px solid var(--line-2); padding: .45rem .8rem; border-radius: 999px; min-height: 40px; display: inline-flex; align-items: center; }
