@@ -1,21 +1,21 @@
 {
  "version": "2026.11.25.2",
- "updated": "2026-11-26T22:49-05:00",
- "updated_et": "Thursday, Nov 26, 2026, 10:49 PM ET",
+ "updated": "2026-11-27T08:19-05:00",
+ "updated_et": "Friday, Nov 27, 2026, 8:19 AM ET",
  "disclaimer": "Research and education only. Not investment advice.",
  "sources": "Reddit mention counts: ApeWisdom. Trending ranks and talk volume: StockTwits (ranks and scores only; no post text). Prices: Yahoo Finance. News flags use a headline count, not copied articles.",
  "refresh": "A free GitHub Action tries to update this file every 15 minutes on weekdays. Scheduled runs can be delayed by GitHub.",
  "rows": [
   {
    "sym": "AMBA",
-   "name": "Ambarella, Inc.",
+   "name": "Ambarella",
    "group": "abnormal",
    "flags": [
     "StockTwits talk 34.7x its 20-day normal"
    ],
-   "reddit": 0,
-   "reddit_prev": null,
-   "x24": null,
+   "reddit": 1,
+   "reddit_prev": 4,
+   "x24": 0.2,
    "st_rank": null,
    "st_x_normal": 34.7,
    "d1": -0.0,
@@ -31,15 +31,15 @@
    "flags": [
     "StockTwits building 6 days in a row"
    ],
-   "reddit": 4,
-   "reddit_prev": 77,
+   "reddit": 3,
+   "reddit_prev": 47,
    "x24": 0.1,
    "st_rank": null,
    "st_x_normal": 8.0,
    "d1": 0.0,
    "vol": null,
-   "n24": 21,
-   "nonews": false,
+   "n24": 0,
+   "nonews": true,
    "kind": "talk only"
   },
   {
@@ -51,37 +51,37 @@
     "StockTwits building 4 days in a row"
    ],
    "reddit": 1,
-   "reddit_prev": 6,
+   "reddit_prev": 1,
    "x24": 0.2,
    "st_rank": null,
    "st_x_normal": 7.6,
    "d1": 0.0,
    "vol": null,
-   "n24": 7,
+   "n24": 5,
    "nonews": false,
    "kind": "talk only"
   },
   {
-   "sym": "RKLB",
-   "name": "Rocket Lab USA",
+   "sym": "XP",
+   "name": "XP Inc.",
    "group": "abnormal",
    "flags": [
     "new on StockTwits trending"
    ],
-   "reddit": 7,
-   "reddit_prev": 25,
-   "x24": 0.3,
-   "st_rank": 3,
-   "st_x_normal": 0.8,
+   "reddit": 1,
+   "reddit_prev": 0,
+   "x24": 0.2,
+   "st_rank": 11,
+   "st_x_normal": null,
    "d1": -0.0,
    "vol": null,
-   "n24": 8,
-   "nonews": false,
+   "n24": 1,
+   "nonews": true,
    "kind": "talk only"
   },
   {
-   "sym": "LMT",
-   "name": "Lockheed Martin",
+   "sym": "MDB",
+   "name": "MongoDB",
    "group": "abnormal",
    "flags": [
     "new on StockTwits trending"
@@ -89,7 +89,7 @@
    "reddit": 1,
    "reddit_prev": 1,
    "x24": 0.2,
-   "st_rank": 23,
+   "st_rank": 10,
    "st_x_normal": null,
    "d1": 0.0,
    "vol": null,
@@ -98,16 +98,34 @@
    "kind": "talk only"
   },
   {
-   "sym": "MGM",
-   "name": "MGM Resorts",
+   "sym": "MELI",
+   "name": "MercadoLibre",
    "group": "abnormal",
    "flags": [
     "new on StockTwits trending"
    ],
    "reddit": 1,
-   "reddit_prev": 1,
+   "reddit_prev": 4,
    "x24": 0.2,
-   "st_rank": 24,
+   "st_rank": 26,
+   "st_x_normal": null,
+   "d1": -0.0,
+   "vol": null,
+   "n24": 3,
+   "nonews": false,
+   "kind": "talk only"
+  },
+  {
+   "sym": "PANW",
+   "name": "Palo Alto Networks, Inc.",
+   "group": "abnormal",
+   "flags": [
+    "new on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 22,
    "st_x_normal": null,
    "d1": -0.0,
    "vol": null,
@@ -116,62 +134,44 @@
    "kind": "talk only"
   },
   {
-   "sym": "SOFI",
-   "name": "SoFi Technologies, Inc.",
-   "group": "abnormal",
+   "sym": "ABCL",
+   "name": "AbCellera Biologics Inc.",
+   "group": "faint",
    "flags": [
-    "new on StockTwits trending"
+    "on StockTwits trending"
    ],
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 8,
+   "st_rank": 4,
+   "st_x_normal": null,
+   "d1": -0.0,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "talk only"
+  },
+  {
+   "sym": "CHWY",
+   "name": "Chewy, Inc.",
+   "group": "faint",
+   "flags": [
+    "on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 5,
    "st_x_normal": null,
    "d1": 0.0,
    "vol": null,
-   "n24": 7,
+   "n24": null,
    "nonews": false,
    "kind": "talk only"
   },
   {
-   "sym": "IONQ",
-   "name": "IonQ, Inc.",
-   "group": "abnormal",
-   "flags": [
-    "new on StockTwits trending"
-   ],
-   "reddit": 0,
-   "reddit_prev": null,
-   "x24": null,
-   "st_rank": 12,
-   "st_x_normal": null,
-   "d1": -0.0,
-   "vol": null,
-   "n24": 5,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "IBM",
-   "name": "International Business Machines",
-   "group": "abnormal",
-   "flags": [
-    "new on StockTwits trending"
-   ],
-   "reddit": 0,
-   "reddit_prev": null,
-   "x24": null,
-   "st_rank": 17,
-   "st_x_normal": null,
-   "d1": -0.0,
-   "vol": null,
-   "n24": 8,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "NVTS",
-   "name": "Navitas Semiconductor Corporati",
+   "sym": "SVIX",
+   "name": "-1x Short VIX Futures ETF",
    "group": "faint",
    "flags": [
     "on StockTwits trending"
@@ -179,53 +179,17 @@
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 10,
+   "st_rank": 16,
    "st_x_normal": null,
-   "d1": -0.0,
+   "d1": 0.0,
    "vol": null,
    "n24": null,
    "nonews": false,
    "kind": "talk only"
   },
   {
-   "sym": "B",
-   "name": "Barrick Mining Corporation",
-   "group": "faint",
-   "flags": [
-    "on StockTwits trending"
-   ],
-   "reddit": 0,
-   "reddit_prev": null,
-   "x24": null,
-   "st_rank": 14,
-   "st_x_normal": null,
-   "d1": -0.0,
-   "vol": null,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "DOT-USD",
-   "name": "Polkadot USD",
-   "group": "faint",
-   "flags": [
-    "on StockTwits trending"
-   ],
-   "reddit": 0,
-   "reddit_prev": null,
-   "x24": null,
-   "st_rank": 15,
-   "st_x_normal": null,
-   "d1": 4.2,
-   "vol": null,
-   "n24": null,
-   "nonews": false,
-   "kind": "some of both"
-  },
-  {
-   "sym": "PENN",
-   "name": "PENN Entertainment, Inc.",
+   "sym": "GDX",
+   "name": "VanEck Gold Miners ETF",
    "group": "faint",
    "flags": [
     "on StockTwits trending"
@@ -242,8 +206,8 @@
    "kind": "talk only"
   },
   {
-   "sym": "C",
-   "name": "Citigroup, Inc.",
+   "sym": "OKTA",
+   "name": "Okta, Inc.",
    "group": "faint",
    "flags": [
     "on StockTwits trending"
@@ -251,7 +215,7 @@
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 22,
+   "st_rank": 20,
    "st_x_normal": null,
    "d1": -0.0,
    "vol": null,
@@ -260,8 +224,8 @@
    "kind": "talk only"
   },
   {
-   "sym": "RDW",
-   "name": "Redwire Corporation",
+   "sym": "SUI-USD",
+   "name": "",
    "group": "faint",
    "flags": [
     "on StockTwits trending"
@@ -269,7 +233,25 @@
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 28,
+   "st_rank": 23,
+   "st_x_normal": null,
+   "d1": null,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": ""
+  },
+  {
+   "sym": "AI",
+   "name": "C3.ai, Inc.",
+   "group": "faint",
+   "flags": [
+    "on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 25,
    "st_x_normal": null,
    "d1": 0.0,
    "vol": null,
@@ -278,8 +260,8 @@
    "kind": "talk only"
   },
   {
-   "sym": "GLW",
-   "name": "Corning Incorporated",
+   "sym": "KOD",
+   "name": "Kodiak Sciences Inc",
    "group": "faint",
    "flags": [
     "on StockTwits trending"
@@ -287,7 +269,7 @@
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 29,
+   "st_rank": 27,
    "st_x_normal": null,
    "d1": 0.0,
    "vol": null,
