@@ -21,6 +21,30 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+      - name: Bind chatter KV for the Pages Function
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 4642dc00cf9278eb9c1b66812c0b218b
+        run: |
+          set -euo pipefail
+          npx --yes wrangler@4 kv namespace list > /tmp/kv.json
+          python3 - <<'PY'
+          import json, pathlib
+          namespaces = json.loads(pathlib.Path("/tmp/kv.json").read_text())
+          if isinstance(namespaces, dict):
+              namespaces = namespaces.get("namespaces") or namespaces.get("result") or []
+          ns = next((n for n in namespaces if n.get("title") in ("plja-chatter", "CHATTER")), None)
+          if not ns:
+              raise SystemExit("plja-chatter KV not found; deploy the chatter feed worker first")
+          pathlib.Path("wrangler.toml").write_text(
+              "name = \"plja-corp\"\n"
+              "pages_build_output_dir = \"public\"\n"
+              "account_id = \"4642dc00cf9278eb9c1b66812c0b218b\"\n\n"
+              "[[kv_namespaces]]\n"
+              f"binding = \"CHATTER\"\nid = \"{ns['id']}\"\n"
+          )
+          print("Wrote Pages wrangler.toml with CHATTER KV binding.")
+          PY
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:

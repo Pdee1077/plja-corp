@@ -108,7 +108,7 @@ function num(x) {
 
 async function getJson(url, t = 20000) {
   try {
-    const r = await fetch(url, { headers: { "User-Agent": UA, Accept: "application/json, text/plain, */*" }, signal: AbortSignal.timeout(t) });
+    const r = await fetch(url, { headers: { "User-Agent": UA, Accept: "application/json, text/plain, */*", "Cache-Control": "no-cache" }, signal: AbortSignal.timeout(t), cf: { cacheTtl: 0, cacheEverything: false } });
     if (!r.ok) return null;
     return await r.json();
   } catch (e) {
@@ -460,13 +460,13 @@ async function loadSeed(env) {
   let cacheRaw = (env.CHATTER && (await env.CHATTER.get("st_volume.json"))) || "";
   if (!history) {
     try {
-      const r = await fetch(RAW + "/history.csv?t=" + Date.now(), { headers: { "User-Agent": UA } });
+      const r = await fetch(RAW + "/history.csv?t=" + Date.now(), { headers: { "User-Agent": UA, "Cache-Control": "no-cache" }, cf: { cacheTtl: 0, cacheEverything: false } });
       if (r.ok) history = await r.text();
     } catch (e) {}
   }
   if (!cacheRaw) {
     try {
-      const r = await fetch(RAW + "/st_volume.json?t=" + Date.now(), { headers: { "User-Agent": UA } });
+      const r = await fetch(RAW + "/st_volume.json?t=" + Date.now(), { headers: { "User-Agent": UA, "Cache-Control": "no-cache" }, cf: { cacheTtl: 0, cacheEverything: false } });
       if (r.ok) cacheRaw = await r.text();
     } catch (e) {}
   }
@@ -500,7 +500,7 @@ export default {
         if (fromKv) return jsonResponse(fromKv);
       } catch (e) {}
       try {
-        const r = await fetch(RAW + "/board.json?t=" + Date.now(), { headers: { "User-Agent": UA } });
+        const r = await fetch(RAW + "/board.json?t=" + Date.now(), { headers: { "User-Agent": UA, "Cache-Control": "no-cache" }, cf: { cacheTtl: 0, cacheEverything: false } });
         if (r.ok) return jsonResponse(await r.text());
       } catch (e) {}
       return jsonResponse({ error: "feed unavailable" }, 502);

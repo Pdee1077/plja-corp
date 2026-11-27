@@ -66,3 +66,15 @@ jobs:
           printf '\n[[kv_namespaces]]\nbinding = "CHATTER"\nid = "%s"\n' "$ID" >> wrangler.toml
           npx --yes wrangler@4 deploy
           echo "Bound CHATTER KV and deployed plja-chatter-feed."
+          # Seed KV with the current live-data snapshot so /live/board.json is fresh
+          # before the next cron tick. Do not print the token.
+          git fetch --depth 1 origin live-data
+          git show origin/live-data:board.json > /tmp/board-seed.json
+          python3 - <<'PY2'
+          import json, pathlib
+          d = json.loads(pathlib.Path("/tmp/board-seed.json").read_text())
+          assert d.get("updated") and isinstance(d.get("rows"), list)
+          print("Seeding KV from snapshot", d.get("updated_et"), "rows", len(d["rows"]))
+          PY2
+          npx --yes wrangler@4 kv key put board.json --namespace-id "$ID" --path /tmp/board-seed.json --remote
+          echo "Seeded CHATTER KV with the live-data snapshot."
