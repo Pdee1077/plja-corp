@@ -1,0 +1,30 @@
+# Self-deploy (Grok Bot, Nov 27 2026, Pete: "go self-deploy all"): GitHub deploys this to Cloudflare,
+# so no computer has to be on. Token: repo Actions secret CLOUDFLARE_API_TOKEN. Account id is not secret.
+name: Deploy to Cloudflare
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "public/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-plja-corp
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 4642dc00cf9278eb9c1b66812c0b218b
+          wranglerVersion: "4"
+          workingDirectory: .
+          command: pages deploy public --project-name=plja-corp --commit-dirty=true
