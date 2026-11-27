@@ -1,0 +1,10 @@
+name = "plja-chatter-feed"
+main = "src/index.js"
+compatibility_date = "2026-11-27"
+account_id = "4642dc00cf9278eb9c1b66812c0b218b"
+
+# KV binding id is filled in by the deploy workflow (namespace name: plja-chatter).
+# A placeholder here would fail deploy; the workflow writes wrangler.toml before publish.
+
+[triggers]
+crons = ["7,22,37,52 * * * *"]

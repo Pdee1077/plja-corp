@@ -3,7 +3,7 @@ name: Refresh live scanner
 on:
   schedule:
     # Weekdays, every 15 minutes, offset from the hour. GitHub can delay these.
-    - cron: "7,22,37,52 * * * 1-5"
+    - cron: "7,22,37,52 * * * *"  # every 15 minutes; GitHub may delay or skip these. The Cloudflare Worker cron is the reliable path.
   workflow_dispatch:
 
 permissions:

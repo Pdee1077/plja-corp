@@ -30,3 +30,8 @@
 - Do not unfollow anyone or change account settings.
 - Do not sign into x.com in a browser.
 - Confirm before anything involving money, going live, deletions, or cancellations.
+
+## Tipoff home (proposed, not done yet)
+
+Pete decided on Nov 27, 2026 that Market Chatter's real home will be tipoff.analogarcade.net/chatter (Tipoff v2.4.0, a separate workstream). Do not add a chatter.* hostname. Once that Tipoff section is live, add a link on /live and /chatter to https://tipoff.analogarcade.net/chatter. A redirect can follow later. Do not redirect now.
+

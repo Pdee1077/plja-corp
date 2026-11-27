@@ -1,0 +1,68 @@
+# Deploys the Market Chatter cron worker (plja-chatter-feed) to Cloudflare.
+# Uses the same CLOUDFLARE_API_TOKEN as the site deploy. Never prints the token.
+name: Deploy chatter feed worker
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "workers/chatter-feed/**"
+      - ".github/workflows/deploy-chatter-feed.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-chatter-feed
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 4642dc00cf9278eb9c1b66812c0b218b
+          wranglerVersion: "4"
+          workingDirectory: workers/chatter-feed
+          command: deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 4642dc00cf9278eb9c1b66812c0b218b
+      # The wrangler.toml in git has no KV id. Create or reuse the namespace, then redeploy with it.
+      - name: Bind KV and redeploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 4642dc00cf9278eb9c1b66812c0b218b
+        working-directory: workers/chatter-feed
+        run: |
+          set -euo pipefail
+          npx --yes wrangler@4 kv namespace list > /tmp/kv.json
+          python3 - <<'PY'
+          import json, pathlib, re
+          namespaces = json.loads(pathlib.Path("/tmp/kv.json").read_text())
+          if isinstance(namespaces, dict):
+              namespaces = namespaces.get("namespaces") or namespaces.get("result") or []
+          ns = next((n for n in namespaces if n.get("title") == "plja-chatter" or n.get("title") == "CHATTER"), None)
+          pathlib.Path("/tmp/kv-id-missing").write_text("1" if not ns else "0")
+          if ns:
+              pathlib.Path("/tmp/kv-id").write_text(ns["id"])
+          PY
+          if [ "$(cat /tmp/kv-id-missing)" = "1" ]; then
+            npx --yes wrangler@4 kv namespace create plja-chatter > /tmp/kv-create.txt
+            python3 - <<'PY'
+          import pathlib, re
+          text = pathlib.Path("/tmp/kv-create.txt").read_text()
+          m = re.search(r'id\s*=\s*"([^"]+)"', text) or re.search(r'\b([0-9a-f]{32})\b', text)
+          if not m:
+              raise SystemExit("could not parse new KV id")
+          pathlib.Path("/tmp/kv-id").write_text(m.group(1))
+          PY
+          fi
+          ID=$(cat /tmp/kv-id)
+          # Append binding; do not print the token. The KV id is not a secret.
+          printf '\n[[kv_namespaces]]\nbinding = "CHATTER"\nid = "%s"\n' "$ID" >> wrangler.toml
+          npx --yes wrangler@4 deploy
+          echo "Bound CHATTER KV and deployed plja-chatter-feed."

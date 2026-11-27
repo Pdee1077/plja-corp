@@ -21,9 +21,11 @@ from zoneinfo import ZoneInfo
 
 E = ZoneInfo("America/New_York")
 UA = "PLJALiveScanner/1.0 (+https://plja-corp.pages.dev/live/)"
-VERSION = "2026.11.25.2"
-ST_VOL_CALLS = 18
+VERSION = "2026.11.27.1"
+ST_VOL_CALLS = 30
 ST_FRESH_MIN = 55
+# Volume older than this is not "right now" and must not drive the loudest-names list.
+VOLUME_MAX_AGE_MIN = 360
 
 # Large names we rotate through for StockTwits volume, same idea as the
 # internal scanner, with no private commentary attached.
@@ -273,12 +275,38 @@ def build(history_path: Path, cache_path: Path) -> dict:
     )
     want = [s for s in cands if age_min(s) > ST_FRESH_MIN]
     want += sorted([s for s in UNIVERSE if s not in want and age_min(s) > ST_FRESH_MIN], key=lambda s: -age_min(s))
+
+    def is_loud(sym: str) -> bool:
+        sv = st_stats(cache, sym)
+        return bool(
+            sv
+            and sv["s0"] >= 15
+            and (sv["ratio"] >= 2 or (sv["streak"] >= 4 and sv["wk"] is not None and sv["wk"] >= 2))
+        )
+
+    # 1) Names trending right now with missing or stale volume.
+    # 2) Names already on the board as loud, but with a stale cache.
+    # 3) The rest of the rotation.
+    trending_now = sorted(
+        [s for s, h in cur.items() if h.get("st_rank") and age_min(s) > ST_FRESH_MIN],
+        key=lambda s: num(cur[s].get("st_rank")) or 99,
+    )
+    stale_loud = sorted(
+        [s for s in cache if age_min(s) > ST_FRESH_MIN and is_loud(s)],
+        key=lambda s: -age_min(s),
+    )
+    ordered: list[str] = []
+    seen: set[str] = set()
+    for s in trending_now + stale_loud + want:
+        if s not in seen:
+            seen.add(s)
+            ordered.append(s)
+    want = ordered
     with ThreadPoolExecutor(4) as ex:
         for s, d in ex.map(fetch_volume, want[:ST_VOL_CALLS]):
             if d:
                 cache[s] = dict(t=n.isoformat(timespec="minutes"), d=d)
-            else:
-                cache.setdefault(s, {})["t"] = n.isoformat(timespec="minutes")
+            # On a failed fetch, leave the old timestamp so the next run retries.
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     cache_path.write_text(json.dumps(cache), encoding="utf-8")
 
@@ -287,7 +315,10 @@ def build(history_path: Path, cache_path: Path) -> dict:
         h = cur.get(sym, {})
         red = num(h.get("reddit")) or 0
         onst = bool(h.get("st_rank"))
-        sv = st_stats(cache, sym)
+        sv_all = st_stats(cache, sym)
+        # Stale volume must not keep a name at the top of "who is being talked about."
+        sv = sv_all if sv_all and age_min(sym) <= VOLUME_MAX_AGE_MIN else None
+        st_as_of = (cache.get(sym) or {}).get("t") if sv else None
         st_high = bool(sv and sv["s0"] >= 15 and sv["ratio"] >= 2)
         st_abn = bool(st_high and sv["jump"] >= 1.25)
         st_linger = bool(st_high and not st_abn)
@@ -349,6 +380,7 @@ def build(history_path: Path, cache_path: Path) -> dict:
                 x24=round(x24, 1) if x24 is not None else None,
                 st_rank=num(h.get("st_rank")),
                 st_x_normal=round(sv["ratio"], 1) if sv else None,
+                st_as_of=st_as_of,
                 heat=heat,
             )
         )
@@ -376,6 +408,7 @@ def build(history_path: Path, cache_path: Path) -> dict:
                 "x24": r.get("x24"),
                 "st_rank": r.get("st_rank"),
                 "st_x_normal": r.get("st_x_normal"),
+                "st_as_of": r.get("st_as_of"),
                 "d1": None if r.get("d1") is None else round(r["d1"], 1),
                 "vol": None if r.get("vol") is None else round(r["vol"], 1),
                 "n24": r.get("n24"),
@@ -391,7 +424,9 @@ def build(history_path: Path, cache_path: Path) -> dict:
         "updated_et": updated_et,
         "disclaimer": "Research and education only. Not investment advice.",
         "sources": "Reddit mention counts: ApeWisdom. Trending ranks and talk volume: StockTwits (ranks and scores only; no post text). Prices: Yahoo Finance. News flags use a headline count, not copied articles.",
-        "refresh": "A free GitHub Action tries to update this file every 15 minutes on weekdays. Scheduled runs can be delayed by GitHub.",
+        "refresh": "A job tries to update this file every 15 minutes. GitHub can delay scheduled runs, so a Cloudflare Worker cron is also used when it is deployed. A snapshot older than 90 minutes on a weekday is stale.",
+        "stale_after_minutes": 90,
+        "refresh_minutes": 15,
         "rows": public_rows,
     }
 
