@@ -343,6 +343,7 @@ def write_og() -> None:
 
 def body(embedded: bool = False) -> str:
     s = theme.ICONS["search"]
+    banner = "" if embedded else theme.tipoff_home_banner()
     if embedded:
         head = """<p class="kicker">Live board · @PLJA_AI</p>
         <h2 id="live">Who is suddenly being talked about</h2>
@@ -356,6 +357,7 @@ def body(embedded: bool = False) -> str:
     <section class="live-hero">
       <div class="wrap">
         {head}
+        {banner}
         <div class="surface status" id="status" role="status" aria-live="polite">
           <span class="dot" aria-hidden="true"></span>
           <span class="st-main"><span class="when" id="st-when">Loading the latest snapshot…</span> <span class="age" id="st-age"></span></span>

@@ -37,6 +37,20 @@ NAV = [
 # Pages that live inside a nav section but have their own URL.
 SECTION_OF = {"/daily/": "/chatter/", "/live/": "/chatter/"}
 
+TIPOFF_CHATTER = "https://tipoff.analogarcade.net/chatter"
+
+def tipoff_home_banner() -> str:
+    """A clear, no-redirect pointer to Tipoff, where Market Chatter now lives."""
+    return (
+        '<div class="callout tipoff-home" role="note">'
+        "<p><strong>Market Chatter now lives at "
+        f'<a href="{TIPOFF_CHATTER}">tipoff.analogarcade.net/chatter</a>.</strong> '
+        "That’s the full board, with filters, on Tipoff. This page stays here as the source board. "
+        "We’re not redirecting yet.</p>"
+        "</div>\n"
+    )
+
+
 JUMP = [
     ("Home", "/", "Start here"),
     ("Market Chatter", "/chatter/", "What the internet is talking about vs. normal"),

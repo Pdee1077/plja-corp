@@ -77,6 +77,7 @@ def main() -> None:
     <section class="day-hero chatter-top">
       <div class="wrap">
         <p class="crumb"><a href="/">PLJA Corp</a> › Market Chatter</p>
+        {theme.tipoff_home_banner()}
         {names_panel}
         <p class="kicker">Market Chatter · @PLJA_AI</p>
         <h1>Today's scan, and who is being talked about.</h1>
