@@ -1,7 +1,7 @@
 {
  "version": "2026.11.25.2",
- "updated": "2026-11-26T16:45-05:00",
- "updated_et": "Thursday, Nov 26, 2026, 4:45 PM ET",
+ "updated": "2026-11-26T22:49-05:00",
+ "updated_et": "Thursday, Nov 26, 2026, 10:49 PM ET",
  "disclaimer": "Research and education only. Not investment advice.",
  "sources": "Reddit mention counts: ApeWisdom. Trending ranks and talk volume: StockTwits (ranks and scores only; no post text). Prices: Yahoo Finance. News flags use a headline count, not copied articles.",
  "refresh": "A free GitHub Action tries to update this file every 15 minutes on weekdays. Scheduled runs can be delayed by GitHub.",
@@ -20,8 +20,8 @@
    "st_x_normal": 34.7,
    "d1": -0.0,
    "vol": null,
-   "n24": 3,
-   "nonews": false,
+   "n24": 2,
+   "nonews": true,
    "kind": "talk only"
   },
   {
@@ -31,14 +31,14 @@
    "flags": [
     "StockTwits building 6 days in a row"
    ],
-   "reddit": 5,
-   "reddit_prev": 127,
-   "x24": 0.0,
+   "reddit": 4,
+   "reddit_prev": 77,
+   "x24": 0.1,
    "st_rank": null,
    "st_x_normal": 8.0,
    "d1": 0.0,
    "vol": null,
-   "n24": 27,
+   "n24": 21,
    "nonews": false,
    "kind": "talk only"
   },
@@ -51,37 +51,37 @@
     "StockTwits building 4 days in a row"
    ],
    "reddit": 1,
-   "reddit_prev": 10,
-   "x24": 0.1,
+   "reddit_prev": 6,
+   "x24": 0.2,
    "st_rank": null,
    "st_x_normal": 7.6,
    "d1": 0.0,
    "vol": null,
-   "n24": 9,
+   "n24": 7,
    "nonews": false,
    "kind": "talk only"
   },
   {
-   "sym": "KO",
-   "name": "Coca-Cola",
+   "sym": "RKLB",
+   "name": "Rocket Lab USA",
    "group": "abnormal",
    "flags": [
     "new on StockTwits trending"
    ],
-   "reddit": 2,
-   "reddit_prev": 18,
-   "x24": 0.1,
-   "st_rank": 26,
-   "st_x_normal": 1.1,
-   "d1": 0.0,
+   "reddit": 7,
+   "reddit_prev": 25,
+   "x24": 0.3,
+   "st_rank": 3,
+   "st_x_normal": 0.8,
+   "d1": -0.0,
    "vol": null,
-   "n24": 10,
+   "n24": 8,
    "nonews": false,
    "kind": "talk only"
   },
   {
-   "sym": "XOM",
-   "name": "Exxon Mobil",
+   "sym": "LMT",
+   "name": "Lockheed Martin",
    "group": "abnormal",
    "flags": [
     "new on StockTwits trending"
@@ -89,25 +89,25 @@
    "reddit": 1,
    "reddit_prev": 1,
    "x24": 0.2,
-   "st_rank": 16,
+   "st_rank": 23,
    "st_x_normal": null,
-   "d1": -0.0,
+   "d1": 0.0,
    "vol": null,
-   "n24": 5,
+   "n24": 4,
    "nonews": false,
    "kind": "talk only"
   },
   {
-   "sym": "LULU",
-   "name": "lululemon athletica",
+   "sym": "MGM",
+   "name": "MGM Resorts",
    "group": "abnormal",
    "flags": [
     "new on StockTwits trending"
    ],
    "reddit": 1,
-   "reddit_prev": 2,
+   "reddit_prev": 1,
    "x24": 0.2,
-   "st_rank": 19,
+   "st_rank": 24,
    "st_x_normal": null,
    "d1": -0.0,
    "vol": null,
@@ -116,80 +116,62 @@
    "kind": "talk only"
   },
   {
-   "sym": "IQ",
-   "name": "iQIYI",
-   "group": "faint",
+   "sym": "SOFI",
+   "name": "SoFi Technologies, Inc.",
+   "group": "abnormal",
    "flags": [
-    "talk still 5.3x normal from earlier, not rising today"
-   ],
-   "reddit": 11,
-   "reddit_prev": 11,
-   "x24": 1.0,
-   "st_rank": null,
-   "st_x_normal": 5.3,
-   "d1": -0.1,
-   "vol": null,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "HL",
-   "name": "Hecla Mining Company",
-   "group": "faint",
-   "flags": [
-    "on StockTwits trending"
+    "new on StockTwits trending"
    ],
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 2,
+   "st_rank": 8,
    "st_x_normal": null,
    "d1": 0.0,
    "vol": null,
-   "n24": null,
+   "n24": 7,
    "nonews": false,
    "kind": "talk only"
   },
   {
-   "sym": "PYTH-USD",
-   "name": "Pyth Network USD",
-   "group": "faint",
+   "sym": "IONQ",
+   "name": "IonQ, Inc.",
+   "group": "abnormal",
    "flags": [
-    "on StockTwits trending"
+    "new on StockTwits trending"
    ],
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 6,
-   "st_x_normal": null,
-   "d1": 1.9,
-   "vol": null,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "SEDG",
-   "name": "SolarEdge Technologies, Inc.",
-   "group": "faint",
-   "flags": [
-    "on StockTwits trending"
-   ],
-   "reddit": 0,
-   "reddit_prev": null,
-   "x24": null,
-   "st_rank": 9,
+   "st_rank": 12,
    "st_x_normal": null,
    "d1": -0.0,
    "vol": null,
-   "n24": null,
+   "n24": 5,
    "nonews": false,
    "kind": "talk only"
   },
   {
-   "sym": "SIMO",
-   "name": "Silicon Motion Technology Corpo",
+   "sym": "IBM",
+   "name": "International Business Machines",
+   "group": "abnormal",
+   "flags": [
+    "new on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 17,
+   "st_x_normal": null,
+   "d1": -0.0,
+   "vol": null,
+   "n24": 8,
+   "nonews": false,
+   "kind": "talk only"
+  },
+  {
+   "sym": "NVTS",
+   "name": "Navitas Semiconductor Corporati",
    "group": "faint",
    "flags": [
     "on StockTwits trending"
@@ -199,15 +181,15 @@
    "x24": null,
    "st_rank": 10,
    "st_x_normal": null,
-   "d1": 0.0,
+   "d1": -0.0,
    "vol": null,
    "n24": null,
    "nonews": false,
    "kind": "talk only"
   },
   {
-   "sym": "ETH",
-   "name": "Grayscale Ethereum Staking Mini",
+   "sym": "B",
+   "name": "Barrick Mining Corporation",
    "group": "faint",
    "flags": [
     "on StockTwits trending"
@@ -215,7 +197,7 @@
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 11,
+   "st_rank": 14,
    "st_x_normal": null,
    "d1": -0.0,
    "vol": null,
@@ -224,26 +206,8 @@
    "kind": "talk only"
   },
   {
-   "sym": "DASH",
-   "name": "DoorDash, Inc.",
-   "group": "faint",
-   "flags": [
-    "on StockTwits trending"
-   ],
-   "reddit": 0,
-   "reddit_prev": null,
-   "x24": null,
-   "st_rank": 12,
-   "st_x_normal": null,
-   "d1": 0.0,
-   "vol": null,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "LUNC-USD",
-   "name": "Terra Classic USD",
+   "sym": "DOT-USD",
+   "name": "Polkadot USD",
    "group": "faint",
    "flags": [
     "on StockTwits trending"
@@ -253,33 +217,15 @@
    "x24": null,
    "st_rank": 15,
    "st_x_normal": null,
-   "d1": 0.7,
-   "vol": null,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk only"
-  },
-  {
-   "sym": "LTC-USD",
-   "name": "Litecoin USD",
-   "group": "faint",
-   "flags": [
-    "on StockTwits trending"
-   ],
-   "reddit": 0,
-   "reddit_prev": null,
-   "x24": null,
-   "st_rank": 18,
-   "st_x_normal": null,
-   "d1": 3.3,
+   "d1": 4.2,
    "vol": null,
    "n24": null,
    "nonews": false,
    "kind": "some of both"
   },
   {
-   "sym": "UUP",
-   "name": "Invesco DB USD Index Bullish Fu",
+   "sym": "PENN",
+   "name": "PENN Entertainment, Inc.",
    "group": "faint",
    "flags": [
     "on StockTwits trending"
@@ -287,7 +233,25 @@
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 20,
+   "st_rank": 19,
+   "st_x_normal": null,
+   "d1": 0.0,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "talk only"
+  },
+  {
+   "sym": "C",
+   "name": "Citigroup, Inc.",
+   "group": "faint",
+   "flags": [
+    "on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 22,
    "st_x_normal": null,
    "d1": -0.0,
    "vol": null,
@@ -296,8 +260,8 @@
    "kind": "talk only"
   },
   {
-   "sym": "ICP-USD",
-   "name": "Internet Computer USD",
+   "sym": "RDW",
+   "name": "Redwire Corporation",
    "group": "faint",
    "flags": [
     "on StockTwits trending"
@@ -305,17 +269,17 @@
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 23,
+   "st_rank": 28,
    "st_x_normal": null,
-   "d1": 0.9,
+   "d1": 0.0,
    "vol": null,
    "n24": null,
    "nonews": false,
    "kind": "talk only"
   },
   {
-   "sym": "JASMY-USD",
-   "name": "JasmyCoin USD",
+   "sym": "GLW",
+   "name": "Corning Incorporated",
    "group": "faint",
    "flags": [
     "on StockTwits trending"
@@ -323,9 +287,9 @@
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 24,
+   "st_rank": 29,
    "st_x_normal": null,
-   "d1": 1.4,
+   "d1": 0.0,
    "vol": null,
    "n24": null,
    "nonews": false,
