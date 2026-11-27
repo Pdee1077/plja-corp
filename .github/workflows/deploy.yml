@@ -38,8 +38,7 @@ jobs:
               raise SystemExit("plja-chatter KV not found; deploy the chatter feed worker first")
           pathlib.Path("wrangler.toml").write_text(
               "name = \"plja-corp\"\n"
-              "pages_build_output_dir = \"public\"\n"
-              "account_id = \"4642dc00cf9278eb9c1b66812c0b218b\"\n\n"
+              "pages_build_output_dir = \"public\"\n\n"
               "[[kv_namespaces]]\n"
               f"binding = \"CHATTER\"\nid = \"{ns['id']}\"\n"
           )
