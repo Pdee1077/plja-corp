@@ -1,53 +1,13 @@
 {
  "version": "2026.11.27.1",
- "updated": "2026-11-27T13:20-05:00",
- "updated_et": "Friday, Nov 27, 2026, 1:20 PM ET",
+ "updated": "2026-11-27T20:37-05:00",
+ "updated_et": "Friday, Nov 27, 2026, 8:37 PM ET",
  "disclaimer": "Research and education only. Not investment advice.",
  "sources": "Reddit mention counts: ApeWisdom. Trending ranks and talk volume: StockTwits (ranks and scores only; no post text). Prices: Yahoo Finance. News flags use a headline count, not copied articles.",
  "refresh": "A job tries to update this file every 15 minutes. GitHub can delay scheduled runs, so a Cloudflare Worker cron is also used when it is deployed. A snapshot older than 90 minutes on a weekday is stale.",
  "stale_after_minutes": 90,
  "refresh_minutes": 15,
  "rows": [
-  {
-   "sym": "VRTX",
-   "name": "Vertex Pharmaceuticals Incorpor",
-   "group": "abnormal",
-   "flags": [
-    "StockTwits talk 5.5x its 20-day normal",
-    "StockTwits building 5 days in a row"
-   ],
-   "reddit": 0,
-   "reddit_prev": null,
-   "x24": null,
-   "st_rank": 13,
-   "st_x_normal": 5.5,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": -5.2,
-   "vol": 2.8,
-   "n24": 17,
-   "nonews": false,
-   "kind": "talk and price"
-  },
-  {
-   "sym": "MO",
-   "name": "Altria Group",
-   "group": "abnormal",
-   "flags": [
-    "StockTwits talk 3.0x its 20-day normal",
-    "StockTwits building 4 days in a row"
-   ],
-   "reddit": 1,
-   "reddit_prev": 1,
-   "x24": 0.2,
-   "st_rank": 30,
-   "st_x_normal": 3.0,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": 0.6,
-   "vol": 1.3,
-   "n24": 23,
-   "nonews": false,
-   "kind": "talk only"
-  },
   {
    "sym": "EWZ",
    "name": "BlackRock Institutional Trust Company N.",
@@ -58,125 +18,87 @@
    "reddit": 2,
    "reddit_prev": 0,
    "x24": 0.4,
-   "st_rank": 9,
+   "st_rank": 8,
    "st_x_normal": 2.8,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": 9.5,
-   "vol": 2.9,
+   "st_as_of": "2026-11-27T20:37-05:00",
+   "d1": 9.8,
+   "vol": null,
    "n24": 0,
    "nonews": true,
    "kind": "talk and price"
   },
   {
-   "sym": "COHR",
-   "name": "Coherent Corp.",
+   "sym": "WLFI-USD",
+   "name": "World Liberty Financial (wlfi.club) USD",
    "group": "abnormal",
    "flags": [
-    "new on StockTwits trending"
+    "StockTwits building 5 days in a row"
    ],
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 17,
-   "st_x_normal": 0.7,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": 11.9,
-   "vol": 1.4,
-   "n24": 4,
+   "st_rank": 6,
+   "st_x_normal": 1.7,
+   "st_as_of": "2026-11-27T20:37-05:00",
+   "d1": 0.0,
+   "vol": null,
+   "n24": null,
    "nonews": false,
-   "kind": "talk and price"
-  },
-  {
-   "sym": "WDC",
-   "name": "Western Digital",
-   "group": "abnormal",
-   "flags": [
-    "new on StockTwits trending"
-   ],
-   "reddit": 1,
-   "reddit_prev": 0,
-   "x24": 0.2,
-   "st_rank": 15,
-   "st_x_normal": 0.7,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": 7.2,
-   "vol": 0.8,
-   "n24": 8,
-   "nonews": false,
-   "kind": "talk and price"
-  },
-  {
-   "sym": "CAVA",
-   "name": "CAVA Group, Inc.",
-   "group": "abnormal",
-   "flags": [
-    "new on StockTwits trending"
-   ],
-   "reddit": 0,
-   "reddit_prev": null,
-   "x24": null,
-   "st_rank": 5,
-   "st_x_normal": 0.2,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": 0.4,
-   "vol": 0.4,
-   "n24": 1,
-   "nonews": true,
    "kind": "talk only"
   },
   {
-   "sym": "AMBA",
-   "name": "Ambarella, Inc.",
-   "group": "faint",
+   "sym": "TSLA",
+   "name": "Tesla",
+   "group": "abnormal",
    "flags": [
-    "talk still 41.3x normal from earlier, not rising today"
+    "Reddit 5.6x the day before"
    ],
-   "reddit": 0,
-   "reddit_prev": null,
-   "x24": null,
+   "reddit": 50,
+   "reddit_prev": 9,
+   "x24": 5.6,
    "st_rank": null,
-   "st_x_normal": 41.3,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": -1.2,
-   "vol": 2.5,
-   "n24": null,
+   "st_x_normal": null,
+   "st_as_of": null,
+   "d1": 5.2,
+   "vol": null,
+   "n24": 27,
    "nonews": false,
    "kind": "talk and price"
   },
   {
-   "sym": "DELL",
-   "name": "Dell Technologies Inc.",
-   "group": "faint",
+   "sym": "QCOM",
+   "name": "QUALCOMM",
+   "group": "abnormal",
    "flags": [
-    "talk still 8.6x normal from earlier, not rising today"
-   ],
-   "reddit": 0,
-   "reddit_prev": null,
-   "x24": null,
-   "st_rank": null,
-   "st_x_normal": 8.6,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": 5.3,
-   "vol": 1.7,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk and price"
-  },
-  {
-   "sym": "HPE",
-   "name": "Hewlett Packard Enterprise",
-   "group": "faint",
-   "flags": [
-    "talk still 8.5x normal from earlier, not rising today"
+    "new on StockTwits trending"
    ],
    "reddit": 1,
    "reddit_prev": 1,
    "x24": 0.2,
-   "st_rank": null,
-   "st_x_normal": 8.5,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": 3.7,
-   "vol": 0.8,
+   "st_rank": 27,
+   "st_x_normal": 0.7,
+   "st_as_of": "2026-11-27T20:37-05:00",
+   "d1": 6.3,
+   "vol": null,
+   "n24": 10,
+   "nonews": false,
+   "kind": "talk and price"
+  },
+  {
+   "sym": "HPQ",
+   "name": "HP",
+   "group": "faint",
+   "flags": [
+    "talk still 14.0x normal from earlier, not rising today"
+   ],
+   "reddit": 1,
+   "reddit_prev": 1,
+   "x24": 0.2,
+   "st_rank": 22,
+   "st_x_normal": 14.0,
+   "st_as_of": "2026-11-27T20:37-05:00",
+   "d1": 3.2,
+   "vol": null,
    "n24": null,
    "nonews": false,
    "kind": "some of both"
@@ -186,82 +108,63 @@
    "name": "Netskope, Inc.",
    "group": "faint",
    "flags": [
-    "talk still 4.3x normal from earlier, not rising today"
+    "talk still 4.2x normal from earlier, not rising today"
    ],
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 21,
-   "st_x_normal": 4.3,
-   "st_as_of": "2026-11-27T13:20-05:00",
+   "st_rank": 2,
+   "st_x_normal": 4.2,
+   "st_as_of": "2026-11-27T20:37-05:00",
    "d1": 7.8,
-   "vol": 1.7,
+   "vol": null,
    "n24": null,
    "nonews": false,
    "kind": "talk and price"
   },
   {
-   "sym": "TSEM",
-   "name": "Tower Semiconductor Ltd.",
+   "sym": "XTZ-USD",
+   "name": "Tezos USD",
    "group": "faint",
    "flags": [
-    "talk still 3.5x normal from earlier, not rising today",
+    "talk still 2.1x normal from earlier, not rising today",
     "on StockTwits trending"
    ],
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 25,
-   "st_x_normal": 3.5,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": 6.7,
-   "vol": 1.0,
+   "st_rank": 9,
+   "st_x_normal": 2.1,
+   "st_as_of": "2026-11-27T20:37-05:00",
+   "d1": 3.7,
+   "vol": null,
    "n24": null,
    "nonews": false,
-   "kind": "talk and price"
-  },
-  {
-   "sym": "HL",
-   "name": "Hecla Mining Company",
-   "group": "faint",
-   "flags": [
-    "talk still 2.3x normal from earlier, not rising today"
-   ],
-   "reddit": 0,
-   "reddit_prev": null,
-   "x24": null,
-   "st_rank": 12,
-   "st_x_normal": 2.3,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": 5.9,
-   "vol": 1.0,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk and price"
+   "kind": "some of both"
   },
   {
    "sym": "PS",
    "name": "Pluralsight",
    "group": "faint",
    "flags": [
-    "Reddit 7.2x the day before",
-    "Reddit 3.3x its own normal"
+    "Reddit 7.6x the day before",
+    "Reddit 3.5x its own normal"
    ],
-   "reddit": 36,
-   "reddit_prev": 5,
-   "x24": 7.2,
+   "reddit": 38,
+   "reddit_prev": 4,
+   "x24": 7.6,
    "st_rank": null,
-   "st_x_normal": 0.7,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": 1.8,
-   "vol": 1.2,
+   "st_x_normal": null,
+   "st_as_of": null,
+   "d1": 3.1,
+   "vol": null,
    "n24": null,
    "nonews": false,
-   "kind": "talk only"
+   "kind": "some of both"
   },
   {
-   "sym": "HONA",
-   "name": "Honeywell Aerospace Inc.",
+   "sym": "ALGO-USD",
+   "name": "Algorand USD",
    "group": "faint",
    "flags": [
     "on StockTwits trending"
@@ -269,75 +172,56 @@
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 19,
+   "st_rank": 26,
    "st_x_normal": 1.4,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": 6.2,
-   "vol": 0.9,
+   "st_as_of": "2026-11-27T20:37-05:00",
+   "d1": -1.2,
+   "vol": null,
    "n24": null,
    "nonews": false,
-   "kind": "talk and price"
+   "kind": "talk only"
+  },
+  {
+   "sym": "AZN",
+   "name": "AstraZeneca PLC",
+   "group": "faint",
+   "flags": [
+    "on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 12,
+   "st_x_normal": 1.2,
+   "st_as_of": "2026-11-27T20:37-05:00",
+   "d1": -0.3,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "talk only"
   },
   {
    "sym": "MSFT",
    "name": "Microsoft",
    "group": "faint",
    "flags": [
-    "Reddit 4.4x the day before"
+    "Reddit 4.8x the day before"
    ],
-   "reddit": 22,
-   "reddit_prev": 5,
-   "x24": 4.4,
+   "reddit": 24,
+   "reddit_prev": 4,
+   "x24": 4.8,
    "st_rank": null,
-   "st_x_normal": 0.6,
-   "st_as_of": "2026-11-27T13:20-05:00",
+   "st_x_normal": null,
+   "st_as_of": null,
    "d1": 0.6,
-   "vol": 0.8,
+   "vol": null,
    "n24": null,
    "nonews": false,
    "kind": "talk only"
   },
   {
-   "sym": "TSLA",
-   "name": "Tesla",
-   "group": "faint",
-   "flags": [
-    "Reddit 3.8x the day before"
-   ],
-   "reddit": 46,
-   "reddit_prev": 12,
-   "x24": 3.8,
-   "st_rank": null,
-   "st_x_normal": 0.7,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": 5.2,
-   "vol": 1.2,
-   "n24": null,
-   "nonews": false,
-   "kind": "talk and price"
-  },
-  {
-   "sym": "TTWO",
-   "name": "Take 2 Interactive",
-   "group": "faint",
-   "flags": [
-    "Reddit: new name"
-   ],
-   "reddit": 12,
-   "reddit_prev": 2,
-   "x24": 2.4,
-   "st_rank": null,
-   "st_x_normal": 1.0,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": 1.3,
-   "vol": 1.8,
-   "n24": null,
-   "nonews": false,
-   "kind": "some of both"
-  },
-  {
-   "sym": "SNDQ",
-   "name": "Tradr 2X Short SNDK Daily ETF",
+   "sym": "SHOP",
+   "name": "Shopify Inc.",
    "group": "faint",
    "flags": [
     "on StockTwits trending"
@@ -345,11 +229,88 @@
    "reddit": 0,
    "reddit_prev": null,
    "x24": null,
-   "st_rank": 3,
-   "st_x_normal": 1.1,
-   "st_as_of": "2026-11-27T13:20-05:00",
-   "d1": -25.9,
-   "vol": 0.8,
+   "st_rank": 15,
+   "st_x_normal": 0.7,
+   "st_as_of": "2026-11-27T20:37-05:00",
+   "d1": 6.3,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "talk and price"
+  },
+  {
+   "sym": "SAP",
+   "name": "SAP",
+   "group": "faint",
+   "flags": [
+    "Reddit 4.0x the day before",
+    "Reddit: new name"
+   ],
+   "reddit": 20,
+   "reddit_prev": 0,
+   "x24": 4.0,
+   "st_rank": null,
+   "st_x_normal": null,
+   "st_as_of": null,
+   "d1": 2.0,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "some of both"
+  },
+  {
+   "sym": "RIG",
+   "name": "Transocean Ltd (Switzerland)",
+   "group": "faint",
+   "flags": [
+    "on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 25,
+   "st_x_normal": 0.6,
+   "st_as_of": "2026-11-27T20:37-05:00",
+   "d1": 3.0,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "some of both"
+  },
+  {
+   "sym": "KOLD",
+   "name": "ProShares UltraShort Bloomberg ",
+   "group": "faint",
+   "flags": [
+    "on StockTwits trending"
+   ],
+   "reddit": 0,
+   "reddit_prev": null,
+   "x24": null,
+   "st_rank": 4,
+   "st_x_normal": 0.5,
+   "st_as_of": "2026-11-27T20:37-05:00",
+   "d1": 9.4,
+   "vol": null,
+   "n24": null,
+   "nonews": false,
+   "kind": "talk and price"
+  },
+  {
+   "sym": "NBIS",
+   "name": "Nebius Group",
+   "group": "faint",
+   "flags": [
+    "Reddit 3.6x the day before"
+   ],
+   "reddit": 32,
+   "reddit_prev": 9,
+   "x24": 3.6,
+   "st_rank": null,
+   "st_x_normal": null,
+   "st_as_of": null,
+   "d1": 5.3,
+   "vol": null,
    "n24": null,
    "nonews": false,
    "kind": "talk and price"
